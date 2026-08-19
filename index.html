@@ -19,6 +19,26 @@
         </p>
       </header>
 
+      <section class="profile-bar" aria-label="프로필">
+        <label class="profile-select-wrap">
+          <span class="profile-icon">👤</span>
+          <select id="profile-select" aria-label="프로필 선택"></select>
+        </label>
+        <div class="profile-actions">
+          <button class="btn-ghost sm" id="rename-btn" type="button">
+            이름 변경
+          </button>
+          <button class="btn-ghost sm" id="add-profile-btn" type="button">
+            + 프로필
+          </button>
+        </div>
+      </section>
+
+      <div class="tier-row">
+        <span class="tier-badge" id="tier-badge">🥉 브론즈</span>
+        <span class="tier-progress" id="tier-progress"></span>
+      </div>
+
       <section class="stats" aria-label="내 학습 현황">
         <div class="stat">
           <span class="stat-value" id="stat-points">0</span>
@@ -66,6 +86,19 @@
         <h3 class="review-title">오늘의 문제 리뷰</h3>
         <div class="review-list" id="review-list"></div>
         <p class="come-back">내일 새로운 5문제가 기다리고 있어요. 👋</p>
+      </section>
+
+      <!-- 리더보드 -->
+      <section class="card leaderboard-card" aria-label="랭킹">
+        <div class="lb-head">
+          <h2 class="lb-title">🏆 리더보드</h2>
+          <span class="my-rank" id="my-rank"></span>
+        </div>
+        <div class="leaderboard" id="leaderboard"></div>
+        <p class="lb-note">
+          같은 브라우저의 프로필들이 함께 경쟁합니다. '샘플'은 목표 참고용
+          가상 랭커예요.
+        </p>
       </section>
 
       <footer class="app-footer">
