@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제품 퀴즈 · 하루 5문제</title>
+    <meta
+      name="description"
+      content="리피토, 리피토플러스, 노바스크, 리리카, 쎄레브렉스 제품 학습 퀴즈. 하루 5문제로 포인트를 쌓아보세요."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="app-header">
+        <h1>💊 제품 퀴즈</h1>
+        <p class="subtitle">
+          리피토 · 리피토플러스 · 노바스크 · 리리카 · 쎄레브렉스
+        </p>
+      </header>
+
+      <section class="stats" aria-label="내 학습 현황">
+        <div class="stat">
+          <span class="stat-value" id="stat-points">0</span>
+          <span class="stat-label">포인트</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="stat-streak">0일</span>
+          <span class="stat-label">연속 학습</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="stat-accuracy">0%</span>
+          <span class="stat-label">정답률</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="stat-days">0일</span>
+          <span class="stat-label">학습일수</span>
+        </div>
+      </section>
+
+      <div class="date-label" id="date-label"></div>
+
+      <div class="progress">
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-text" id="progress-text">0 / 5</span>
+      </div>
+
+      <!-- 퀴즈 카드 -->
+      <main class="card" id="quiz-card" hidden>
+        <div class="drug-tag" id="drug-tag"></div>
+        <h2 class="question" id="question-text"></h2>
+        <div class="options" id="options"></div>
+        <div class="feedback" id="feedback" hidden></div>
+        <button class="btn-primary" id="next-btn" type="button" hidden>
+          다음 문제
+        </button>
+      </main>
+
+      <!-- 완료 카드 -->
+      <section class="card done" id="done-card" hidden>
+        <h2 class="done-title" id="done-title">오늘 학습 완료!</h2>
+        <p class="done-summary" id="done-summary"></p>
+        <div class="done-earned" id="done-earned"></div>
+        <h3 class="review-title">오늘의 문제 리뷰</h3>
+        <div class="review-list" id="review-list"></div>
+        <p class="come-back">내일 새로운 5문제가 기다리고 있어요. 👋</p>
+      </section>
+
+      <footer class="app-footer">
+        <button class="btn-ghost" id="reset-btn" type="button">
+          기록 초기화
+        </button>
+        <p class="disclaimer">
+          본 퀴즈는 제품 학습용 자료이며, 실제 처방·복약 정보는 최신 허가사항 및
+          전문가의 판단을 따릅니다.
+        </p>
+      </footer>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
