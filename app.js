@@ -88,10 +88,9 @@
 
   // 오늘 날짜에 해당하는 5문제 선택(모든 사용자가 같은 세트, 매일 순환)
   function getDailyQuestions(dateKey) {
-    if (bank.length === 0) return [];
-    const seed = hashSeed("quiz-" + dateKey);
-    const shuffled = seededShuffle(bank, seed);
-    return shuffled.slice(0, Math.min(DAILY_COUNT, shuffled.length));
+    const ids = session() && session().questionIds;
+    if (ids) return ids.map(id => bank.find(q => q.id === id)).filter(Boolean);
+    return seededShuffle(bank, hashSeed("quiz-" + dateKey)).slice(0, DAILY_COUNT);
   }
 
   // ---------- 리그 등급 ----------
@@ -177,6 +176,8 @@
   }
 
   let state = loadStateFor(profiles.currentId);
+  function session() { return state.practice || state.today; }
+
   function saveState() {
     saveStateFor(profiles.currentId, state);
   }
@@ -219,15 +220,15 @@
   function ensureToday() {
     const tk = todayKey();
     if (!state.today || state.today.date !== tk) {
-      state.today = {
-        date: tk,
-        index: 0,
-        answers: [],
-        correctCount: 0,
-        finished: false,
-      };
-      saveState();
+      state.today = {date: tk, index: 0, answers: [], correctCount: 0, finished: false};
     }
+    if (!state.today.questionIds) {
+      // Preserve legacy in-progress sets, selected from the original 28 questions.
+      const pool = state.today.answers.length || state.today.index || state.today.finished
+        ? bank.filter(q => q.id < 100) : bank;
+      state.today.questionIds = seededShuffle(pool, hashSeed("quiz-" + tk)).slice(0, DAILY_COUNT).map(q => q.id);
+    }
+    saveState();
   }
 
   function updateStatsBar() {
@@ -336,11 +337,12 @@
     updateStatsBar();
     updateTier();
     renderLeaderboard();
-    dom.dateLabel.textContent = state.today.date + " 오늘의 퀴즈";
+    renderLearning();
+    dom.dateLabel.textContent = state.practice ? state.practice.label : session().date + " 오늘의 퀴즈";
 
-    const questions = getDailyQuestions(state.today.date);
+    const questions = getDailyQuestions(session().date);
 
-    if (state.today.finished) {
+    if (session().finished) {
       showDone(questions);
       return;
     }
@@ -357,13 +359,13 @@
   }
 
   function renderQuestion(questions) {
-    const i = state.today.index;
+    const i = session().index;
     const q = questions[i];
     const total = questions.length;
 
     dom.progressText.textContent = `${i + 1} / ${total}`;
     dom.progressFill.style.width = `${(i / total) * 100}%`;
-    dom.drugTag.textContent = q.drug;
+    dom.drugTag.textContent = q.drug + (q.level ? " · " + q.level : " · 기본");
     dom.questionText.textContent = q.q;
     dom.feedback.hidden = true;
     dom.feedback.className = "feedback";
@@ -380,13 +382,13 @@
     });
 
     // 이미 답한 문제(새로고침 복원)면 결과 표시
-    if (state.today.answers.length > i) {
-      lockAnswer(questions, state.today.answers[i]);
+    if (session().answers.length > i) {
+      lockAnswer(questions, session().answers[i]);
     }
   }
 
   function lockAnswer(questions, choiceIdx) {
-    const i = state.today.index;
+    const i = session().index;
     const q = questions[i];
     const isCorrect = choiceIdx === q.answer;
     Array.from(dom.options.children).forEach((b, idx) => {
@@ -398,39 +400,48 @@
     dom.feedback.classList.add(isCorrect ? "ok" : "no");
     dom.feedback.innerHTML =
       `<strong>${isCorrect ? "정답입니다! ✅" : "오답입니다. ❌"}</strong><br>` +
-      q.explain;
+      escapeHtml(q.explain) + sourceLink(q);
     dom.nextBtn.hidden = false;
     dom.nextBtn.textContent =
       i + 1 >= questions.length ? "결과 보기" : "다음 문제";
   }
 
   function onAnswer(questions, choiceIdx) {
-    const i = state.today.index;
-    if (state.today.answers.length > i) return; // 이미 답함
+    const i = session().index;
+    if (session().answers.length > i) return; // 이미 답함
     const q = questions[i];
     const isCorrect = choiceIdx === q.answer;
-    state.today.answers.push(choiceIdx);
-    if (isCorrect) state.today.correctCount++;
+    recordAnswer(q, choiceIdx);
+    session().answers.push(choiceIdx);
+    if (isCorrect) session().correctCount++;
     saveState();
     lockAnswer(questions, choiceIdx);
+    renderLearning();
   }
 
   function goNext() {
-    const questions = getDailyQuestions(state.today.date);
-    if (state.today.index + 1 >= questions.length) {
+    const questions = getDailyQuestions(session().date);
+    if (session().index + 1 >= questions.length) {
       finishDay(questions);
     } else {
-      state.today.index++;
+      session().index++;
       saveState();
       renderQuestion(questions);
     }
   }
 
   function finishDay(questions) {
-    const correct = state.today.correctCount;
+    if (session().finished) return;
+    if (state.practice) {
+      state.practice.finished = true;
+      saveState();
+      render();
+      return;
+    }
+    const correct = session().correctCount;
     const total = questions.length;
 
-    if (isYesterday(state.lastCompletedDate, state.today.date)) {
+    if (isYesterday(state.lastCompletedDate, session().date)) {
       state.streak += 1;
     } else {
       state.streak = 1;
@@ -449,11 +460,11 @@
     state.totalAnswered += total;
     state.totalCorrect += correct;
     state.daysCompleted += 1;
-    state.lastCompletedDate = state.today.date;
-    state.today.finished = true;
-    state.today.earned = earned;
-    state.today.perfect = correct === total;
-    state.today.streakBonus = streakBonus;
+    state.lastCompletedDate = session().date;
+    session().finished = true;
+    session().earned = earned;
+    session().perfect = correct === total;
+    session().streakBonus = streakBonus;
     saveState();
 
     render();
@@ -465,25 +476,27 @@
     dom.progressFill.style.width = "100%";
     dom.progressText.textContent = `${questions.length} / ${questions.length}`;
 
-    const correct = state.today.correctCount;
+    const correct = session().correctCount;
     const total = questions.length;
-    dom.doneTitle.textContent = state.today.perfect
+    dom.doneTitle.textContent = state.practice ? "연습 완료! 👏" : session().perfect
       ? "완벽해요! 🎉"
       : "오늘 학습 완료! 👏";
     dom.doneSummary.textContent = `${total}문제 중 ${correct}문제 정답`;
 
+    dom.doneEarned.hidden = !!state.practice;
+    document.querySelector(".come-back").textContent = state.practice ? "다른 제품이나 오답을 연습하거나 일일 퀴즈로 돌아가세요." : "내일 새로운 5문제가 기다리고 있어요. 👋";
     const parts = [`정답 ${correct}×${POINTS_PER_CORRECT}`];
-    if (state.today.perfect) parts.push(`올클리어 보너스 +${PERFECT_BONUS}`);
-    if (state.today.streakBonus > 0)
-      parts.push(`스트릭 보너스 +${state.today.streakBonus}`);
+    if (session().perfect) parts.push(`올클리어 보너스 +${PERFECT_BONUS}`);
+    if (session().streakBonus > 0)
+      parts.push(`스트릭 보너스 +${session().streakBonus}`);
     dom.doneEarned.innerHTML =
-      `<div class="earned-big">+${state.today.earned} 포인트 획득</div>` +
+      `<div class="earned-big">+${session().earned} 포인트 획득</div>` +
       `<div class="earned-detail">${parts.join(" · ")}</div>` +
       `<div class="earned-detail">현재 연속 학습 ${state.streak}일 · 누적 ${state.points.toLocaleString()}포인트</div>`;
 
     dom.reviewList.innerHTML = "";
     questions.forEach((q, idx) => {
-      const chosen = state.today.answers[idx];
+      const chosen = session().answers[idx];
       const ok = chosen === q.answer;
       const item = document.createElement("div");
       item.className = "review-item " + (ok ? "ok" : "no");
@@ -496,10 +509,86 @@
         )}</b>` +
         (ok ? "" : ` · 내 선택: ${escapeHtml(q.options[chosen])}`) +
         `</div>` +
-        `<div class="review-e">${escapeHtml(q.explain)}</div>`;
+        `<div class="review-e">${escapeHtml(q.explain)}${sourceLink(q)}</div>`;
       dom.reviewList.appendChild(item);
     });
   }
+
+  function sourceLink(q) {
+    return q.source ? `<br><a href="${escapeHtml(q.source)}" target="_blank" rel="noopener noreferrer">성분 참고자료 (해외 허가정보)</a> · 확인 ${q.reviewed}` : "";
+  }
+
+  function recordAnswer(q, choice) {
+    state.productStats ||= {};
+    state.mistakes ||= {};
+    const stat = state.productStats[q.drug] ||= {answered: 0, correct: 0};
+    const correct = choice === q.answer;
+    stat.answered++;
+    if (correct) stat.correct++;
+    if (!correct || state.mistakes[q.id]) {
+      const old = state.mistakes[q.id] || {wrongCount: 0};
+      state.mistakes[q.id] = {...old, choice, resolved: correct,
+        wrongCount: old.wrongCount + (correct ? 0 : 1), date: todayKey()};
+    }
+  }
+
+  function startPractice(ids, label) {
+    if (!ids.length) return;
+    state.practice = {questionIds: ids, label, date: todayKey(), index: 0,
+      answers: [], correctCount: 0, finished: false};
+    saveState();
+    render();
+    dom.quizCard.scrollIntoView({behavior: "smooth", block: "start"});
+    dom.questionText.tabIndex = -1;
+    dom.questionText.focus({preventScroll: true});
+  }
+
+  function renderLearning() {
+    el("daily-return").hidden = !state.practice;
+    const products = [...new Set(bank.map(q => q.drug))];
+    el("product-stats").innerHTML = products.map(drug => {
+      const stat = (state.productStats || {})[drug] || {answered: 0, correct: 0};
+      const rate = stat.answered ? Math.round(stat.correct / stat.answered * 100) : 0;
+      return `<div class="product-stat"><span>${drug}</span><b>${stat.answered ? rate + "%" : "학습 전"}</b><small>${stat.correct} / ${stat.answered}회 정답</small><meter min="0" max="100" value="${rate}" aria-label="${drug} 정답률">${rate}%</meter></div>`;
+    }).join("");
+    const entries = Object.entries(state.mistakes || {}).filter(([id]) => bank.some(q => q.id === Number(id)));
+    const pending = entries.filter(([,m]) => !m.resolved);
+    el("mistake-count").textContent = `미해결 ${pending.length} · 복습 완료 ${entries.length - pending.length}`;
+    el("retry-all").disabled = !pending.length;
+    const list = el("mistake-list");
+    list.innerHTML = entries.length ? "" : '<p class="mode-note">아직 오답이 없습니다. 퀴즈를 풀면 틀린 문제가 여기에 저장됩니다.</p>';
+    entries.sort((a,b) => Number(a[1].resolved) - Number(b[1].resolved)).forEach(([id,m]) => {
+      const q = bank.find(q => q.id === Number(id));
+      const item = document.createElement("details");
+      item.className = "review-item " + (m.resolved ? "ok" : "no");
+      item.innerHTML = `<summary>${q.drug} · ${escapeHtml(q.q)} <small>${m.resolved ? "복습 완료" : "복습 필요"}</small></summary><p>최근 선택: ${escapeHtml(q.options[m.choice])}<br>정답: ${escapeHtml(q.options[q.answer])}</p><p>${escapeHtml(q.explain)}${sourceLink(q)}</p><p class="mode-note">누적 오답 ${m.wrongCount}회 · 최근 풀이 ${m.date}</p>`;
+      const retry = document.createElement("button");
+      retry.type = "button";
+      retry.className = "btn-ghost";
+      retry.textContent = "이 문제 다시 풀기";
+      retry.addEventListener("click", () => startPractice([q.id], "오답 다시 풀기"));
+      item.appendChild(retry);
+      list.appendChild(item);
+    });
+  }
+
+  [...new Set(bank.map(q => q.drug))].forEach(drug => {
+    const option = document.createElement("option");
+    option.value = option.textContent = drug;
+    el("practice-product").appendChild(option);
+  });
+  el("practice-start").addEventListener("click", () => {
+    const drug = el("practice-product").value;
+    const ids = bank.filter(q => !drug || q.drug === drug).map(q => q.id);
+    startPractice(seededShuffle(ids, Date.now()), (drug || "전체 제품") + " 연습");
+  });
+  el("retry-all").addEventListener("click", () => startPractice(
+    bank.filter(q => state.mistakes?.[q.id] && !state.mistakes[q.id].resolved).map(q => q.id), "미해결 오답 다시 풀기"));
+  el("daily-return").addEventListener("click", () => {
+    state.practice = null;
+    saveState();
+    render();
+  });
 
   // ---------- 프로필 이벤트 ----------
   function switchProfile(id) {

@@ -58,6 +58,16 @@
         </div>
       </section>
 
+      <section class="card learning-tools" aria-label="학습 모드">
+        <h2>학습 모드</h2>
+        <label for="practice-product">연습할 제품</label>
+        <select id="practice-product"><option value="">전체 제품</option></select>
+        <div class="tool-actions">
+          <button class="btn-ghost" id="practice-start" type="button">제품 연습 시작</button>
+          <button class="btn-ghost" id="daily-return" type="button" hidden>일일 퀴즈로 돌아가기</button>
+        </div>
+        <p class="mode-note">연습·오답 재도전은 포인트와 연속 학습에 영향을 주지 않습니다.</p>
+      </section>
       <div class="date-label" id="date-label"></div>
 
       <div class="progress">
@@ -88,6 +98,17 @@
         <p class="come-back">내일 새로운 5문제가 기다리고 있어요. 👋</p>
       </section>
 
+      <section class="card learning-tools" aria-label="제품별 정답률">
+        <h2>제품별 정답률</h2>
+        <p class="mode-note">업데이트 이후 일일 퀴즈·연습·재도전의 모든 제출 답안을 집계합니다.</p>
+        <div id="product-stats"></div>
+      </section>
+      <section class="card learning-tools" aria-label="오답 노트">
+        <h2>오답 노트 <span id="mistake-count"></span></h2>
+        <p class="mode-note">다시 풀어 정답을 맞히면 복습 완료로 이동합니다. 이후 틀리면 다시 복습 대상이 됩니다.</p>
+        <button class="btn-ghost" id="retry-all" type="button">미해결 오답 다시 풀기</button>
+        <div id="mistake-list" class="review-list"></div>
+      </section>
       <!-- 리더보드 -->
       <section class="card leaderboard-card" aria-label="랭킹">
         <div class="lb-head">
