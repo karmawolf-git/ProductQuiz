@@ -56,7 +56,7 @@
     return todayKey(prev) === curKey;
   }
 
-  // ---------- 시드 기반 난수(날짜별 동일한 문제 세트) ----------
+  // ---------- 문제 섞기(날짜 시드는 이전 기록 복원에만 사용) ----------
   function hashSeed(str) {
     let h = 2166136261 >>> 0;
     for (let i = 0; i < str.length; i++) {
@@ -86,11 +86,18 @@
     return a;
   }
 
-  // 오늘 날짜에 해당하는 5문제 선택(모든 사용자가 같은 세트, 매일 순환)
-  function getDailyQuestions(dateKey) {
+  function randomDailyIds() {
+    const seed = window.crypto && typeof window.crypto.getRandomValues === "function"
+      ? window.crypto.getRandomValues(new Uint32Array(1))[0]
+      : Math.floor(Math.random() * 4294967296);
+    return seededShuffle(bank, seed).slice(0, DAILY_COUNT).map(q => q.id);
+  }
+
+  // 저장된 세트로만 복원하여 새로고침·프로필 전환 시 답안과 순서를 보존한다.
+  function getDailyQuestions() {
     const ids = session() && session().questionIds;
     if (ids) return ids.map(id => bank.find(q => q.id === id)).filter(Boolean);
-    return seededShuffle(bank, hashSeed("quiz-" + dateKey)).slice(0, DAILY_COUNT);
+    return [];
   }
 
   // ---------- 리그 등급 ----------
@@ -224,13 +231,22 @@
   function ensureToday() {
     const tk = todayKey();
     if (!state.today || state.today.date !== tk) {
-      state.today = {date: tk, index: 0, answers: [], correctCount: 0, finished: false};
+      state.today = {date: tk, index: 0, answers: [], correctCount: 0, finished: false,
+        questionIds: randomDailyIds(), selectionVersion: 2};
     }
     if (!state.today.questionIds) {
-      // Preserve legacy in-progress sets, selected from the original 28 questions.
-      const pool = state.today.answers.length || state.today.index || state.today.finished
-        ? bank.filter(q => q.id < 100) : bank;
-      state.today.questionIds = seededShuffle(pool, hashSeed("quiz-" + tk)).slice(0, DAILY_COUNT).map(q => q.id);
+      // 구형 답안 기록에 ID가 없으면 당시 날짜 시드와 원래 28문제로 복원한다.
+      const hasProgress = state.today.answers.length || state.today.index || state.today.finished;
+      state.today.questionIds = hasProgress
+        ? seededShuffle(bank.filter(q => q.id < 100), hashSeed("quiz-" + tk)).slice(0, DAILY_COUNT).map(q => q.id)
+        : randomDailyIds();
+      state.today.selectionVersion = 2;
+    } else if (state.today.selectionVersion !== 2) {
+      // 이전 방식으로 미리 생성됐지만 아직 풀지 않은 세트는 한 번만 무작위화한다.
+      if (!state.today.answers.length && state.today.index === 0 && !state.today.finished) {
+        state.today.questionIds = randomDailyIds();
+      }
+      state.today.selectionVersion = 2;
     }
     saveState();
   }
