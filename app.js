@@ -527,7 +527,15 @@
   }
 
   function sourceLink(q) {
-    return q.source ? `<br><a href="${escapeHtml(q.source)}" target="_blank" rel="noopener noreferrer">${escapeHtml(q.sourceName || "국내 제품설명서")} (PDF)</a><br><small>국내 허가사항 · 비아트리스 코리아 제공 · 자료 확인 ${escapeHtml(q.reviewed)}</small>` : "";
+    const label = q.source ? '<div class="reference-block"><a href="' + escapeHtml(q.source) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(q.sourceName || "국내 제품설명서") + ' (PDF)</a><br><small>국내 허가사항 · 비아트리스 코리아 제공 · 자료 확인 ' + escapeHtml(q.reviewed) + '</small></div>' : "";
+    const guide = (window.GUIDELINE_SOURCES || {})[q.guidelineId];
+    if (!guide) return label;
+    return '<div class="reference-block guideline-reference"><b>진료지침 근거 · ' + escapeHtml(guide.edition) + '</b><br><a href="' + escapeHtml(guide.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(guide.title) + '</a><br><small>' + escapeHtml(guide.issuer) + ' · 확인 ' + escapeHtml(guide.checked) + '<br>근거 위치: ' + escapeHtml(q.guidelineSection) + '</small><p class="mode-note">지침은 성분·질환 단위 권고이며, 실제 제품 사용은 국내 허가사항을 함께 확인하세요.</p></div>' + label;
+  }
+
+  function practicePool(drug) {
+    const onlyGuideline = el("practice-topic").value === "guideline";
+    return bank.filter(q => (!drug || q.drug === drug) && (!onlyGuideline || q.kind === "guideline"));
   }
 
   function recordAnswer(q, choice) {
@@ -573,10 +581,11 @@
     }).join("");
     el("overview-product-stats").innerHTML = el("product-stats").innerHTML;
     el("product-cards").innerHTML = products.map(drug => {
-      const count = bank.filter(q => q.drug === drug).length;
+      const count = practicePool(drug).length;
+      const guideCount = bank.filter(q => q.drug === drug && q.kind === "guideline").length;
       const stat = (state.productStats || {})[drug] || {answered: 0, correct: 0};
       const rate = stat.answered ? Math.round(stat.correct / stat.answered * 100) : 0;
-      return `<article class="card product-card"><div class="product-meta"><span class="drug-tag">${count}문제</span><span class="eyebrow">기본 + 응용</span></div><h2>${drug}</h2><p class="mode-note">기본 개념부터 상황 판단까지</p><div class="product-stat"><span>나의 정답률</span><b>${stat.answered ? rate + "%" : "학습 전"}</b><meter min="0" max="100" value="${rate}" aria-label="${drug} 정답률">${rate}%</meter></div><button class="btn-primary" type="button" data-practice-drug="${drug}">${drug} 연습 시작 →</button></article>`;
+      return `<article class="card product-card"><div class="product-meta"><span class="drug-tag">${count}문제</span><span class="eyebrow">지침 ${guideCount}문제 포함</span></div><h2>${drug}</h2><p class="mode-note">허가사항부터 진료지침 적용까지</p><div class="product-stat"><span>나의 정답률</span><b>${stat.answered ? rate + "%" : "학습 전"}</b><meter min="0" max="100" value="${rate}" aria-label="${drug} 정답률">${rate}%</meter></div><button class="btn-primary" type="button" data-practice-drug="${drug}">${drug} 연습 시작 →</button></article>`;
     }).join("");
     const entries = Object.entries(state.mistakes || {}).filter(([id]) => bank.some(q => q.id === Number(id)));
     const pending = entries.filter(([,m]) => !m.resolved);
@@ -608,9 +617,10 @@
     option.value = option.textContent = drug;
     el("practice-product").appendChild(option);
   });
+  el("practice-topic").addEventListener("change", renderLearning);
   el("practice-start").addEventListener("click", () => {
     const drug = el("practice-product").value;
-    const ids = bank.filter(q => !drug || q.drug === drug).map(q => q.id);
+    const ids = practicePool(drug).map(q => q.id);
     startPractice(seededShuffle(ids, Date.now()), (drug || "전체 제품") + " 연습");
   });
   el("retry-all").addEventListener("click", () => startPractice(
@@ -665,7 +675,7 @@
     const button = event.target.closest("[data-practice-drug]");
     if (!button) return;
     const drug = button.dataset.practiceDrug;
-    const ids = bank.filter(q => q.drug === drug).map(q => q.id);
+    const ids = practicePool(drug).map(q => q.id);
     startPractice(seededShuffle(ids, Date.now()), drug + " 연습");
   });
   el("practice-back").addEventListener("click", () => navigate("practice"));
@@ -733,6 +743,10 @@
       }
     });
   }
+
+  el("guideline-catalog").innerHTML = Object.values(window.GUIDELINE_SOURCES || {}).map(guide =>
+    `<article class="guideline-entry"><a href="${escapeHtml(guide.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(guide.title)}</a><p class="mode-note">${escapeHtml(guide.issuer)} · ${escapeHtml(guide.edition)}<br>${escapeHtml(guide.scope)}<br>${escapeHtml(guide.status)} · 확인 ${escapeHtml(guide.checked)}</p></article>`
+  ).join("");
 
   // 첫 렌더
   render();

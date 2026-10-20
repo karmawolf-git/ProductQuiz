@@ -1,8 +1,8 @@
 /*
- * 제품별 10문제, 총 50문제.
- * source: 비아트리스 코리아가 공개한 국내 제품설명서 URL.
- * reviewed: 링크와 자료를 확인한 날짜이며 허가 변경일이 아닙니다.
- * 문제 ID와 정답 인덱스는 저장된 학습 기록과 연결되므로 유지합니다.
+ * 제품별 14문제, 총 70문제: 기존 50문제 + 국내 진료지침 적용 20문제.
+ * source는 국내 제품설명서, guidelineId는 별도의 진료지침 근거를 가리킵니다.
+ * 지침 판본과 공개 현황은 2026-10-20 기준 확인. 자동 갱신되지 않습니다.
+ * 기존 문제 ID 및 정답 인덱스는 저장 기록 호환성을 위해 유지합니다.
  */
 const QUESTION_BANK = [
   {
@@ -826,7 +826,445 @@ const QUESTION_BANK = [
     "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
     "reviewed": "2026-10-20",
     "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서"
+  },
+  {
+    "id": 200,
+    "drug": "리피토",
+    "q": "관상동맥질환 이차 예방의 LDL-C 목표는?",
+    "options": [
+      "55 mg/dL 미만 및 기저치 대비 50% 이상 감소",
+      "100 mg/dL 미만만 달성",
+      "50% 감소만 달성",
+      "HDL-C 정상화만 확인"
+    ],
+    "answer": 0,
+    "explain": "절대 목표와 감소율을 함께 평가합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "제2장 치료 기준 · 관상동맥질환군 (본문 41쪽)"
+  },
+  {
+    "id": 201,
+    "drug": "리피토",
+    "q": "급성관상동맥증후군 발생 시 스타틴 치료 원칙은?",
+    "options": [
+      "LDL-C 상승 때까지 대기",
+      "기저 LDL-C와 무관하게 조기에 고강도 스타틴",
+      "HDL-C만 보고 결정",
+      "생활요법만 시행"
+    ],
+    "answer": 1,
+    "explain": "가능한 빨리 고강도 스타틴을 시작하도록 권고합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "제2장 치료 기준 · 급성관상동맥증후군 (본문 41쪽)"
+  },
+  {
+    "id": 202,
+    "drug": "리피토",
+    "q": "중등도위험군의 LDL-C가 110 mg/dL이고 위험강화인자가 있다면?",
+    "options": [
+      "모든 치료 중단",
+      "HDL-C만 재검",
+      "더 적극적인 LDL-C 강하 고려",
+      "위험강화인자 무시"
+    ],
+    "answer": 2,
+    "explain": "위험강화인자는 치료목표 강화 판단에 활용합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "제2장 위험도 평가·치료 기준 (주요 변경사항 6쪽)"
+  },
+  {
+    "id": 203,
+    "drug": "리피토",
+    "q": "비공복 중성지방이 450 mg/dL이다. 적절한 검사 전략은?",
+    "options": [
+      "Friedewald 계산값만 확정",
+      "검사 불필요",
+      "HDL-C만 추적",
+      "공복 지질검사 재시행"
+    ],
+    "answer": 3,
+    "explain": "비공복 중성지방 400 mg/dL 이상이면 공복 재검을 권고합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "제2장 지질검사 · 비공복 중성지방 (주요 변경사항 5쪽)"
+  },
+  {
+    "id": 204,
+    "drug": "리피토플러스",
+    "q": "최대 가용 용량의 스타틴으로 LDL-C 목표 미달 시 고려할 병용 성분은?",
+    "options": [
+      "에제티미브",
+      "암로디핀",
+      "프레가발린",
+      "세레콕시브"
+    ],
+    "answer": 0,
+    "explain": "목표 미달 시 에제티미브 병용을 권고합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "제4장 약물요법 · 에제티미브 (주요 변경사항 7쪽)"
+  },
+  {
+    "id": 205,
+    "drug": "리피토플러스",
+    "q": "급성관상동맥증후군에서 조기 목표 달성을 위한 2026년 지침의 전략은?",
+    "options": [
+      "항상 단독요법만 유지",
+      "초기부터 스타틴·에제티미브 병용 고려",
+      "LDL-C 목표 폐지",
+      "스타틴 일괄 중단"
+    ],
+    "answer": 1,
+    "explain": "초기 병용은 고려 권고(IIa, B)이며 일률적인 의무는 아닙니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "제2장 치료 기준 · 급성관상동맥증후군 (본문 41쪽)"
+  },
+  {
+    "id": 206,
+    "drug": "리피토플러스",
+    "q": "죽상경화성 심혈관질환에서 스타틴·에제티미브 병용에도 LDL-C 목표 미달이면?",
+    "options": [
+      "동일 성분 중복",
+      "생활요법 중단",
+      "PCSK9 억제제 추가 고려",
+      "목표 미달 무시"
+    ],
+    "answer": 2,
+    "explain": "추가 병용을 고려하는 단계적 전략입니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "제4장 약물요법 · PCSK9 억제제 (주요 변경사항 7쪽)"
+  },
+  {
+    "id": 207,
+    "drug": "리피토플러스",
+    "q": "관상동맥질환 환자가 LDL-C 140에서 60 mg/dL로 감소했다. 목표 달성 평가는?",
+    "options": [
+      "완전 달성",
+      "감소율 부족",
+      "HDL-C만 확인",
+      "감소율은 충족하나 절대 목표 미달"
+    ],
+    "answer": 3,
+    "explain": "50% 이상 감소했지만 55 mg/dL 미만에는 도달하지 못했습니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "제2장 치료 기준 · 관상동맥질환군 (본문 41쪽)"
+  },
+  {
+    "id": 208,
+    "drug": "노바스크",
+    "q": "당뇨병이 동반된 고혈압 환자의 2026년 권고 목표혈압은?",
+    "options": [
+      "130/80 mmHg 미만",
+      "140/90 mmHg 미만으로만 유지",
+      "150/100 mmHg 미만",
+      "160/100 mmHg 미만"
+    ],
+    "answer": 0,
+    "explain": "당뇨병 동반 고혈압의 목표가 130/80 mmHg 미만으로 강화되었습니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "hypertension2026",
+    "guidelineSection": "제3장 목표혈압 · 당뇨병 (2022년 대비 변경표, PDF 15쪽)"
+  },
+  {
+    "id": 209,
+    "drug": "노바스크",
+    "q": "고혈압 생활요법의 하루 소금 섭취 권고는?",
+    "options": [
+      "소금 10 g 이하",
+      "소금 5 g 이하",
+      "나트륨 5 g 이하",
+      "제한 불필요"
+    ],
+    "answer": 1,
+    "explain": "소금 5 g은 나트륨 약 2,000 mg에 해당합니다. 소금과 나트륨을 구분합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "hypertension2026",
+    "guidelineSection": "제3장 생활요법 · 소금 섭취 (2022년 대비 변경표, PDF 15쪽)"
+  },
+  {
+    "id": 210,
+    "drug": "노바스크",
+    "q": "가정혈압 측정에서 고혈압에 해당하는 기준은?",
+    "options": [
+      "140/90 mmHg 이상만",
+      "수축기 160 mmHg 이상만",
+      "수축기 135 또는 이완기 85 mmHg 이상",
+      "130/70 mmHg 이상"
+    ],
+    "answer": 2,
+    "explain": "가정혈압과 진료실혈압의 진단 기준은 다릅니다. 반복 측정으로 평가합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "hypertension2026",
+    "guidelineSection": "제2장 8.6 · 표 7 (PDF 47쪽)"
+  },
+  {
+    "id": 211,
+    "drug": "노바스크",
+    "q": "칼슘통로차단제 기반 2제 병용을 검토할 때 적절한 조합은?",
+    "options": [
+      "ACE 억제제+ARB",
+      "동일 CCB 중복",
+      "동일 성분 중복",
+      "CCB+RAS 억제제"
+    ],
+    "answer": 3,
+    "explain": "서로 다른 계열을 병용합니다. ACE 억제제와 ARB의 동시 병용은 피합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "hypertension2026",
+    "guidelineSection": "제3장 12.3 병용요법 (PDF 90쪽)"
+  },
+  {
+    "id": 212,
+    "drug": "리리카",
+    "q": "2형당뇨병의 신경병증 선별검사 시점은?",
+    "options": [
+      "진단 시부터, 이후 매년",
+      "진단 10년 후부터",
+      "통증 발생 시에만",
+      "발궤양 발생 후"
+    ],
+    "answer": 0,
+    "explain": "무증상일 수 있어 통증 유무만으로 선별검사를 생략하지 않습니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "diabetes2025",
+    "guidelineSection": "8-2장 권고 1 · PDF 119쪽"
+  },
+  {
+    "id": 213,
+    "drug": "리리카",
+    "q": "통증성 당뇨병신경병증의 1차 증상치료 약물군에 해당하는 것은?",
+    "options": [
+      "스타틴만 해당",
+      "α2δ 결합 항경련제·TCA·SNRI",
+      "CCB만 해당",
+      "NSAID만 해당"
+    ],
+    "answer": 1,
+    "explain": "동반질환과 주의사항을 고려해 선택하며 특정 브랜드를 우선한다는 뜻은 아닙니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "diabetes2025",
+    "guidelineSection": "8-2장 그림 8-2.2 · PDF 124쪽"
+  },
+  {
+    "id": 214,
+    "drug": "리리카",
+    "q": "신경병증 통증이 약물로 완화된 뒤에도 유지해야 할 관리는?",
+    "options": [
+      "혈당관리 중단",
+      "발평가 중단",
+      "혈당·위험인자 조절과 발관리",
+      "진통제만 유지"
+    ],
+    "answer": 2,
+    "explain": "증상치료와 혈당·위험인자 관리는 함께 시행합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "diabetes2025",
+    "guidelineSection": "8-2장 그림 8-2.2 · PDF 124쪽"
+  },
+  {
+    "id": 215,
+    "drug": "리리카",
+    "q": "신경병증 1차 약물의 효과가 부족하거나 부작용이 있다면?",
+    "options": [
+      "무조건 같은 약 증량",
+      "평가 없이 치료 중단",
+      "임의로 중복 복용",
+      "약물 변경 또는 병용 검토"
+    ],
+    "answer": 3,
+    "explain": "지침은 반응과 내약성에 따라 다음 약물군으로 변경하거나 병용하는 경로를 제시합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "diabetes2025",
+    "guidelineSection": "8-2장 그림 8-2.2 · PDF 124쪽"
+  },
+  {
+    "id": 216,
+    "drug": "쎄레브렉스",
+    "q": "NSAID가 필요하고 위장관 고위험·심혈관 저위험이면 고려할 전략은?",
+    "options": [
+      "선택적 COX-2 억제제 또는 비선택적 NSAID+PPI",
+      "고용량 NSAID 중복",
+      "위험 평가 생략",
+      "아스피린 일괄 추가"
+    ],
+    "answer": 0,
+    "explain": "선택적 COX-2 억제제 사용 시에도 개별 금기와 위험을 확인합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "ulcer2020",
+    "guidelineSection": "본론 권고 4 · 표 3"
+  },
+  {
+    "id": 217,
+    "drug": "쎄레브렉스",
+    "q": "위장관과 심혈관 위험이 모두 높은 환자의 NSAID 사용 원칙은?",
+    "options": [
+      "COX-2 억제제 무조건 사용",
+      "가능하면 NSAID 회피",
+      "위장관 위험만 고려",
+      "장기간 고용량 우선"
+    ],
+    "answer": 1,
+    "explain": "두 위험을 함께 평가하며 가능한 대체 전략을 먼저 검토합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "ulcer2020",
+    "guidelineSection": "본론 권고 4 · 표 3"
+  },
+  {
+    "id": 218,
+    "drug": "쎄레브렉스",
+    "q": "NSAID 관련 궤양 고위험 인자의 조합은?",
+    "options": [
+      "젊은 나이·과거력 없음",
+      "정상 시력·정상 청력",
+      "고령·궤양력·항응고제 병용",
+      "정상 HDL-C·정상 혈당"
+    ],
+    "answer": 2,
+    "explain": "연령, 궤양 과거력, NSAID 용량과 병용약을 함께 확인합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "ulcer2020",
+    "guidelineSection": "본론 권고 1"
+  },
+  {
+    "id": 219,
+    "drug": "쎄레브렉스",
+    "q": "장기 NSAID 복용 고위험군의 궤양 예방을 위해 권고하는 약물군은?",
+    "options": [
+      "스타틴",
+      "칼슘통로차단제",
+      "프레가발린",
+      "양성자펌프억제제(PPI)"
+    ],
+    "answer": 3,
+    "explain": "PPI 병용의 이득과 위해를 평가해 궤양 예방 전략을 결정합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-20",
+    "guidelineId": "ulcer2020",
+    "guidelineSection": "본론 권고 3"
   }
 ];
 
 window.QUESTION_BANK = QUESTION_BANK;
+window.GUIDELINE_SOURCES = {
+  "lipid2026": {
+    "title": "이상지질혈증 진료지침 2026",
+    "edition": "2026년판",
+    "issuer": "한국지질·동맥경화학회",
+    "url": "https://www.lipid.or.kr/reference/guideline.php?boardid=guideline&mode=view&idx=1456",
+    "checked": "2026-10-20",
+    "scope": "지질 강하 치료·관상동맥질환",
+    "status": "학회 공개 최신판: 2026-09-10 등록"
+  },
+  "hypertension2026": {
+    "title": "2026년 제6판 고혈압 진료지침",
+    "edition": "2026년 제6판 수정본",
+    "issuer": "대한고혈압학회",
+    "url": "https://www.koreanhypertension.org/reference/guide?idno=10446&mode=read",
+    "checked": "2026-10-20",
+    "scope": "고혈압 진단·목표혈압·병용요법",
+    "status": "학회 공개 최신판: 2026-05-22 등록"
+  },
+  "diabetes2025": {
+    "title": "2025 당뇨병 진료지침",
+    "edition": "2025년 제9판",
+    "issuer": "대한당뇨병학회",
+    "url": "https://diabetes.or.kr/bbs/download.php?code=guide&number=1522",
+    "checked": "2026-10-20",
+    "scope": "8-2장 당뇨병신경병증 및 발관리",
+    "status": "학회 공개 최신판: 2025년판"
+  },
+  "ulcer2020": {
+    "title": "약제 연관 소화성궤양의 임상 진료지침 개정안 2020",
+    "edition": "2020년 개정판",
+    "issuer": "대한상부위장관·헬리코박터학회",
+    "url": "https://www.kjg.or.kr/journal/view.html?doi=10.4166/kjg.2020.76.3.108",
+    "checked": "2026-10-20",
+    "scope": "장기 NSAID 치료의 위장관·심혈관 위험 평가",
+    "status": "확인된 공개 개정판: 2020년. 해당 주제의 후속 국내 개정판은 확인되지 않음"
+  }
+};
