@@ -176,7 +176,11 @@
   }
 
   let state = loadStateFor(profiles.currentId);
-  function session() { return state.practice || state.today; }
+  let practiceActive = !!state.practice;
+  let activeView = practiceActive ? "practice" : "daily";
+  function session() { return isPractice() ? state.practice : state.today; }
+  function isPractice() { return !!(practiceActive && state.practice); }
+
 
   function saveState() {
     saveStateFor(profiles.currentId, state);
@@ -248,6 +252,8 @@
     dom.tierBadge.style.borderColor = t.color;
     dom.tierBadge.style.color = t.color;
     const nt = nextTier(state.points);
+    const percentage = nt ? Math.min(100, (state.points - t.min) / (nt.min - t.min) * 100) : 100;
+    el("tier-fill").style.width = percentage + "%";
     if (nt) {
       const need = nt.min - state.points;
       dom.tierProgress.textContent = `${nt.icon} ${nt.name}까지 ${need.toLocaleString()}점`;
@@ -338,7 +344,8 @@
     updateTier();
     renderLeaderboard();
     renderLearning();
-    dom.dateLabel.textContent = state.practice ? state.practice.label : session().date + " 오늘의 퀴즈";
+    renderView();
+    dom.dateLabel.textContent = isPractice() ? state.practice.label : session().date + " 오늘의 퀴즈";
 
     const questions = getDailyQuestions(session().date);
 
@@ -365,11 +372,14 @@
 
     dom.progressText.textContent = `${i + 1} / ${total}`;
     dom.progressFill.style.width = `${(i / total) * 100}%`;
-    dom.drugTag.textContent = q.drug + (q.level ? " · " + q.level : " · 기본");
+    document.querySelector(".progress-track").setAttribute("aria-valuenow", String(Math.round(i / total * 100)));
+    dom.drugTag.textContent = q.drug;
+    el("difficulty-tag").textContent = q.level || "기본";
     dom.questionText.textContent = q.q;
     dom.feedback.hidden = true;
     dom.feedback.className = "feedback";
     dom.nextBtn.hidden = true;
+    el("answer-note").textContent = "답안을 선택하면 정답과 해설을 확인할 수 있어요.";
 
     dom.options.innerHTML = "";
     q.options.forEach((opt, idx) => {
@@ -402,6 +412,7 @@
       `<strong>${isCorrect ? "정답입니다! ✅" : "오답입니다. ❌"}</strong><br>` +
       escapeHtml(q.explain) + sourceLink(q);
     dom.nextBtn.hidden = false;
+    el("answer-note").textContent = isPractice() ? "연습은 포인트에 반영되지 않습니다." : "정답당 20P · 일일 퀴즈 완료 시 적립";
     dom.nextBtn.textContent =
       i + 1 >= questions.length ? "결과 보기" : "다음 문제";
   }
@@ -432,7 +443,7 @@
 
   function finishDay(questions) {
     if (session().finished) return;
-    if (state.practice) {
+    if (isPractice()) {
       state.practice.finished = true;
       saveState();
       render();
@@ -474,17 +485,18 @@
     dom.quizCard.hidden = true;
     dom.doneCard.hidden = false;
     dom.progressFill.style.width = "100%";
+    document.querySelector(".progress-track").setAttribute("aria-valuenow", "100");
     dom.progressText.textContent = `${questions.length} / ${questions.length}`;
 
     const correct = session().correctCount;
     const total = questions.length;
-    dom.doneTitle.textContent = state.practice ? "연습 완료! 👏" : session().perfect
+    dom.doneTitle.textContent = isPractice() ? "연습 완료! 👏" : session().perfect
       ? "완벽해요! 🎉"
       : "오늘 학습 완료! 👏";
     dom.doneSummary.textContent = `${total}문제 중 ${correct}문제 정답`;
 
-    dom.doneEarned.hidden = !!state.practice;
-    document.querySelector(".come-back").textContent = state.practice ? "다른 제품이나 오답을 연습하거나 일일 퀴즈로 돌아가세요." : "내일 새로운 5문제가 기다리고 있어요. 👋";
+    dom.doneEarned.hidden = isPractice();
+    document.querySelector(".come-back").textContent = isPractice() ? "다른 제품이나 오답을 연습하거나 일일 퀴즈로 돌아가세요." : "내일 새로운 5문제가 기다리고 있어요. 👋";
     const parts = [`정답 ${correct}×${POINTS_PER_CORRECT}`];
     if (session().perfect) parts.push(`올클리어 보너스 +${PERFECT_BONUS}`);
     if (session().streakBonus > 0)
@@ -534,6 +546,8 @@
 
   function startPractice(ids, label) {
     if (!ids.length) return;
+    practiceActive = true;
+    activeView = "practice";
     state.practice = {questionIds: ids, label, date: todayKey(), index: 0,
       answers: [], correctCount: 0, finished: false};
     saveState();
@@ -544,19 +558,36 @@
   }
 
   function renderLearning() {
-    el("daily-return").hidden = !state.practice;
+    el("daily-return").hidden = !isPractice();
+    el("practice-back").hidden = !isPractice();
+    el("quiz-mode-label").textContent = isPractice() ? "제품 연습" : "오늘의 학습";
+    el("resume-card").hidden = !state.practice;
+    if (state.practice) {
+      el("resume-description").textContent = state.practice.label + " · " + state.practice.answers.length + " / " + state.practice.questionIds.length + (state.practice.finished ? "문제 완료 · 결과 확인" : "문제 풀이");
+    }
     const products = [...new Set(bank.map(q => q.drug))];
     el("product-stats").innerHTML = products.map(drug => {
       const stat = (state.productStats || {})[drug] || {answered: 0, correct: 0};
       const rate = stat.answered ? Math.round(stat.correct / stat.answered * 100) : 0;
       return `<div class="product-stat"><span>${drug}</span><b>${stat.answered ? rate + "%" : "학습 전"}</b><small>${stat.correct} / ${stat.answered}회 정답</small><meter min="0" max="100" value="${rate}" aria-label="${drug} 정답률">${rate}%</meter></div>`;
     }).join("");
+    el("overview-product-stats").innerHTML = el("product-stats").innerHTML;
+    el("product-cards").innerHTML = products.map(drug => {
+      const count = bank.filter(q => q.drug === drug).length;
+      const stat = (state.productStats || {})[drug] || {answered: 0, correct: 0};
+      const rate = stat.answered ? Math.round(stat.correct / stat.answered * 100) : 0;
+      return `<article class="card product-card"><div class="product-meta"><span class="drug-tag">${count}문제</span><span class="eyebrow">기본 + 응용</span></div><h2>${drug}</h2><p class="mode-note">기본 개념부터 상황 판단까지</p><div class="product-stat"><span>나의 정답률</span><b>${stat.answered ? rate + "%" : "학습 전"}</b><meter min="0" max="100" value="${rate}" aria-label="${drug} 정답률">${rate}%</meter></div><button class="btn-primary" type="button" data-practice-drug="${drug}">${drug} 연습 시작 →</button></article>`;
+    }).join("");
     const entries = Object.entries(state.mistakes || {}).filter(([id]) => bank.some(q => q.id === Number(id)));
     const pending = entries.filter(([,m]) => !m.resolved);
     el("mistake-count").textContent = `미해결 ${pending.length} · 복습 완료 ${entries.length - pending.length}`;
     el("retry-all").disabled = !pending.length;
+    el("nav-mistake-count").textContent = pending.length;
+    el("nav-mistake-count").hidden = !pending.length;
+    el("pending-title").textContent = pending.length ? `복습할 문제가 ${pending.length}개 있어요` : "복습할 문제가 없어요";
+    el("pending-description").textContent = pending.length ? "헷갈렸던 개념을 다시 확인해 보세요." : "오늘의 퀴즈로 제품 지식을 쌓아보세요.";
     const list = el("mistake-list");
-    list.innerHTML = entries.length ? "" : '<p class="mode-note">아직 오답이 없습니다. 퀴즈를 풀면 틀린 문제가 여기에 저장됩니다.</p>';
+    list.innerHTML = entries.length ? "" : '<div class="empty-state"><h2>아직 오답이 없어요</h2><p class="mode-note">퀴즈를 풀면 틀린 문제가 여기에 저장됩니다.</p></div>';
     entries.sort((a,b) => Number(a[1].resolved) - Number(b[1].resolved)).forEach(([id,m]) => {
       const q = bank.find(q => q.id === Number(id));
       const item = document.createElement("details");
@@ -586,7 +617,62 @@
     bank.filter(q => state.mistakes?.[q.id] && !state.mistakes[q.id].resolved).map(q => q.id), "미해결 오답 다시 풀기"));
   el("daily-return").addEventListener("click", () => {
     state.practice = null;
+    practiceActive = false;
+    activeView = "daily";
     saveState();
+    render();
+  });
+
+  // View selection does not discard a saved practice or unfinished daily quiz.
+  function renderView() {
+    const copy = {
+      daily: ["오늘도, 다섯 문제로 한 걸음.", "짧게 배우고, 꾸준히 쌓는 나만의 제품 지식."],
+      practice: ["제품별 연습", "집중해서 배우고 싶은 제품을 선택하세요."],
+      mistakes: ["오답 노트", "틀린 문제를 다시 풀며 개념을 확실하게 익혀요."],
+      overview: ["학습 현황", "꾸준함과 이해도를 함께 살펴보세요."]
+    };
+    document.querySelectorAll("[data-view]").forEach(button => {
+      if (button.dataset.view === activeView) button.setAttribute("aria-current", "page");
+      else button.removeAttribute("aria-current");
+    });
+    for (const view of Object.keys(copy)) el(view + "-panel").hidden = view !== activeView;
+    el("page-title").textContent = copy[activeView][0];
+    el("page-description").textContent = copy[activeView][1];
+    if (activeView === "practice" && isPractice()) {
+      el("page-title").textContent = state.practice.label;
+      el("page-description").textContent = "한 문제씩 차근차근, 제품 지식을 점검해 보세요.";
+    }
+    el("calendar-date").dateTime = todayKey();
+    el("calendar-date").textContent = new Intl.DateTimeFormat("ko-KR", {year: "numeric", month: "long", day: "numeric", weekday: "long"}).format(new Date());
+    const showPlayer = activeView === "daily" || (activeView === "practice" && isPractice());
+    el("quiz-area").hidden = !showPlayer;
+    if (showPlayer) el(activeView === "daily" ? "daily-slot" : "practice-slot").appendChild(el("quiz-area"));
+    el("practice-picker").hidden = activeView === "practice" && isPractice();
+    el("daily-return").hidden = !isPractice();
+    el("practice-back").hidden = !isPractice();
+  }
+
+  function navigate(view) {
+    activeView = view;
+    if (view === "daily" || view === "practice") practiceActive = false;
+    render();
+    el("main-content").focus({preventScroll: true});
+  }
+  document.querySelectorAll("[data-view], [data-open-view]").forEach(button => {
+    button.addEventListener("click", () => navigate(button.dataset.view || button.dataset.openView));
+  });
+  el("product-cards").addEventListener("click", event => {
+    const button = event.target.closest("[data-practice-drug]");
+    if (!button) return;
+    const drug = button.dataset.practiceDrug;
+    const ids = bank.filter(q => q.drug === drug).map(q => q.id);
+    startPractice(seededShuffle(ids, Date.now()), drug + " 연습");
+  });
+  el("practice-back").addEventListener("click", () => navigate("practice"));
+  el("resume-practice").addEventListener("click", () => {
+    if (!state.practice) return;
+    practiceActive = true;
+    activeView = "practice";
     render();
   });
 
@@ -596,6 +682,8 @@
     profiles.currentId = id;
     saveProfiles(profiles);
     state = loadStateFor(id);
+    practiceActive = !!state.practice;
+    activeView = practiceActive ? "practice" : "daily";
     render();
   }
 
@@ -616,6 +704,8 @@
     profiles.currentId = id;
     saveProfiles(profiles);
     state = loadStateFor(id);
+    practiceActive = !!state.practice;
+    activeView = practiceActive ? "practice" : "daily";
     render();
   }
 
@@ -636,6 +726,8 @@
         )
       ) {
         state = defaultState();
+        practiceActive = false;
+        activeView = "overview";
         saveState();
         render();
       }
