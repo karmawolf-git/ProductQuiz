@@ -69,7 +69,7 @@ GitHub Pages 등 정적 호스팅에 그대로 배포할 수 있습니다.
 - 제품별 정답률: 업데이트 이후 모든 모드의 제출 횟수 기준. 반복 풀이도 집계하며 기존 전체 정답률은 완료한 일일 퀴즈 기준을 유지합니다.
 - 연습과 재도전은 포인트·스트릭·일일 완료 횟수를 변경하지 않습니다.
 - 일일 문제 ID를 저장하여 문제 은행 변경에도 진행 중 세트를 유지합니다. 기존 당일 기록은 원래 28문제 세트로 복원합니다.
-- 신규 응용 문제의 해설에는 성분 관련 해외 허가정보 참고 링크가 있습니다. 국내 제품의 허가 범위·처방 판단을 대체하지 않습니다.
+- 모든 50문제의 해설·결과 리뷰·오답 노트에서 해당 제품의 국내 허가사항(비아트리스 코리아 공개 제품설명서 PDF)을 확인할 수 있습니다. 참고자료는 국내 제품의 제형·함량에 맞춰 연결합니다.
 - 기록은 해당 브라우저에만 저장됩니다. 새 통계는 기존 누적 기록에서 소급 생성하지 않습니다.
 
 
@@ -81,3 +81,18 @@ GitHub Pages 등 정적 호스팅에 그대로 배포할 수 있습니다.
 - 메뉴 이동 시 진행 중인 연습을 보존하며, 제품별 연습의 ‘이어서 풀기’로 복원합니다. 일일 퀴즈로 돌아가기 버튼은 기존처럼 연습 세션을 종료합니다.
 - 리더보드와 기록 초기화는 학습 현황 메뉴에 있습니다.
 - 모바일에서는 한 열로 전환하며 질문과 답안을 먼저 보여줍니다.
+
+
+## 국내 허가사항 참고자료
+
+확인일: 2026-10-20. 확인일은 자료의 허가 변경일을 의미하지 않습니다.
+
+출처: [비아트리스 코리아 제품 정보](https://www.viatris.co.kr/ko-kr/products/product-details)의 제품설명서.
+
+- 리피토: [리피토정 10·20·40·80mg 국내 제품설명서](https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf)
+- 리피토플러스: [리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서](https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf)
+- 노바스크: [노바스크정 2.5·5·10mg 국내 제품설명서](https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf)
+- 리리카: [리리카캡슐 25·50·75·150·300mg 국내 제품설명서](https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf)
+- 쎄레브렉스: [쎄레브렉스캡슐 100·200mg 국내 제품설명서](https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf)
+
+리리카는 캡슐제, 쎄레브렉스는 100·200mg 제품설명서를 기준으로 연결합니다. 리리카CR서방정이나 쎄레브렉스 400mg의 허가 범위로 확대 해석하지 않습니다.

@@ -1,367 +1,832 @@
 /*
- * 제품 퀴즈 문제 은행
- * ---------------------------------------------------------------
- * 대상 제품: 리피토, 리피토플러스, 노바스크, 리리카, 쎄레브렉스
- *
- * 각 문제 구조:
- *  {
- *    id:       고유 번호(정렬/추적용, 중복 금지)
- *    drug:     제품명(태그)
- *    q:        질문
- *    options:  보기 배열
- *    answer:   정답 인덱스(0부터)
- *    explain:  해설
- *  }
- *
- * 새 문제를 추가하려면 이 배열에 항목을 넣기만 하면 됩니다.
- * 하루 5문제는 날짜를 기준으로 이 은행에서 자동 선택됩니다.
+ * 제품별 10문제, 총 50문제.
+ * source: 비아트리스 코리아가 공개한 국내 제품설명서 URL.
+ * reviewed: 링크와 자료를 확인한 날짜이며 허가 변경일이 아닙니다.
+ * 문제 ID와 정답 인덱스는 저장된 학습 기록과 연결되므로 유지합니다.
  */
 const QUESTION_BANK = [
-  // ───────────── 리피토 (Lipitor) ─────────────
   {
-    id: 1,
-    drug: "리피토",
-    q: "리피토(Lipitor)의 주성분은 무엇인가요?",
-    options: ["아토르바스타틴", "암로디핀", "프레가발린", "세레콕시브"],
-    answer: 0,
-    explain: "리피토의 주성분은 아토르바스타틴(atorvastatin)입니다.",
+    "id": 1,
+    "drug": "리피토",
+    "q": "리피토(Lipitor)의 주성분은 무엇인가요?",
+    "options": [
+      "아토르바스타틴",
+      "암로디핀",
+      "프레가발린",
+      "세레콕시브"
+    ],
+    "answer": 0,
+    "explain": "리피토의 주성분은 아토르바스타틴(atorvastatin)입니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 2,
-    drug: "리피토",
-    q: "리피토가 속하는 약물 계열은 무엇인가요?",
-    options: [
+    "id": 2,
+    "drug": "리피토",
+    "q": "리피토가 속하는 약물 계열은 무엇인가요?",
+    "options": [
       "칼슘채널차단제",
       "HMG-CoA 환원효소 억제제(스타틴)",
       "COX-2 억제제",
-      "항경련제",
+      "항경련제"
     ],
-    answer: 1,
-    explain:
-      "아토르바스타틴은 HMG-CoA 환원효소를 억제하는 스타틴 계열 약물로 콜레스테롤 합성을 줄입니다.",
+    "answer": 1,
+    "explain": "아토르바스타틴은 HMG-CoA 환원효소를 억제하는 스타틴 계열 약물로 콜레스테롤 합성을 줄입니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 3,
-    drug: "리피토",
-    q: "리피토의 대표적인 적응증은 무엇인가요?",
-    options: ["고혈압", "이상지질혈증(고지혈증)", "신경병증성 통증", "골관절염"],
-    answer: 1,
-    explain:
-      "리피토는 LDL 콜레스테롤을 낮추어 이상지질혈증(고지혈증) 치료에 사용됩니다.",
+    "id": 3,
+    "drug": "리피토",
+    "q": "리피토의 대표적인 적응증은 무엇인가요?",
+    "options": [
+      "고혈압",
+      "이상지질혈증(고지혈증)",
+      "신경병증성 통증",
+      "골관절염"
+    ],
+    "answer": 1,
+    "explain": "리피토는 LDL 콜레스테롤을 낮추어 이상지질혈증(고지혈증) 치료에 사용됩니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 4,
-    drug: "리피토",
-    q: "스타틴이 주로 낮추는 혈중 지질 성분은 무엇인가요?",
-    options: ["HDL 콜레스테롤", "LDL 콜레스테롤", "혈당", "요산"],
-    answer: 1,
-    explain: "스타틴은 특히 LDL(나쁜) 콜레스테롤을 효과적으로 낮춥니다.",
+    "id": 4,
+    "drug": "리피토",
+    "q": "스타틴이 주로 낮추는 혈중 지질 성분은 무엇인가요?",
+    "options": [
+      "HDL 콜레스테롤",
+      "LDL 콜레스테롤",
+      "혈당",
+      "요산"
+    ],
+    "answer": 1,
+    "explain": "스타틴은 특히 LDL(나쁜) 콜레스테롤을 효과적으로 낮춥니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 5,
-    drug: "리피토",
-    q: "스타틴 복용 중 드물지만 주의해야 할 대표적 이상반응은?",
-    options: ["근육통·근육병증", "탈모", "청력 소실", "시력 향상"],
-    answer: 0,
-    explain:
-      "스타틴은 드물게 근육통, 근육병증(횡문근융해증 포함)을 일으킬 수 있어 근육 증상에 주의합니다.",
+    "id": 5,
+    "drug": "리피토",
+    "q": "스타틴 복용 중 드물지만 주의해야 할 대표적 이상반응은?",
+    "options": [
+      "근육통·근육병증",
+      "탈모",
+      "청력 소실",
+      "시력 향상"
+    ],
+    "answer": 0,
+    "explain": "스타틴은 드물게 근육통, 근육병증(횡문근융해증 포함)을 일으킬 수 있어 근육 증상에 주의합니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 6,
-    drug: "리피토",
-    q: "스타틴 시작 전 및 임상적으로 필요할 때 확인하는 대표적 검사 수치는?",
-    options: ["간기능 수치(AST/ALT)", "안압", "골밀도", "심박수"],
-    answer: 0,
-    explain: "간기능 검사는 치료 시작 전 및 임상적으로 필요할 때 고려합니다. 모든 환자에게 정기적인 반복 검사가 일률적으로 필요한 것은 아닙니다.",
+    "id": 6,
+    "drug": "리피토",
+    "q": "스타틴 시작 전 및 임상적으로 필요할 때 확인하는 대표적 검사 수치는?",
+    "options": [
+      "간기능 수치(AST/ALT)",
+      "안압",
+      "골밀도",
+      "심박수"
+    ],
+    "answer": 0,
+    "explain": "국내 허가사항에서는 치료 시작 전 간기능 검사를 시행하고, 이후 간손상 증후가 있는 경우 반복 검사하도록 안내합니다. 정기적인 검사 등으로 충분히 관찰하여 이상이 확인되면 적절한 조치를 취합니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
-
-  // ───────────── 리피토플러스 (Lipitor Plus) ─────────────
   {
-    id: 20,
-    drug: "리피토플러스",
-    q: "리피토플러스는 어떤 성분들의 복합제인가요?",
-    options: [
+    "id": 20,
+    "drug": "리피토플러스",
+    "q": "리피토플러스는 어떤 성분들의 복합제인가요?",
+    "options": [
       "아토르바스타틴 + 에제티미브",
       "암로디핀 + 발사르탄",
       "프레가발린 + 가바펜틴",
-      "세레콕시브 + 트라마돌",
+      "세레콕시브 + 트라마돌"
     ],
-    answer: 0,
-    explain:
-      "리피토플러스는 스타틴(아토르바스타틴)과 콜레스테롤 흡수 억제제(에제티미브)를 결합한 복합제입니다.",
+    "answer": 0,
+    "explain": "리피토플러스는 스타틴(아토르바스타틴)과 콜레스테롤 흡수 억제제(에제티미브)를 결합한 복합제입니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 21,
-    drug: "리피토플러스",
-    q: "리피토플러스에 포함된 에제티미브의 작용 기전은 무엇인가요?",
-    options: [
+    "id": 21,
+    "drug": "리피토플러스",
+    "q": "리피토플러스에 포함된 에제티미브의 작용 기전은 무엇인가요?",
+    "options": [
       "장에서의 콜레스테롤 흡수 억제",
       "칼슘채널 차단",
       "COX-2 억제",
-      "신경 흥분 억제",
+      "신경 흥분 억제"
     ],
-    answer: 0,
-    explain:
-      "에제티미브는 소장에서 콜레스테롤 흡수를 선택적으로 억제하여 LDL을 추가로 낮춥니다.",
+    "answer": 0,
+    "explain": "에제티미브는 소장에서 콜레스테롤 흡수를 선택적으로 억제하여 LDL을 추가로 낮춥니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 22,
-    drug: "리피토플러스",
-    q: "리피토플러스처럼 두 기전을 결합한 복합제의 주요 장점은?",
-    options: [
+    "id": 22,
+    "drug": "리피토플러스",
+    "q": "리피토플러스처럼 두 기전을 결합한 복합제의 주요 장점은?",
+    "options": [
       "서로 다른 기전으로 LDL 강하 효과 강화",
       "혈압을 함께 낮춤",
       "통증을 함께 조절",
-      "혈당을 함께 낮춤",
+      "혈당을 함께 낮춤"
     ],
-    answer: 0,
-    explain:
-      "합성 억제(스타틴)와 흡수 억제(에제티미브)를 함께 사용해 단독요법보다 강력한 LDL 강하를 기대할 수 있습니다.",
+    "answer": 0,
+    "explain": "합성 억제(스타틴)와 흡수 억제(에제티미브)를 함께 사용해 단독요법보다 강력한 LDL 강하를 기대할 수 있습니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 23,
-    drug: "리피토플러스",
-    q: "리피토플러스가 목표로 하는 주 치료 영역은?",
-    options: ["이상지질혈증(콜레스테롤 관리)", "고혈압", "관절염", "간질"],
-    answer: 0,
-    explain: "리피토플러스는 콜레스테롤(이상지질혈증) 관리를 위한 복합제입니다.",
-  },
-
-  // ───────────── 노바스크 (Norvasc) ─────────────
-  {
-    id: 40,
-    drug: "노바스크",
-    q: "노바스크(Norvasc)의 주성분은 무엇인가요?",
-    options: ["암로디핀", "아토르바스타틴", "세레콕시브", "프레가발린"],
-    answer: 0,
-    explain: "노바스크의 주성분은 암로디핀(amlodipine)입니다.",
+    "id": 23,
+    "drug": "리피토플러스",
+    "q": "리피토플러스가 목표로 하는 주 치료 영역은?",
+    "options": [
+      "이상지질혈증(콜레스테롤 관리)",
+      "고혈압",
+      "관절염",
+      "간질"
+    ],
+    "answer": 0,
+    "explain": "리피토플러스는 콜레스테롤(이상지질혈증) 관리를 위한 복합제입니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 41,
-    drug: "노바스크",
-    q: "노바스크(암로디핀)가 속하는 약물 계열은?",
-    options: [
+    "id": 40,
+    "drug": "노바스크",
+    "q": "노바스크(Norvasc)의 주성분은 무엇인가요?",
+    "options": [
+      "암로디핀",
+      "아토르바스타틴",
+      "세레콕시브",
+      "프레가발린"
+    ],
+    "answer": 0,
+    "explain": "노바스크의 주성분은 암로디핀(amlodipine)입니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
+  },
+  {
+    "id": 41,
+    "drug": "노바스크",
+    "q": "노바스크(암로디핀)가 속하는 약물 계열은?",
+    "options": [
       "디하이드로피리딘계 칼슘채널차단제",
       "베타차단제",
       "스타틴",
-      "이뇨제",
+      "이뇨제"
     ],
-    answer: 0,
-    explain:
-      "암로디핀은 디하이드로피리딘계 칼슘채널차단제(CCB)로 혈관을 확장시킵니다.",
+    "answer": 0,
+    "explain": "암로디핀은 디하이드로피리딘계 칼슘채널차단제(CCB)로 혈관을 확장시킵니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 42,
-    drug: "노바스크",
-    q: "노바스크의 대표적인 적응증은?",
-    options: ["고혈압·협심증", "고지혈증", "우울증", "위궤양"],
-    answer: 0,
-    explain: "노바스크는 고혈압과 협심증(안정형·이형성) 치료에 사용됩니다.",
+    "id": 42,
+    "drug": "노바스크",
+    "q": "노바스크의 대표적인 적응증은?",
+    "options": [
+      "고혈압·협심증",
+      "고지혈증",
+      "우울증",
+      "위궤양"
+    ],
+    "answer": 0,
+    "explain": "노바스크는 고혈압과 협심증(안정형·이형성) 치료에 사용됩니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 43,
-    drug: "노바스크",
-    q: "암로디핀의 혈압 강하 기전으로 옳은 것은?",
-    options: [
+    "id": 43,
+    "drug": "노바스크",
+    "q": "암로디핀의 혈압 강하 기전으로 옳은 것은?",
+    "options": [
       "혈관 평활근 이완을 통한 말초혈관 확장",
       "심박수 증가",
       "소변량 감소",
-      "혈액 점도 증가",
+      "혈액 점도 증가"
     ],
-    answer: 0,
-    explain:
-      "칼슘 유입을 차단해 혈관 평활근을 이완시키고 말초혈관을 확장하여 혈압을 낮춥니다.",
+    "answer": 0,
+    "explain": "칼슘 유입을 차단해 혈관 평활근을 이완시키고 말초혈관을 확장하여 혈압을 낮춥니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 44,
-    drug: "노바스크",
-    q: "암로디핀 복용 시 비교적 흔히 나타날 수 있는 이상반응은?",
-    options: ["말초 부종(발목 부종)", "혈당 급등", "청력 상실", "탈모"],
-    answer: 0,
-    explain:
-      "혈관 확장 작용으로 인해 발목 등 말초 부종이 비교적 흔하게 나타날 수 있습니다.",
+    "id": 44,
+    "drug": "노바스크",
+    "q": "암로디핀 복용 시 비교적 흔히 나타날 수 있는 이상반응은?",
+    "options": [
+      "말초 부종(발목 부종)",
+      "혈당 급등",
+      "청력 상실",
+      "탈모"
+    ],
+    "answer": 0,
+    "explain": "혈관 확장 작용으로 인해 발목 등 말초 부종이 비교적 흔하게 나타날 수 있습니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 45,
-    drug: "노바스크",
-    q: "암로디핀의 특징 중 하나로 옳은 것은?",
-    options: [
+    "id": 45,
+    "drug": "노바스크",
+    "q": "암로디핀의 특징 중 하나로 옳은 것은?",
+    "options": [
       "반감기가 길어 1일 1회 복용이 가능",
       "반드시 1일 4회 복용",
       "복용 즉시 효과가 사라짐",
-      "공복에만 효과가 있음",
+      "공복에만 효과가 있음"
     ],
-    answer: 0,
-    explain:
-      "암로디핀은 반감기가 길어(약 30~50시간) 하루 한 번 복용으로 24시간 혈압 조절이 가능합니다.",
-  },
-
-  // ───────────── 리리카 (Lyrica) ─────────────
-  {
-    id: 60,
-    drug: "리리카",
-    q: "리리카(Lyrica)의 주성분은 무엇인가요?",
-    options: ["프레가발린", "암로디핀", "세레콕시브", "아토르바스타틴"],
-    answer: 0,
-    explain: "리리카의 주성분은 프레가발린(pregabalin)입니다.",
+    "answer": 0,
+    "explain": "암로디핀은 반감기가 길어(약 30~50시간) 하루 한 번 복용으로 24시간 혈압 조절이 가능합니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 61,
-    drug: "리리카",
-    q: "리리카의 대표적인 적응증이 아닌 것은?",
-    options: ["신경병증성 통증", "섬유근육통", "부분발작 보조요법", "고혈압"],
-    answer: 3,
-    explain:
-      "리리카는 신경병증성 통증, 섬유근육통, 부분발작 보조요법 등에 사용되며 고혈압은 적응증이 아닙니다.",
+    "id": 60,
+    "drug": "리리카",
+    "q": "리리카(Lyrica)의 주성분은 무엇인가요?",
+    "options": [
+      "프레가발린",
+      "암로디핀",
+      "세레콕시브",
+      "아토르바스타틴"
+    ],
+    "answer": 0,
+    "explain": "리리카의 주성분은 프레가발린(pregabalin)입니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 62,
-    drug: "리리카",
-    q: "프레가발린의 작용 기전으로 옳은 것은?",
-    options: [
+    "id": 61,
+    "drug": "리리카",
+    "q": "리리카의 대표적인 적응증이 아닌 것은?",
+    "options": [
+      "신경병증성 통증",
+      "섬유근육통",
+      "부분발작 보조요법",
+      "고혈압"
+    ],
+    "answer": 3,
+    "explain": "리리카는 신경병증성 통증, 섬유근육통, 부분발작 보조요법 등에 사용되며 고혈압은 적응증이 아닙니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
+  },
+  {
+    "id": 62,
+    "drug": "리리카",
+    "q": "프레가발린의 작용 기전으로 옳은 것은?",
+    "options": [
       "전압의존성 칼슘채널의 α2δ 소단위에 결합",
       "COX-2 효소 억제",
       "HMG-CoA 환원효소 억제",
-      "베타수용체 차단",
+      "베타수용체 차단"
     ],
-    answer: 0,
-    explain:
-      "프레가발린은 전압의존성 칼슘채널의 α2δ 소단위에 결합하여 흥분성 신경전달물질 방출을 감소시킵니다.",
+    "answer": 0,
+    "explain": "프레가발린은 전압의존성 칼슘채널의 α2δ 소단위에 결합하여 흥분성 신경전달물질 방출을 감소시킵니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 63,
-    drug: "리리카",
-    q: "리리카 복용 시 흔히 나타날 수 있는 이상반응은?",
-    options: ["어지러움·졸음", "혈압 급등", "탈모", "청력 상실"],
-    answer: 0,
-    explain: "리리카는 어지러움과 졸음이 비교적 흔한 이상반응입니다.",
+    "id": 63,
+    "drug": "리리카",
+    "q": "리리카 복용 시 흔히 나타날 수 있는 이상반응은?",
+    "options": [
+      "어지러움·졸음",
+      "혈압 급등",
+      "탈모",
+      "청력 상실"
+    ],
+    "answer": 0,
+    "explain": "리리카는 어지러움과 졸음이 비교적 흔한 이상반응입니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 64,
-    drug: "리리카",
-    q: "리리카 복용 환자 상담 시 특히 주의를 당부해야 할 상황은?",
-    options: [
+    "id": 64,
+    "drug": "리리카",
+    "q": "리리카 복용 환자 상담 시 특히 주의를 당부해야 할 상황은?",
+    "options": [
       "운전·기계 조작 시 졸음·어지러움",
       "햇빛 노출",
       "고단백 식이",
-      "카페인 섭취",
+      "카페인 섭취"
     ],
-    answer: 0,
-    explain:
-      "졸음·어지러움이 있을 수 있어 운전이나 기계 조작 시 주의가 필요합니다.",
+    "answer": 0,
+    "explain": "졸음·어지러움이 있을 수 있어 운전이나 기계 조작 시 주의가 필요합니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 65,
-    drug: "리리카",
-    q: "리리카를 갑자기 중단하면 안 되는 이유로 가장 적절한 것은?",
-    options: [
+    "id": 65,
+    "drug": "리리카",
+    "q": "리리카를 갑자기 중단하면 안 되는 이유로 가장 적절한 것은?",
+    "options": [
       "금단·재발 증상 우려로 점진적 감량 권장",
       "즉시 혈압이 오름",
       "간 손상 유발",
-      "효과가 영구히 사라짐",
+      "효과가 영구히 사라짐"
     ],
-    answer: 0,
-    explain:
-      "갑작스러운 중단은 금단 증상을 유발할 수 있어 점진적으로 감량하는 것이 권장됩니다.",
-  },
-
-  // ───────────── 쎄레브렉스 (Celebrex) ─────────────
-  {
-    id: 80,
-    drug: "쎄레브렉스",
-    q: "쎄레브렉스(Celebrex)의 주성분은 무엇인가요?",
-    options: ["세레콕시브", "프레가발린", "암로디핀", "아토르바스타틴"],
-    answer: 0,
-    explain: "쎄레브렉스의 주성분은 세레콕시브(celecoxib)입니다.",
+    "answer": 0,
+    "explain": "갑작스러운 중단은 금단 증상을 유발할 수 있어 점진적으로 감량하는 것이 권장됩니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 81,
-    drug: "쎄레브렉스",
-    q: "쎄레브렉스가 속하는 약물 계열은?",
-    options: [
+    "id": 80,
+    "drug": "쎄레브렉스",
+    "q": "쎄레브렉스(Celebrex)의 주성분은 무엇인가요?",
+    "options": [
+      "세레콕시브",
+      "프레가발린",
+      "암로디핀",
+      "아토르바스타틴"
+    ],
+    "answer": 0,
+    "explain": "쎄레브렉스의 주성분은 세레콕시브(celecoxib)입니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
+  },
+  {
+    "id": 81,
+    "drug": "쎄레브렉스",
+    "q": "쎄레브렉스가 속하는 약물 계열은?",
+    "options": [
       "COX-2 선택적 억제 NSAID",
       "스타틴",
       "칼슘채널차단제",
-      "항경련제",
+      "항경련제"
     ],
-    answer: 0,
-    explain:
-      "세레콕시브는 COX-2를 선택적으로 억제하는 비스테로이드성 소염진통제(NSAID)입니다.",
+    "answer": 0,
+    "explain": "세레콕시브는 COX-2를 선택적으로 억제하는 비스테로이드성 소염진통제(NSAID)입니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 82,
-    drug: "쎄레브렉스",
-    q: "쎄레브렉스의 대표적인 적응증은?",
-    options: [
+    "id": 82,
+    "drug": "쎄레브렉스",
+    "q": "쎄레브렉스의 대표적인 적응증은?",
+    "options": [
       "골관절염·류마티스 관절염 등 통증·염증",
       "고혈압",
       "고지혈증",
-      "간질",
+      "간질"
     ],
-    answer: 0,
-    explain:
-      "쎄레브렉스는 골관절염, 류마티스 관절염, 급성 통증 등 통증·염증 치료에 사용됩니다.",
+    "answer": 0,
+    "explain": "쎄레브렉스는 골관절염, 류마티스 관절염, 급성 통증 등 통증·염증 치료에 사용됩니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 83,
-    drug: "쎄레브렉스",
-    q: "COX-2 선택적 억제제가 기존 비선택적 NSAID 대비 기대하는 장점은?",
-    options: [
+    "id": 83,
+    "drug": "쎄레브렉스",
+    "q": "COX-2 선택적 억제제가 기존 비선택적 NSAID 대비 기대하는 장점은?",
+    "options": [
       "위장관 부작용(궤양 등) 상대적 감소",
       "혈압 강하",
       "콜레스테롤 감소",
-      "혈당 조절",
+      "혈당 조절"
     ],
-    answer: 0,
-    explain:
-      "COX-1을 상대적으로 덜 억제하여 위장관 부작용(궤양·출혈) 위험을 낮추는 것을 기대합니다.",
+    "answer": 0,
+    "explain": "COX-1을 상대적으로 덜 억제하여 위장관 부작용(궤양·출혈) 위험을 낮추는 것을 기대합니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 84,
-    drug: "쎄레브렉스",
-    q: "세레콕시브 사용 시 주의해야 할 대표적 위험은?",
-    options: [
+    "id": 84,
+    "drug": "쎄레브렉스",
+    "q": "세레콕시브 사용 시 주의해야 할 대표적 위험은?",
+    "options": [
       "심혈관계 위험(고위험 환자 주의)",
       "혈당 저하",
       "탈모",
-      "청력 상실",
+      "청력 상실"
     ],
-    answer: 0,
-    explain:
-      "NSAID로서 심혈관계 위험이 있을 수 있어 심혈관 고위험 환자에서는 주의가 필요합니다.",
+    "answer": 0,
+    "explain": "NSAID로서 심혈관계 위험이 있을 수 있어 심혈관 고위험 환자에서는 주의가 필요합니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
   {
-    id: 85,
-    drug: "쎄레브렉스",
-    q: "세레콕시브 처방 전 확인이 특히 중요한 약물 알레르기는?",
-    options: ["설폰아마이드계 과민반응", "페니실린 알레르기", "요오드 알레르기", "유당 불내성"],
-    answer: 0,
-    explain:
-      "세레콕시브 또는 설폰아마이드에 대한 알려진 과민반응은 허가사항의 금기 항목을 확인해야 합니다.",
+    "id": 85,
+    "drug": "쎄레브렉스",
+    "q": "세레콕시브 처방 전 확인이 특히 중요한 약물 알레르기는?",
+    "options": [
+      "설폰아마이드계 과민반응",
+      "페니실린 알레르기",
+      "요오드 알레르기",
+      "유당 불내성"
+    ],
+    "answer": 0,
+    "explain": "세레콕시브 또는 설폰아마이드에 대한 알려진 과민반응은 허가사항의 금기 항목을 확인해야 합니다.",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-20"
   },
-{"id": 100, "drug": "리피토", "q": "아토르바스타틴이 간세포의 LDL 수용체를 증가시키는 과정과 가장 관련 있는 변화는?", "options": ["간 내 콜레스테롤 합성 감소", "장내 담즙산 흡수 증가", "혈관 칼슘 유입 감소", "신장 포도당 재흡수 감소"], "answer": 0, "explain": "합성 억제로 간 내 콜레스테롤이 감소하면 LDL 수용체 발현이 증가하여 혈중 LDL 제거가 촉진됩니다.", "level": "응용", "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a60cc18b-0631-4cf0-b021-9f52224ece65", "reviewed": "2026-10-19"},
-{"id": 101, "drug": "리피토", "q": "아토르바스타틴 복용 중 강력한 CYP3A4 억제제를 병용할 때 특히 검토할 위험은?", "options": ["약물 농도 저하로 인한 효과 소실", "약물 노출 증가에 따른 근육독성", "장내 콜레스테롤 흡수 증가", "칼슘채널 차단 효과 증가"], "answer": 1, "explain": "CYP3A4 억제는 아토르바스타틴 노출을 높일 수 있어 병용약과 근육독성 위험을 검토합니다.", "level": "응용", "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a60cc18b-0631-4cf0-b021-9f52224ece65", "reviewed": "2026-10-19"},
-{"id": 102, "drug": "리피토", "q": "리피토 복용 중 설명되지 않는 근육통·근력 저하와 진한 소변이 발생했다. 가장 적절한 상담은?", "options": ["운동량을 늘리도록 권한다", "효과가 나타나는 정상 과정이라고 설명한다", "근육 손상 가능성을 고려해 신속히 의료진 평가를 받게 한다", "다른 스타틴을 임의로 추가하도록 한다"], "answer": 2, "explain": "근육 증상과 진한 소변은 심한 근육 손상의 신호일 수 있으므로 신속한 평가가 필요합니다.", "level": "응용", "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a60cc18b-0631-4cf0-b021-9f52224ece65", "reviewed": "2026-10-19"},
-{"id": 103, "drug": "리피토", "q": "아토르바스타틴과 에제티미브의 기전을 올바르게 비교한 것은?", "options": ["둘 다 장내 NPC1L1을 억제한다", "아토르바스타틴은 흡수, 에제티미브는 합성을 억제한다", "둘 다 COX-2를 억제한다", "아토르바스타틴은 합성, 에제티미브는 흡수를 억제한다"], "answer": 3, "explain": "아토르바스타틴은 HMG-CoA 환원효소를, 에제티미브는 장의 NPC1L1을 표적으로 합니다.", "level": "응용", "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a60cc18b-0631-4cf0-b021-9f52224ece65", "reviewed": "2026-10-19"},
-{"id": 104, "drug": "리피토플러스", "q": "에제티미브가 표적으로 하는 장내 수송 단백질은?", "options": ["NPC1L1", "SGLT2", "α2δ", "COX-2"], "answer": 0, "explain": "NPC1L1은 장에서 콜레스테롤이 흡수되는 데 관여하는 단백질입니다.", "level": "응용", "source": "https://www.organon.com/product/usa/pi_circulars/z/zetia/zetia_pi.pdf", "reviewed": "2026-10-19"},
-{"id": 105, "drug": "리피토플러스", "q": "스타틴 단독요법에 에제티미브를 더하는 기전적 근거는?", "options": ["같은 효소를 이중으로 차단한다", "콜레스테롤의 합성과 흡수라는 서로 다른 경로를 억제한다", "혈압 강하를 통해 LDL을 제거한다", "신장으로 콜레스테롤 배설을 직접 증가시킨다"], "answer": 1, "explain": "합성과 흡수 경로를 함께 억제하여 LDL 강하 효과를 보완합니다.", "level": "응용", "source": "https://www.organon.com/product/usa/pi_circulars/z/zetia/zetia_pi.pdf", "reviewed": "2026-10-19"},
-{"id": 106, "drug": "리피토플러스", "q": "리피토에서 리피토플러스로 변경된 환자의 병용약 검토 시 옳은 것은?", "options": ["에제티미브가 있어 스타틴 상호작용은 사라진다", "두 성분 모두 항고혈압제이다", "아토르바스타틴 성분에 관련된 상호작용도 계속 확인한다", "기존 스타틴을 항상 추가 복용한다"], "answer": 2, "explain": "복합제에도 아토르바스타틴이 포함되므로 스타틴 관련 병용약 검토가 필요합니다.", "level": "응용", "source": "https://www.organon.com/product/usa/pi_circulars/z/zetia/zetia_pi.pdf", "reviewed": "2026-10-19"},
-{"id": 107, "drug": "리피토플러스", "q": "리피토플러스와 별도 아토르바스타틴 처방이 함께 보일 때 먼저 확인할 사항은?", "options": ["두 약의 색상이 같은지", "반드시 함께 복용해야 하는지", "에제티미브가 칼슘채널차단제인지", "스타틴 성분 중복과 총 투여량이 의도된 것인지"], "answer": 3, "explain": "복합제의 성분을 확인하여 의도하지 않은 스타틴 중복을 방지해야 합니다.", "level": "응용", "source": "https://www.organon.com/product/usa/pi_circulars/z/zetia/zetia_pi.pdf", "reviewed": "2026-10-19"},
-{"id": 108, "drug": "리피토플러스", "q": "에제티미브의 작용에 대한 설명으로 옳은 것은?", "options": ["장내 콜레스테롤 흡수를 억제하며 스타틴과 표적이 다르다", "간의 HMG-CoA 환원효소를 직접 억제한다", "담즙산을 장내에서 물리적으로 결합하는 수지이다", "신경 칼슘채널의 α2δ에 결합한다"], "answer": 0, "explain": "에제티미브는 NPC1L1을 표적으로 하며 스타틴이나 담즙산 결합수지와 기전이 다릅니다.", "level": "응용", "source": "https://www.organon.com/product/usa/pi_circulars/z/zetia/zetia_pi.pdf", "reviewed": "2026-10-19"},
-{"id": 109, "drug": "리피토플러스", "q": "복합제로 변경한 뒤 효과를 평가하는 지표로 가장 직접적인 것은?", "options": ["발목 둘레만 측정", "LDL 콜레스테롤 변화와 복약 이행 확인", "졸음 점수만 측정", "급성 통증 점수만 측정"], "answer": 1, "explain": "지질 강하 치료의 반응은 LDL 변화와 복약 이행 등을 함께 평가합니다.", "level": "응용", "source": "https://www.organon.com/product/usa/pi_circulars/z/zetia/zetia_pi.pdf", "reviewed": "2026-10-19"},
-{"id": 110, "drug": "노바스크", "q": "암로디핀과 베라파밀의 특성을 비교할 때 암로디핀에 더 부합하는 것은?", "options": ["주로 방실결절 전도를 억제한다", "주된 효과가 강력한 이뇨이다", "말초혈관 평활근에 작용하여 혈관을 확장한다", "NPC1L1을 차단한다"], "answer": 2, "explain": "암로디핀은 디하이드로피리딘계 CCB로 말초혈관 확장 작용이 중심입니다.", "level": "응용", "source": "https://labeling.pfizer.com/ShowLabeling.aspx?id=562", "reviewed": "2026-10-19"},
-{"id": 111, "drug": "노바스크", "q": "암로디핀 복용 후 생긴 발목 부종의 기전으로 가장 적절한 것은?", "options": ["신장 사구체에서 약물이 결정화됨", "LDL 수용체 증가", "COX-2 차단에 의한 위산 증가", "세동맥 확장에 따른 모세혈관 내 압력 변화"], "answer": 3, "explain": "암로디핀의 말초 부종은 세동맥 확장과 관련되며 단순한 전신 수분 과잉과 동일하게 해석하지 않습니다.", "level": "응용", "source": "https://labeling.pfizer.com/ShowLabeling.aspx?id=562", "reviewed": "2026-10-19"},
-{"id": 112, "drug": "노바스크", "q": "반감기가 긴 암로디핀의 약동학적 특징으로 옳은 것은?", "options": ["반복 투여 후 정상상태 도달에 여러 날이 걸릴 수 있다", "정상상태에 항상 첫 복용 직후 도달한다", "짧은 반감기 때문에 매시간 투여한다", "반감기는 투여 간격과 전혀 관련 없다"], "answer": 0, "explain": "긴 반감기는 1일 1회 투여를 뒷받침하며 정상상태 도달까지 시간이 필요합니다.", "level": "응용", "source": "https://labeling.pfizer.com/ShowLabeling.aspx?id=562", "reviewed": "2026-10-19"},
-{"id": 113, "drug": "노바스크", "q": "암로디핀 복용자의 새 병용약에 강력한 CYP3A 억제제가 있다면 적절한 검토는?", "options": ["혈압 상승만 관찰한다", "암로디핀 노출 증가에 따른 저혈압·부종 등을 확인한다", "약물 상호작용이 전혀 없다고 안내한다", "LDL만 확인하면 충분하다"], "answer": 1, "explain": "CYP3A 억제제 병용 시 암로디핀 노출이 증가할 수 있어 혈압과 이상반응을 관찰합니다.", "level": "응용", "source": "https://labeling.pfizer.com/ShowLabeling.aspx?id=562", "reviewed": "2026-10-19"},
-{"id": 114, "drug": "리리카", "q": "프레가발린 투여량 검토 시 신기능이 중요한 이유는?", "options": ["대부분 담즙으로 배설된다", "간 CYP3A4로만 대사된다", "주로 신장으로 배설되어 신기능 저하 시 노출이 증가할 수 있다", "신장에서 활성형 스타틴으로 변한다"], "answer": 2, "explain": "프레가발린은 주로 신장으로 배설되므로 신기능에 따른 용량 검토가 필요합니다.", "level": "응용", "source": "https://labeling.pfizer.com/showlabeling.aspx?id=561", "reviewed": "2026-10-19"},
-{"id": 115, "drug": "리리카", "q": "프레가발린과 오피오이드 병용 시 특히 주의할 위험은?", "options": ["LDL 상승만 발생", "심박수 증가만 발생", "항혈소판 효과 소실", "중추신경 억제와 호흡억제 위험 증가"], "answer": 3, "explain": "오피오이드 등 중추신경 억제제 병용 시 진정과 호흡억제 위험이 증가할 수 있습니다.", "level": "응용", "source": "https://labeling.pfizer.com/showlabeling.aspx?id=561", "reviewed": "2026-10-19"},
-{"id": 116, "drug": "리리카", "q": "프레가발린의 이름과 구조로 인해 생길 수 있는 오해를 바로잡는 설명은?", "options": ["GABA 수용체에 직접 작용하는 약물로 설명하면 부정확하다", "GABA 수용체를 직접 활성화하는 것이 주기전이다", "COX-2를 선택적으로 차단한다", "HMG-CoA 환원효소를 억제한다"], "answer": 0, "explain": "프레가발린의 표적은 α2δ 소단위이며 GABA 수용체에 직접 작용하는 약물로 설명하지 않습니다.", "level": "응용", "source": "https://labeling.pfizer.com/showlabeling.aspx?id=561", "reviewed": "2026-10-19"},
-{"id": 117, "drug": "리리카", "q": "프레가발린 치료 중 얼굴·입술·혀 부종과 호흡곤란이 발생했다. 우선 대응은?", "options": ["다음 정기 방문까지 관찰", "혈관부종 가능성을 고려하여 즉시 응급 평가를 받는다", "효과가 좋다는 신호로 안내", "운전하여 장거리 이동하도록 권한다"], "answer": 1, "explain": "얼굴이나 혀의 부종과 호흡곤란은 응급 평가가 필요한 혈관부종의 신호일 수 있습니다.", "level": "응용", "source": "https://labeling.pfizer.com/showlabeling.aspx?id=561", "reviewed": "2026-10-19"},
-{"id": 118, "drug": "쎄레브렉스", "q": "세레콕시브의 COX-2 선택성과 위장관 안전성에 대한 설명으로 옳은 것은?", "options": ["위장관 출혈 위험이 완전히 사라진다", "항응고제 병용 시 출혈 평가가 불필요하다", "선택적 억제제여도 위장관 궤양·출혈 위험은 남는다", "위장관 위험은 투여기간과 무관하다"], "answer": 2, "explain": "COX-2 선택성이 위장관 궤양이나 출혈 위험을 없애지는 않습니다.", "level": "응용", "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2d6675e4-5859-4be2-8037-a20ce9f707aa", "reviewed": "2026-10-19"},
-{"id": 119, "drug": "쎄레브렉스", "q": "세레콕시브와 항응고제를 병용하는 환자에서 특히 확인할 사항은?", "options": ["청력 향상 여부", "LDL 감소 정도만 확인", "졸음이 없으면 모든 위험 배제", "출혈 징후와 병용에 따른 출혈 위험"], "answer": 3, "explain": "항응고제와 NSAID 병용 시 출혈 위험을 검토하고 출혈 징후를 관찰합니다.", "level": "응용", "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2d6675e4-5859-4be2-8037-a20ce9f707aa", "reviewed": "2026-10-19"},
-{"id": 120, "drug": "쎄레브렉스", "q": "탈수 상태이거나 신기능이 저하된 환자에서 NSAID 사용 시 주의하는 이유는?", "options": ["신장 프로스타글란딘 억제로 신장 관류가 악화될 수 있다", "신장 혈류가 항상 증가한다", "프레가발린으로 전환되기 때문이다", "장내 콜레스테롤 흡수를 늘리기 때문이다"], "answer": 0, "explain": "NSAID의 프로스타글란딘 억제는 위험 환자에서 신장 혈류와 신기능에 영향을 줄 수 있습니다.", "level": "응용", "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2d6675e4-5859-4be2-8037-a20ce9f707aa", "reviewed": "2026-10-19"},
-{"id": 121, "drug": "쎄레브렉스", "q": "세레콕시브의 사용 원칙으로 가장 적절한 것은?", "options": ["효과와 관계없이 최고 용량을 장기간 유지한다", "개별 위험을 고려해 효과가 있는 최소 용량을 필요한 최단기간 사용한다", "다른 NSAID를 항상 추가한다", "COX-2 선택성이 있으므로 심혈관 위험은 고려하지 않는다"], "answer": 1, "explain": "NSAID는 개인의 위험을 평가하여 유효한 최소 용량과 필요한 최단기간을 고려합니다.", "level": "응용", "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2d6675e4-5859-4be2-8037-a20ce9f707aa", "reviewed": "2026-10-19"},
+  {
+    "id": 100,
+    "drug": "리피토",
+    "q": "아토르바스타틴이 간세포의 LDL 수용체를 증가시키는 과정과 가장 관련 있는 변화는?",
+    "options": [
+      "간 내 콜레스테롤 합성 감소",
+      "장내 담즙산 흡수 증가",
+      "혈관 칼슘 유입 감소",
+      "신장 포도당 재흡수 감소"
+    ],
+    "answer": 0,
+    "explain": "합성 억제로 간 내 콜레스테롤이 감소하면 LDL 수용체 발현이 증가하여 혈중 LDL 제거가 촉진됩니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서"
+  },
+  {
+    "id": 101,
+    "drug": "리피토",
+    "q": "아토르바스타틴 복용 중 강력한 CYP3A4 억제제를 병용할 때 특히 검토할 위험은?",
+    "options": [
+      "약물 농도 저하로 인한 효과 소실",
+      "약물 노출 증가에 따른 근육독성",
+      "장내 콜레스테롤 흡수 증가",
+      "칼슘채널 차단 효과 증가"
+    ],
+    "answer": 1,
+    "explain": "CYP3A4 억제는 아토르바스타틴 노출을 높일 수 있어 병용약과 근육독성 위험을 검토합니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서"
+  },
+  {
+    "id": 102,
+    "drug": "리피토",
+    "q": "리피토 복용 중 설명되지 않는 근육통·근력 저하와 진한 소변이 발생했다. 가장 적절한 상담은?",
+    "options": [
+      "운동량을 늘리도록 권한다",
+      "효과가 나타나는 정상 과정이라고 설명한다",
+      "근육 손상 가능성을 고려해 신속히 의료진 평가를 받게 한다",
+      "다른 스타틴을 임의로 추가하도록 한다"
+    ],
+    "answer": 2,
+    "explain": "근육 증상과 진한 소변은 심한 근육 손상의 신호일 수 있으므로 신속한 평가가 필요합니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서"
+  },
+  {
+    "id": 103,
+    "drug": "리피토",
+    "q": "아토르바스타틴과 에제티미브의 기전을 올바르게 비교한 것은?",
+    "options": [
+      "둘 다 장내 NPC1L1을 억제한다",
+      "아토르바스타틴은 흡수, 에제티미브는 합성을 억제한다",
+      "둘 다 COX-2를 억제한다",
+      "아토르바스타틴은 합성, 에제티미브는 흡수를 억제한다"
+    ],
+    "answer": 3,
+    "explain": "아토르바스타틴은 HMG-CoA 환원효소를, 에제티미브는 장의 NPC1L1을 표적으로 합니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서"
+  },
+  {
+    "id": 104,
+    "drug": "리피토플러스",
+    "q": "에제티미브가 표적으로 하는 장내 수송 단백질은?",
+    "options": [
+      "NPC1L1",
+      "SGLT2",
+      "α2δ",
+      "COX-2"
+    ],
+    "answer": 0,
+    "explain": "NPC1L1은 장에서 콜레스테롤이 흡수되는 데 관여하는 단백질입니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서"
+  },
+  {
+    "id": 105,
+    "drug": "리피토플러스",
+    "q": "스타틴 단독요법에 에제티미브를 더하는 기전적 근거는?",
+    "options": [
+      "같은 효소를 이중으로 차단한다",
+      "콜레스테롤의 합성과 흡수라는 서로 다른 경로를 억제한다",
+      "혈압 강하를 통해 LDL을 제거한다",
+      "신장으로 콜레스테롤 배설을 직접 증가시킨다"
+    ],
+    "answer": 1,
+    "explain": "합성과 흡수 경로를 함께 억제하여 LDL 강하 효과를 보완합니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서"
+  },
+  {
+    "id": 106,
+    "drug": "리피토플러스",
+    "q": "리피토에서 리피토플러스로 변경된 환자의 병용약 검토 시 옳은 것은?",
+    "options": [
+      "에제티미브가 있어 스타틴 상호작용은 사라진다",
+      "두 성분 모두 항고혈압제이다",
+      "아토르바스타틴 성분에 관련된 상호작용도 계속 확인한다",
+      "기존 스타틴을 항상 추가 복용한다"
+    ],
+    "answer": 2,
+    "explain": "복합제에도 아토르바스타틴이 포함되므로 스타틴 관련 병용약 검토가 필요합니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서"
+  },
+  {
+    "id": 107,
+    "drug": "리피토플러스",
+    "q": "리피토플러스와 별도 아토르바스타틴 처방이 함께 보일 때 먼저 확인할 사항은?",
+    "options": [
+      "두 약의 색상이 같은지",
+      "반드시 함께 복용해야 하는지",
+      "에제티미브가 칼슘채널차단제인지",
+      "스타틴 성분 중복과 총 투여량이 의도된 것인지"
+    ],
+    "answer": 3,
+    "explain": "복합제의 성분을 확인하여 의도하지 않은 스타틴 중복을 방지해야 합니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서"
+  },
+  {
+    "id": 108,
+    "drug": "리피토플러스",
+    "q": "에제티미브의 작용에 대한 설명으로 옳은 것은?",
+    "options": [
+      "장내 콜레스테롤 흡수를 억제하며 스타틴과 표적이 다르다",
+      "간의 HMG-CoA 환원효소를 직접 억제한다",
+      "담즙산을 장내에서 물리적으로 결합하는 수지이다",
+      "신경 칼슘채널의 α2δ에 결합한다"
+    ],
+    "answer": 0,
+    "explain": "에제티미브는 NPC1L1을 표적으로 하며 스타틴이나 담즙산 결합수지와 기전이 다릅니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서"
+  },
+  {
+    "id": 109,
+    "drug": "리피토플러스",
+    "q": "복합제로 변경한 뒤 효과를 평가하는 지표로 가장 직접적인 것은?",
+    "options": [
+      "발목 둘레만 측정",
+      "LDL 콜레스테롤 변화와 복약 이행 확인",
+      "졸음 점수만 측정",
+      "급성 통증 점수만 측정"
+    ],
+    "answer": 1,
+    "explain": "지질 강하 치료의 반응은 LDL 변화와 복약 이행 등을 함께 평가합니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서"
+  },
+  {
+    "id": 110,
+    "drug": "노바스크",
+    "q": "암로디핀과 베라파밀의 특성을 비교할 때 암로디핀에 더 부합하는 것은?",
+    "options": [
+      "주로 방실결절 전도를 억제한다",
+      "주된 효과가 강력한 이뇨이다",
+      "말초혈관 평활근에 작용하여 혈관을 확장한다",
+      "NPC1L1을 차단한다"
+    ],
+    "answer": 2,
+    "explain": "암로디핀은 디하이드로피리딘계 CCB로 말초혈관 확장 작용이 중심입니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서"
+  },
+  {
+    "id": 111,
+    "drug": "노바스크",
+    "q": "암로디핀 복용 후 생긴 발목 부종의 기전으로 가장 적절한 것은?",
+    "options": [
+      "신장 사구체에서 약물이 결정화됨",
+      "LDL 수용체 증가",
+      "COX-2 차단에 의한 위산 증가",
+      "세동맥 확장에 따른 모세혈관 내 압력 변화"
+    ],
+    "answer": 3,
+    "explain": "암로디핀의 말초 부종은 세동맥 확장과 관련되며 단순한 전신 수분 과잉과 동일하게 해석하지 않습니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서"
+  },
+  {
+    "id": 112,
+    "drug": "노바스크",
+    "q": "반감기가 긴 암로디핀의 약동학적 특징으로 옳은 것은?",
+    "options": [
+      "반복 투여 후 정상상태 도달에 여러 날이 걸릴 수 있다",
+      "정상상태에 항상 첫 복용 직후 도달한다",
+      "짧은 반감기 때문에 매시간 투여한다",
+      "반감기는 투여 간격과 전혀 관련 없다"
+    ],
+    "answer": 0,
+    "explain": "긴 반감기는 1일 1회 투여를 뒷받침하며 정상상태 도달까지 시간이 필요합니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서"
+  },
+  {
+    "id": 113,
+    "drug": "노바스크",
+    "q": "암로디핀 복용자의 새 병용약에 강력한 CYP3A 억제제가 있다면 적절한 검토는?",
+    "options": [
+      "혈압 상승만 관찰한다",
+      "암로디핀 노출 증가에 따른 저혈압·부종 등을 확인한다",
+      "약물 상호작용이 전혀 없다고 안내한다",
+      "LDL만 확인하면 충분하다"
+    ],
+    "answer": 1,
+    "explain": "CYP3A 억제제 병용 시 암로디핀 노출이 증가할 수 있어 혈압과 이상반응을 관찰합니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서"
+  },
+  {
+    "id": 114,
+    "drug": "리리카",
+    "q": "프레가발린 투여량 검토 시 신기능이 중요한 이유는?",
+    "options": [
+      "대부분 담즙으로 배설된다",
+      "간 CYP3A4로만 대사된다",
+      "주로 신장으로 배설되어 신기능 저하 시 노출이 증가할 수 있다",
+      "신장에서 활성형 스타틴으로 변한다"
+    ],
+    "answer": 2,
+    "explain": "프레가발린은 주로 신장으로 배설되므로 신기능에 따른 용량 검토가 필요합니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서"
+  },
+  {
+    "id": 115,
+    "drug": "리리카",
+    "q": "프레가발린과 오피오이드 병용 시 특히 주의할 위험은?",
+    "options": [
+      "LDL 상승만 발생",
+      "심박수 증가만 발생",
+      "항혈소판 효과 소실",
+      "중추신경 억제와 호흡억제 위험 증가"
+    ],
+    "answer": 3,
+    "explain": "오피오이드 등 중추신경 억제제 병용 시 진정과 호흡억제 위험이 증가할 수 있습니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서"
+  },
+  {
+    "id": 116,
+    "drug": "리리카",
+    "q": "프레가발린의 이름과 구조로 인해 생길 수 있는 오해를 바로잡는 설명은?",
+    "options": [
+      "GABA 수용체에 직접 작용하는 약물로 설명하면 부정확하다",
+      "GABA 수용체를 직접 활성화하는 것이 주기전이다",
+      "COX-2를 선택적으로 차단한다",
+      "HMG-CoA 환원효소를 억제한다"
+    ],
+    "answer": 0,
+    "explain": "프레가발린의 표적은 α2δ 소단위이며 GABA 수용체에 직접 작용하는 약물로 설명하지 않습니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서"
+  },
+  {
+    "id": 117,
+    "drug": "리리카",
+    "q": "프레가발린 치료 중 얼굴·입술·혀 부종과 호흡곤란이 발생했다. 우선 대응은?",
+    "options": [
+      "다음 정기 방문까지 관찰",
+      "혈관부종 가능성을 고려하여 즉시 응급 평가를 받는다",
+      "효과가 좋다는 신호로 안내",
+      "운전하여 장거리 이동하도록 권한다"
+    ],
+    "answer": 1,
+    "explain": "얼굴이나 혀의 부종과 호흡곤란은 응급 평가가 필요한 혈관부종의 신호일 수 있습니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서"
+  },
+  {
+    "id": 118,
+    "drug": "쎄레브렉스",
+    "q": "세레콕시브의 COX-2 선택성과 위장관 안전성에 대한 설명으로 옳은 것은?",
+    "options": [
+      "위장관 출혈 위험이 완전히 사라진다",
+      "항응고제 병용 시 출혈 평가가 불필요하다",
+      "선택적 억제제여도 위장관 궤양·출혈 위험은 남는다",
+      "위장관 위험은 투여기간과 무관하다"
+    ],
+    "answer": 2,
+    "explain": "COX-2 선택성이 위장관 궤양이나 출혈 위험을 없애지는 않습니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서"
+  },
+  {
+    "id": 119,
+    "drug": "쎄레브렉스",
+    "q": "세레콕시브와 항응고제를 병용하는 환자에서 특히 확인할 사항은?",
+    "options": [
+      "청력 향상 여부",
+      "LDL 감소 정도만 확인",
+      "졸음이 없으면 모든 위험 배제",
+      "출혈 징후와 병용에 따른 출혈 위험"
+    ],
+    "answer": 3,
+    "explain": "항응고제와 NSAID 병용 시 출혈 위험을 검토하고 출혈 징후를 관찰합니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서"
+  },
+  {
+    "id": 120,
+    "drug": "쎄레브렉스",
+    "q": "탈수 상태이거나 신기능이 저하된 환자에서 NSAID 사용 시 주의하는 이유는?",
+    "options": [
+      "신장 프로스타글란딘 억제로 신장 관류가 악화될 수 있다",
+      "신장 혈류가 항상 증가한다",
+      "프레가발린으로 전환되기 때문이다",
+      "장내 콜레스테롤 흡수를 늘리기 때문이다"
+    ],
+    "answer": 0,
+    "explain": "NSAID의 프로스타글란딘 억제는 위험 환자에서 신장 혈류와 신기능에 영향을 줄 수 있습니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서"
+  },
+  {
+    "id": 121,
+    "drug": "쎄레브렉스",
+    "q": "세레콕시브의 사용 원칙으로 가장 적절한 것은?",
+    "options": [
+      "효과와 관계없이 최고 용량을 장기간 유지한다",
+      "개별 위험을 고려해 효과가 있는 최소 용량을 필요한 최단기간 사용한다",
+      "다른 NSAID를 항상 추가한다",
+      "COX-2 선택성이 있으므로 심혈관 위험은 고려하지 않는다"
+    ],
+    "answer": 1,
+    "explain": "NSAID는 개인의 위험을 평가하여 유효한 최소 용량과 필요한 최단기간을 고려합니다.",
+    "level": "응용",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "reviewed": "2026-10-20",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서"
+  }
 ];
 
-// 다른 스크립트에서 접근 가능하도록 전역에 노출
 window.QUESTION_BANK = QUESTION_BANK;

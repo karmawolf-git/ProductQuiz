@@ -527,7 +527,7 @@
   }
 
   function sourceLink(q) {
-    return q.source ? `<br><a href="${escapeHtml(q.source)}" target="_blank" rel="noopener noreferrer">성분 참고자료 (해외 허가정보)</a> · 확인 ${q.reviewed}` : "";
+    return q.source ? `<br><a href="${escapeHtml(q.source)}" target="_blank" rel="noopener noreferrer">${escapeHtml(q.sourceName || "국내 제품설명서")} (PDF)</a><br><small>국내 허가사항 · 비아트리스 코리아 제공 · 자료 확인 ${escapeHtml(q.reviewed)}</small>` : "";
   }
 
   function recordAnswer(q, choice) {
