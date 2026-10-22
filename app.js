@@ -186,6 +186,7 @@
   let practiceActive = !!state.practice;
   let activeView = practiceActive ? "practice" : "daily";
   function session() { return isPractice() ? state.practice : state.today; }
+  function isScoredPractice() { return isPractice() && (state.practice.scoreEligible ?? state.practice.label.endsWith(" 연습")); }
   function isPractice() { return !!(practiceActive && state.practice); }
 
 
@@ -428,7 +429,7 @@
       `<strong>${isCorrect ? "정답입니다! ✅" : "오답입니다. ❌"}</strong><br>` +
       escapeHtml(q.explain) + sourceLink(q);
     dom.nextBtn.hidden = false;
-    el("answer-note").textContent = isPractice() ? "연습은 포인트에 반영되지 않습니다." : "정답당 20P · 일일 퀴즈 완료 시 적립";
+    el("answer-note").textContent = isPractice() ? (isScoredPractice() ? "정답당 20P · 연습 완료 시 내 점수에 적립" : "오답 다시 풀기는 포인트에 반영되지 않습니다.") : "정답당 20P · 일일 퀴즈 완료 시 적립";
     dom.nextBtn.textContent =
       i + 1 >= questions.length ? "결과 보기" : "다음 문제";
   }
@@ -460,6 +461,8 @@
   function finishDay(questions) {
     if (session().finished) return;
     if (isPractice()) {
+      state.practice.earned = isScoredPractice() ? state.practice.correctCount * POINTS_PER_CORRECT : 0;
+      state.points += state.practice.earned;
       state.practice.finished = true;
       saveState();
       render();
@@ -511,14 +514,14 @@
       : "오늘 학습 완료! 👏";
     dom.doneSummary.textContent = `${total}문제 중 ${correct}문제 정답`;
 
-    dom.doneEarned.hidden = isPractice();
+    dom.doneEarned.hidden = isPractice() && session().earned == null;
     document.querySelector(".come-back").textContent = isPractice() ? "다른 제품이나 오답을 연습하거나 일일 퀴즈로 돌아가세요." : "내일 새로운 5문제가 기다리고 있어요. 👋";
     const parts = [`정답 ${correct}×${POINTS_PER_CORRECT}`];
     if (session().perfect) parts.push(`올클리어 보너스 +${PERFECT_BONUS}`);
     if (session().streakBonus > 0)
       parts.push(`스트릭 보너스 +${session().streakBonus}`);
     dom.doneEarned.innerHTML =
-      `<div class="earned-big">+${session().earned} 포인트 획득</div>` +
+      `<div class="earned-big">+${session().earned || 0} 포인트 획득</div>` +
       `<div class="earned-detail">${parts.join(" · ")}</div>` +
       `<div class="earned-detail">현재 연속 학습 ${state.streak}일 · 누적 ${state.points.toLocaleString()}포인트</div>`;
 
@@ -568,12 +571,12 @@
     }
   }
 
-  function startPractice(ids, label) {
+  function startPractice(ids, label, scoreEligible = false) {
     if (!ids.length) return;
     practiceActive = true;
     activeView = "practice";
     state.practice = {questionIds: ids, label, date: todayKey(), index: 0,
-      answers: [], correctCount: 0, finished: false};
+      answers: [], correctCount: 0, finished: false, scoreEligible};
     saveState();
     render();
     dom.quizCard.scrollIntoView({behavior: "smooth", block: "start"});
@@ -637,7 +640,7 @@
   el("practice-start").addEventListener("click", () => {
     const drug = el("practice-product").value;
     const ids = practicePool(drug).map(q => q.id);
-    startPractice(seededShuffle(ids, Date.now()), (drug || "전체 제품") + " 연습");
+    startPractice(seededShuffle(ids, Date.now()), (drug || "전체 제품") + " 연습", true);
   });
   el("retry-all").addEventListener("click", () => startPractice(
     bank.filter(q => state.mistakes?.[q.id] && !state.mistakes[q.id].resolved).map(q => q.id), "미해결 오답 다시 풀기"));
@@ -692,7 +695,7 @@
     if (!button) return;
     const drug = button.dataset.practiceDrug;
     const ids = practicePool(drug).map(q => q.id);
-    startPractice(seededShuffle(ids, Date.now()), drug + " 연습");
+    startPractice(seededShuffle(ids, Date.now()), drug + " 연습", true);
   });
   el("practice-back").addEventListener("click", () => navigate("practice"));
   el("resume-practice").addEventListener("click", () => {
