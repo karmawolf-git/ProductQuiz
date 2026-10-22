@@ -760,9 +760,18 @@
     });
   }
 
-  el("guideline-catalog").innerHTML = Object.values(window.GUIDELINE_SOURCES || {}).map(guide =>
-    `<article class="guideline-entry"><a href="${escapeHtml(guide.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(guide.title)}</a><p class="mode-note">${escapeHtml(guide.issuer)} · ${escapeHtml(guide.edition)}<br>${escapeHtml(guide.scope)}<br>${escapeHtml(guide.status)} · 확인 ${escapeHtml(guide.checked)}</p></article>`
-  ).join("");
+  const guidelineSources = window.GUIDELINE_SOURCES || {};
+  const guidelineGroups = [["리피토", "리피토플러스"], ["노바스크"], ["리리카"], ["쎄레브렉스"]];
+  el("guideline-summary").textContent = Object.keys(guidelineSources).length + "개 지침 · " + bank.filter(q => q.kind === "guideline").length + "문제";
+  el("guideline-catalog").innerHTML = guidelineGroups.map(products => {
+    const questions = bank.filter(q => q.kind === "guideline" && products.includes(q.drug));
+    const ids = [...new Set(questions.map(q => q.guidelineId))];
+    return '<section class="guideline-group"><div class="section-heading"><h3>' + products.map(escapeHtml).join(" · ") + '</h3><span class="eyebrow">' + questions.length + '문제</span></div><div class="guideline-grid">' + ids.map(id => {
+      const guide = guidelineSources[id];
+      const count = questions.filter(q => q.guidelineId === id).length;
+      return '<article class="guideline-entry"><span class="guideline-badge">' + escapeHtml(guide.edition) + ' · ' + count + '문제</span><h4>' + escapeHtml(guide.title) + '</h4><dl><dt>발행</dt><dd>' + escapeHtml(guide.issuer) + '</dd><dt>적용</dt><dd>' + escapeHtml(guide.scope) + '</dd><dt>원문</dt><dd>' + escapeHtml(guide.language || "국문 · 국내 학회") + '</dd><dt>확인일</dt><dd>' + escapeHtml(guide.checked) + '</dd></dl><p class="mode-note">' + escapeHtml(guide.status) + '</p>' + (guide.note ? '<p class="mode-note">' + escapeHtml(guide.note) + '</p>' : '') + '<a href="' + escapeHtml(guide.url) + '" target="_blank" rel="noopener noreferrer">원문 보기 ↗<span class="sr-only"> · ' + escapeHtml(guide.title) + '</span></a></article>';
+    }).join("") + '</div></section>';
+  }).join("");
 
   // 첫 렌더
   render();

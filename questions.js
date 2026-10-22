@@ -1,9 +1,3 @@
-/*
- * 제품별 14문제, 총 70문제: 기존 50문제 + 국내 진료지침 적용 20문제.
- * source는 국내 제품설명서, guidelineId는 별도의 진료지침 근거를 가리킵니다.
- * 지침 판본과 공개 현황은 2026-10-20 기준 확인. 자동 갱신되지 않습니다.
- * 기존 문제 ID 및 정답 인덱스는 저장 기록 호환성을 위해 유지합니다.
- */
 const QUESTION_BANK = [
   {
     "id": 1,
@@ -1226,6 +1220,326 @@ const QUESTION_BANK = [
     "reviewed": "2026-10-20",
     "guidelineId": "ulcer2020",
     "guidelineSection": "본론 권고 3"
+  },
+  {
+    "id": 300,
+    "drug": "리리카",
+    "q": "이 지침이 다루는 난치성 대상포진 후 신경통의 범위는?",
+    "options": [
+      "발진 당일의 경미한 통증",
+      "1차 치료에도 발진 후 1개월 넘게 NRS 4 이상",
+      "무증상 대상포진",
+      "모든 급성 요통"
+    ],
+    "answer": 1,
+    "explain": "이 지침의 대상 범위이며, 일반적인 PHN 정의와 구분합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "phn2026",
+    "guidelineSection": "대상 환자"
+  },
+  {
+    "id": 301,
+    "drug": "리리카",
+    "q": "프레가발린 등 1차 치료에도 통증이 지속될 때 적절한 접근은?",
+    "options": [
+      "무조건 동일 용량 유지",
+      "모든 약물 즉시 중단",
+      "반응·위험을 재평가해 추가 치료 검토",
+      "강한 오피오이드 일괄 전환"
+    ],
+    "answer": 2,
+    "explain": "난치성 통증은 추가 치료의 이득과 위해를 개별 평가합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "phn2026",
+    "guidelineSection": "서론 · 1차 치료"
+  },
+  {
+    "id": 302,
+    "drug": "리리카",
+    "q": "트라마돌 추가 권고의 해석은?",
+    "options": [
+      "모든 환자에게 필수",
+      "고확실성 근거의 일률적 치료",
+      "이상반응 평가 불필요",
+      "매우 낮은 근거 확실성의 조건부 선택"
+    ],
+    "answer": 3,
+    "explain": "부작용과 환자 상황을 함께 고려하는 선택적 치료입니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "phn2026",
+    "guidelineSection": "권고 1"
+  },
+  {
+    "id": 303,
+    "drug": "리리카",
+    "q": "강한 오피오이드 사용 원칙은?",
+    "options": [
+      "대안 부족 시 단기·제한적 사용과 면밀한 감시",
+      "장기 일차 치료",
+      "의존 위험 평가 생략",
+      "통증 강도와 무관하게 처방"
+    ],
+    "answer": 0,
+    "explain": "다른 치료 반응과 중독 위험을 평가해야 합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "phn2026",
+    "guidelineSection": "권고 2"
+  },
+  {
+    "id": 304,
+    "drug": "리리카",
+    "q": "경막외 차단술을 검토할 때 필요한 조건은?",
+    "options": [
+      "환자 동의 생략",
+      "숙련된 시술자·적절한 시설·설명과 동의",
+      "모든 환자 일괄 시행",
+      "금기 확인 생략"
+    ],
+    "answer": 1,
+    "explain": "시술 위험과 금기를 확인하는 조건부 선택입니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "phn2026",
+    "guidelineSection": "권고 3"
+  },
+  {
+    "id": 305,
+    "drug": "리리카",
+    "q": "척추주위 차단술에서 강조하는 안전 요소는?",
+    "options": [
+      "영상 없이 반복",
+      "자가 시술",
+      "영상 유도",
+      "통증 평가 생략"
+    ],
+    "answer": 2,
+    "explain": "정확한 위치 확인과 안전을 위해 영상 유도가 필수적입니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "phn2026",
+    "guidelineSection": "권고 5-2"
+  },
+  {
+    "id": 306,
+    "drug": "리리카",
+    "q": "PHN의 보툴리눔독소 A 피하주사에 대한 올바른 설명은?",
+    "options": [
+      "국내 PHN 적응증 허가가 완료됐다",
+      "모든 환자 필수 치료다",
+      "국내 허가 확인이 필요 없다",
+      "조건부 권고와 별개로 국내 PHN 적응증 미허가다"
+    ],
+    "answer": 3,
+    "explain": "지침 권고와 국내 적응증 허가는 구분해야 합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "phn2026",
+    "guidelineSection": "권고 5-1"
+  },
+  {
+    "id": 307,
+    "drug": "리리카",
+    "q": "척수자극술을 검토할 상황은?",
+    "options": [
+      "다른 치료에도 지속되는 통증에서 전문성·비용 등을 평가",
+      "모든 환자의 첫 치료",
+      "증상 소실 후 일괄 시행",
+      "시설과 무관한 자가 치료"
+    ],
+    "answer": 0,
+    "explain": "난치성 환자에서 자원과 위험을 고려하는 조건부 선택입니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "phn2026",
+    "guidelineSection": "권고 7"
+  },
+  {
+    "id": 308,
+    "drug": "쎄레브렉스",
+    "q": "활동성 축성척추관절염의 일차 약물치료는?",
+    "options": [
+      "항생제",
+      "NSAID",
+      "스타틴",
+      "항히스타민제"
+    ],
+    "answer": 1,
+    "explain": "NSAID 계열 권고이며 특정 제품의 우월성을 뜻하지 않습니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "axspa2026",
+    "guidelineSection": "권고 6"
+  },
+  {
+    "id": 309,
+    "drug": "쎄레브렉스",
+    "q": "치료목표 기반 접근(T2T)의 목적은?",
+    "options": [
+      "통증 점수만 기록",
+      "영상 검사만 반복",
+      "질병 활성도의 효과적인 조절",
+      "모든 약제 중단"
+    ],
+    "answer": 2,
+    "explain": "목표를 정하고 질병 활성도를 평가하는 조건부 권고입니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "axspa2026",
+    "guidelineSection": "권고 1"
+  },
+  {
+    "id": 310,
+    "drug": "쎄레브렉스",
+    "q": "질병 활성도 평가와 구조적 진행 예측에서 우선 제안하는 지표는?",
+    "options": [
+      "BMI",
+      "LDL-C",
+      "공복혈당",
+      "ASDAS"
+    ],
+    "answer": 3,
+    "explain": "이 목적에서는 BASDAI보다 ASDAS 사용을 제안합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "axspa2026",
+    "guidelineSection": "권고 2"
+  },
+  {
+    "id": 311,
+    "drug": "쎄레브렉스",
+    "q": "비약물 관리에서 권고하는 것은?",
+    "options": [
+      "규칙적인 운동",
+      "장기간 절대 안정",
+      "운동 전면 금지",
+      "증상과 무관한 침상 생활"
+    ],
+    "answer": 0,
+    "explain": "운동은 질병 활성도와 신체 기능 개선을 위해 권고합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "axspa2026",
+    "guidelineSection": "권고 4-2"
+  },
+  {
+    "id": 312,
+    "drug": "쎄레브렉스",
+    "q": "구조적 척추 진행과 강직 위험 감소를 위한 권고는?",
+    "options": [
+      "흡연 지속",
+      "금연",
+      "음주 증가",
+      "활동 제한"
+    ],
+    "answer": 1,
+    "explain": "금연은 강한 권고이나 근거 확실성은 매우 낮습니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "axspa2026",
+    "guidelineSection": "권고 4-1"
+  },
+  {
+    "id": 313,
+    "drug": "쎄레브렉스",
+    "q": "NSAID 등 최적 치료에도 통증이 남으면 추가 진통제는?",
+    "options": [
+      "모든 환자 필수",
+      "질병 활성도 평가 대체",
+      "선택적으로 검토하는 조건부 치료",
+      "무조건 고용량 병용"
+    ],
+    "answer": 2,
+    "explain": "대증 치료의 한계와 이상반응을 고려합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "axspa2026",
+    "guidelineSection": "권고 7"
+  },
+  {
+    "id": 314,
+    "drug": "쎄레브렉스",
+    "q": "전신 글루코코르티코이드에 대한 권고는?",
+    "options": [
+      "항상 일차 치료",
+      "모든 환자 장기 유지",
+      "NSAID 대신 일괄 사용",
+      "일반적으로 사용을 권고하지 않음"
+    ],
+    "answer": 3,
+    "explain": "국소 주사에 대한 별도 권고와 구분해야 합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "axspa2026",
+    "guidelineSection": "권고 8"
+  },
+  {
+    "id": 315,
+    "drug": "쎄레브렉스",
+    "q": "bDMARD 또는 JAK 억제제 사용 시 필요한 것은?",
+    "options": [
+      "치료 전 선별검사와 감염·결핵·검사실 추적",
+      "감염 감시 생략",
+      "증상만으로 안전성 판단",
+      "치료 전 검사 일괄 생략"
+    ],
+    "answer": 0,
+    "explain": "치료 관련 이상반응을 조기에 발견하기 위한 권고입니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/celebrex100mg-200mg_20250602.pdf",
+    "sourceName": "쎄레브렉스캡슐 100·200mg 국내 제품설명서",
+    "reviewed": "2026-10-22",
+    "guidelineId": "axspa2026",
+    "guidelineSection": "권고 20"
   }
 ];
 
@@ -1266,5 +1580,27 @@ window.GUIDELINE_SOURCES = {
     "checked": "2026-10-20",
     "scope": "장기 NSAID 치료의 위장관·심혈관 위험 평가",
     "status": "확인된 공개 개정판: 2020년. 해당 주제의 후속 국내 개정판은 확인되지 않음"
+  },
+  "phn2026": {
+    "title": "난치성 대상포진 후 신경통 진료지침",
+    "edition": "2026년판",
+    "issuer": "대한통증학회",
+    "url": "https://www.epain.org/journal/view.html?doi=10.3344/kjp.25161",
+    "checked": "2026-10-22",
+    "scope": "1차 치료에 반응하지 않는 대상포진 후 신경통의 추가 치료",
+    "status": "2026-04-01 발행 · 국내 학회 영문 지침",
+    "language": "영문 · 국내 학회",
+    "note": "프레가발린 단독 지침이 아닙니다. 추가 시술·약물의 권고와 국내 허가 범위를 구분합니다."
+  },
+  "axspa2026": {
+    "title": "축성척추관절염 치료 권고",
+    "edition": "2026년 개정판",
+    "issuer": "대한류마티스학회",
+    "url": "https://www.kjim.org/journal/view.php?number=171179",
+    "checked": "2026-10-22",
+    "scope": "강직척추염을 포함한 축성척추관절염의 약물·비약물 치료",
+    "status": "2026-10-01 발행 · 국내 학회 영문 지침",
+    "language": "영문 · 국내 학회",
+    "note": "NSAID 계열 및 질환 관리 권고입니다. 쎄레브렉스의 적용 범위는 국내 허가사항을 확인합니다."
   }
 };
