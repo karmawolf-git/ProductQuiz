@@ -2300,6 +2300,86 @@ const QUESTION_BANK = [
     "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
     "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
     "reviewed": "2026-10-22"
+  },
+  {
+    "id": 600,
+    "drug": "리리카",
+    "q": "대한신경과학회지 2026 종설이 비교한 프레가발린의 NeuPSIG 일일 용량 범위 변화는?",
+    "options": [
+      "2015년 300–600 mg → 2025년 150–600 mg",
+      "2015년 150–600 mg → 2025년 600–900 mg",
+      "두 판본 모두 25–75 mg",
+      "2025년부터 모든 환자 600 mg 고정"
+    ],
+    "answer": 0,
+    "explain": "지침에 제시된 범위의 비교입니다. 실제 용량은 국내 허가사항·적응증·신기능에 따라 개별 결정합니다.",
+    "kind": "guideline",
+    "level": "지침 해설",
+    "guidelineId": "knaReview2026",
+    "guidelineSection": "본론 2.1 · 일차 치료제",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 601,
+    "drug": "리리카",
+    "q": "고령 환자의 프레가발린 치료를 평가할 때 이 종설이 강조한 방향은?",
+    "options": [
+      "1차 치료이므로 이상반응 평가 생략",
+      "낙상·어지럼·부종 등 안전성을 고려한 개별화",
+      "효과가 부족하면 위험 평가 없이 고용량",
+      "연령만으로 일률적 병용"
+    ],
+    "answer": 1,
+    "explain": "치료 효과와 안전성을 함께 검토하며 환자별 목표를 설정합니다.",
+    "kind": "guideline",
+    "level": "지침 해설",
+    "guidelineId": "knaReview2026",
+    "guidelineSection": "결론 · 안전성과 개별화",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 602,
+    "drug": "리리카",
+    "q": "종설에서 NeuPSIG의 약한 3차 권고로 설명한 rTMS 방식은?",
+    "options": [
+      "모든 부위의 저주파 자극",
+      "모든 전기 자극을 동일하게 적용",
+      "고주파 일차운동피질 자극",
+      "부위·주파수와 무관한 자극"
+    ],
+    "answer": 2,
+    "explain": "방식별 근거를 구분해야 하며 rTMS 전체의 효과로 일반화하지 않습니다.",
+    "kind": "guideline",
+    "level": "지침 해설",
+    "guidelineId": "knaReview2026",
+    "guidelineSection": "본론 3 · 신경 조절 치료",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 603,
+    "drug": "리리카",
+    "q": "2025년 분석의 NNT 추정치가 커진 사실을 이 종설은 어떻게 해석하는가?",
+    "options": [
+      "기존 약물의 효과 소실이 확정됨",
+      "모든 환자에서 치료 중단을 의미",
+      "신규 약물이 항상 우월함",
+      "연구 규모·기간·설계 변화까지 고려해야 함"
+    ],
+    "answer": 3,
+    "explain": "추정치 변화만으로 약효가 약해졌다고 단정하지 않습니다.",
+    "kind": "guideline",
+    "level": "지침 해설",
+    "guidelineId": "knaReview2026",
+    "guidelineSection": "결론 · 메타분석 결과 해석",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
   }
 ];
 
@@ -2374,5 +2454,17 @@ window.GUIDELINE_SOURCES = {
     "status": "2025년 개정 논문 · IASP 공식 해설 2026-09-02 공개",
     "language": "영문 · 국제 지침",
     "note": "국내 지침을 보완하는 국제 권고입니다. 성분·치료군 단위 권고이며 국내 제품 허가를 대체하지 않습니다. 2026년 해설은 별도 개정판이 아닙니다."
+  },
+  "knaReview2026": {
+    "title": "신경병 통증에 대한 국제통증연구학회 지침: 2015년과 2025년의 체계적 문헌 고찰 및 메타분석 비교",
+    "edition": "2026년 종설 · 지침 비교·해설",
+    "issuer": "대한신경과학회지 · 최교민 외",
+    "url": "https://www.jkna.org/m/journal/view.php?number=7170",
+    "checked": "2026-10-22",
+    "scope": "NeuPSIG 2015·2025 비교, 프레가발린 용량 범위·안전성·국내 적용",
+    "status": "2026-02-01 온라인 발행 · DOI 10.17340/jkna.2025.0056",
+    "language": "국문 · 국내 학회지 종설",
+    "type": "review",
+    "note": "독립된 대한신경과학회 진료지침이 아닌 NeuPSIG 지침의 비교·해설 논문입니다. 원 지침과 국내 제품 허가사항을 함께 확인합니다."
   }
 };

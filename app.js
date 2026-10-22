@@ -549,7 +549,7 @@
     const label = q.source ? '<div class="reference-block"><a href="' + escapeHtml(q.source) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(q.sourceName || "국내 제품설명서") + ' (PDF)</a><br><small>국내 허가사항 · 비아트리스 코리아 제공 · 자료 확인 ' + escapeHtml(q.reviewed) + '</small></div>' : "";
     const guide = (window.GUIDELINE_SOURCES || {})[q.guidelineId];
     if (!guide) return label;
-    return '<div class="reference-block guideline-reference"><b>진료지침 근거 · ' + escapeHtml(guide.edition) + '</b><br><a href="' + escapeHtml(guide.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(guide.title) + '</a><br><small>' + escapeHtml(guide.issuer) + ' · 확인 ' + escapeHtml(guide.checked) + ' · ' + escapeHtml(guide.language || '국문 · 국내 학회') + '<br>근거 위치: ' + escapeHtml(q.guidelineSection) + '</small>' + (guide.summaryUrl ? '<br><a href="' + escapeHtml(guide.summaryUrl) + '" target="_blank" rel="noopener noreferrer">IASP 공식 해설 (2026)</a>' : '') + '<p class="mode-note">지침은 성분·질환 단위 권고이며, 실제 제품 사용은 국내 허가사항을 함께 확인하세요.</p></div>' + label;
+    return '<div class="reference-block guideline-reference"><b>' + (guide.type === 'review' ? '지침 해설 근거 · ' : '진료지침 근거 · ') + escapeHtml(guide.edition) + '</b><br><a href="' + escapeHtml(guide.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(guide.title) + '</a><br><small>' + escapeHtml(guide.issuer) + ' · 확인 ' + escapeHtml(guide.checked) + ' · ' + escapeHtml(guide.language || '국문 · 국내 학회') + '<br>근거 위치: ' + escapeHtml(q.guidelineSection) + '</small>' + (guide.summaryUrl ? '<br><a href="' + escapeHtml(guide.summaryUrl) + '" target="_blank" rel="noopener noreferrer">IASP 공식 해설 (2026)</a>' : '') + '<p class="mode-note">지침은 성분·질환 단위 권고이며, 실제 제품 사용은 국내 허가사항을 함께 확인하세요.</p></div>' + label;
   }
 
   function practicePool(drug) {
@@ -605,7 +605,7 @@
       const guideCount = bank.filter(q => q.drug === drug && q.kind === "guideline").length;
       const stat = (state.productStats || {})[drug] || {answered: 0, correct: 0};
       const rate = stat.answered ? Math.round(stat.correct / stat.answered * 100) : 0;
-      return `<article class="card product-card"><div class="product-meta"><span class="drug-tag">전체 ${totalCount}문제</span><span class="eyebrow">${el("practice-topic").value === "guideline" ? `지침 ${count}문제 연습` : `지침 ${guideCount}문제 포함`}</span></div><h2>${drug}</h2><p class="mode-note">허가사항부터 진료지침 적용까지</p><div class="product-stat"><span>나의 정답률</span><b>${stat.answered ? rate + "%" : "학습 전"}</b><meter min="0" max="100" value="${rate}" aria-label="${drug} 정답률">${rate}%</meter></div><button class="btn-primary" type="button" data-practice-drug="${drug}">${drug} 연습 시작 →</button></article>`;
+      return `<article class="card product-card"><div class="product-meta"><span class="drug-tag">전체 ${totalCount}문제</span><span class="eyebrow">${el("practice-topic").value === "guideline" ? `지침·해설 ${count}문제 연습` : `지침·해설 ${guideCount}문제 포함`}</span></div><h2>${drug}</h2><p class="mode-note">허가사항부터 진료지침 적용까지</p><div class="product-stat"><span>나의 정답률</span><b>${stat.answered ? rate + "%" : "학습 전"}</b><meter min="0" max="100" value="${rate}" aria-label="${drug} 정답률">${rate}%</meter></div><button class="btn-primary" type="button" data-practice-drug="${drug}">${drug} 연습 시작 →</button></article>`;
     }).join("");
     for (const option of el("practice-product").options) {
       option.textContent = (option.value || "전체 제품") + " · " + practicePool(option.value).length + "문제";
@@ -790,7 +790,7 @@
 
   const guidelineSources = window.GUIDELINE_SOURCES || {};
   const guidelineGroups = [["리피토", "리피토플러스"], ["노바스크"], ["리리카"], ["쎄레브렉스"]];
-  el("guideline-summary").textContent = Object.keys(guidelineSources).length + "개 지침 · " + bank.filter(q => q.kind === "guideline").length + "문제";
+  el("guideline-summary").textContent = Object.values(guidelineSources).filter(g => g.type !== "review").length + "개 지침 · " + Object.values(guidelineSources).filter(g => g.type === "review").length + "개 해설 · " + bank.filter(q => q.kind === "guideline").length + "문제";
   el("guideline-catalog").innerHTML = guidelineGroups.map(products => {
     const questions = bank.filter(q => q.kind === "guideline" && products.includes(q.drug));
     const ids = [...new Set(questions.map(q => q.guidelineId))];
