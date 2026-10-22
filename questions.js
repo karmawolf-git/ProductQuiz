@@ -1540,6 +1540,606 @@ const QUESTION_BANK = [
     "reviewed": "2026-10-22",
     "guidelineId": "axspa2026",
     "guidelineSection": "권고 20"
+  },
+  {
+    "id": 400,
+    "drug": "리피토",
+    "q": "LDL-C 205 mg/dL인 성인에서 갑상선기능저하증이 확인됐다. 우선 확인할 치료 원칙은?",
+    "options": [
+      "위험도 점수만으로 투약 여부 결정",
+      "이차적 원인의 확인과 교정",
+      "HDL-C만 추적",
+      "원인 평가 없이 복합제 고정"
+    ],
+    "answer": 1,
+    "explain": "심한 LDL-C 상승에서는 갑상선질환·신증후군·약물 등 이차적 원인을 평가합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 · LDL-C 190 mg/dL 이상 (본문 42쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 401,
+    "drug": "리피토",
+    "q": "반복 검사에서 LDL-C 198 mg/dL이고 이차적 원인이 없다. 심혈관 위험인자가 적다면?",
+    "options": [
+      "생활요법만 시행하며 약물은 배제",
+      "위험인자 2개 발생 때까지 대기",
+      "위험 정도와 관계없이 스타틴 투약 권고",
+      "LDL-C 250 mg/dL 이상에서만 투약"
+    ],
+    "answer": 2,
+    "explain": "이차적 원인이 없는 LDL-C 190 mg/dL 이상은 별도의 약물치료 대상입니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 · LDL-C 190 mg/dL 이상 (본문 42쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 402,
+    "drug": "리피토",
+    "q": "스타틴 시작 후 목표 도달과 순응도를 평가할 첫 지질검사 시점은?",
+    "options": [
+      "3일 이내",
+      "매일",
+      "증상이 생길 때만",
+      "4–12주 후"
+    ],
+    "answer": 3,
+    "explain": "치료 전 검사와 치료 시작 4–12주 후 검사를 비교합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 4절 · 경과 모니터링 (본문 63쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 403,
+    "drug": "리피토",
+    "q": "스타틴 초기 반응 평가를 마친 뒤 지질검사 간격의 원칙은?",
+    "options": [
+      "위험도와 지질 강하 정도에 따라 3–12개월",
+      "모든 환자 매주",
+      "목표 도달 후 영구 중단",
+      "모든 환자 5년마다"
+    ],
+    "answer": 0,
+    "explain": "추적 간격은 환자의 심혈관 위험과 치료 반응에 맞춥니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 4절 · 경과 모니터링 (본문 63쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 404,
+    "drug": "리피토",
+    "q": "스타틴 투약 중 근육병증 증상과 CK 정상상한치의 12배 상승이 확인됐다. 지침의 조치는?",
+    "options": [
+      "같은 용량 유지하며 1년 뒤 검사",
+      "스타틴 중단 및 평가",
+      "스타틴 용량 두 배 증량",
+      "CK 대신 LDL-C만 확인"
+    ],
+    "answer": 1,
+    "explain": "근육병증 증상과 CK 10배 이상 상승에서는 투약 중단을 권고합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 4절 · 경과 모니터링 (본문 63–64쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 405,
+    "drug": "리피토",
+    "q": "스타틴 복용 후 CK가 정상상한치의 6배로 상승했다. 적절한 전략은?",
+    "options": [
+      "즉시 고용량 스타틴 교체",
+      "CK 추적 없이 영구 중단만 결정",
+      "우선 중단 후 2–6주 재검, 회복 시 변경·감량 검토",
+      "증상과 무관하게 증량"
+    ],
+    "answer": 2,
+    "explain": "CK 4–9배 상승에서는 중단과 재평가 후 재투여 전략을 검토합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 4절 · 경과 모니터링 (본문 63–64쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 406,
+    "drug": "리피토",
+    "q": "ASCVD가 없는 2형 당뇨병 환자의 유병기간이 12년이다. 기본 권고 LDL-C 목표는?",
+    "options": [
+      "100 mg/dL 미만만 충족",
+      "130 mg/dL 미만",
+      "160 mg/dL 미만",
+      "70 mg/dL 미만 및 기저치보다 50% 이상 감소"
+    ],
+    "answer": 3,
+    "explain": "유병기간 10년 이상의 2형 당뇨병은 강화된 기본 목표에 해당합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 · 당뇨병군 권고 (본문 41쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 407,
+    "drug": "리피토",
+    "q": "총콜레스테롤 210, HDL-C 45 mg/dL일 때 non-HDL-C는?",
+    "options": [
+      "165 mg/dL",
+      "255 mg/dL",
+      "45 mg/dL",
+      "계산에 LDL-C가 반드시 필요"
+    ],
+    "answer": 0,
+    "explain": "non-HDL-C는 총콜레스테롤에서 HDL-C를 뺀 값입니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 3절 · 고중성지방혈증 (본문 54쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 408,
+    "drug": "리피토",
+    "q": "ASCVD와 주요 위험인자가 없는 가족성고콜레스테롤혈증 성인의 LDL-C 목표는?",
+    "options": [
+      "100 mg/dL 미만이면 충분",
+      "70 mg/dL 미만 및 기저치보다 50% 이상 감소",
+      "160 mg/dL 미만",
+      "감소율만 평가하고 절대 수치는 제외"
+    ],
+    "answer": 1,
+    "explain": "가족성고콜레스테롤혈증 성인은 일반 저위험군과 다른 목표를 적용합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 · 가족성고콜레스테롤혈증 권고 (본문 41쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 409,
+    "drug": "리피토",
+    "q": "중등도·저위험군에서 스타틴 사용 결정이 불확실하다. 추가 위험 평가에 활용할 수 있는 검사는?",
+    "options": [
+      "흉부 X선의 심장 크기만 평가",
+      "혈중 나트륨만 평가",
+      "관상동맥칼슘 점수",
+      "간효소 수치로 심혈관 위험 대체"
+    ],
+    "answer": 2,
+    "explain": "관상동맥칼슘 점수에 따른 위험 정보를 스타틴 사용 결정에 활용할 수 있습니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 · 중등도위험군 권고 (본문 42쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
+    "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 410,
+    "drug": "리피토플러스",
+    "q": "스타틴 처방 중 LDL-C 목표 미달인데 복약 누락이 잦다. 병용 강화 전 우선 할 일은?",
+    "options": [
+      "복약 여부와 무관하게 최대 용량 고정",
+      "HDL-C 상승만 확인",
+      "모든 지질치료 중단",
+      "순응도·생활습관·이차성 원인 평가"
+    ],
+    "answer": 3,
+    "explain": "목표 미달에서는 치료 이행과 교정 가능한 원인을 먼저 확인합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "4장 1절 · 약물치료 전략 (본문 111쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 411,
+    "drug": "리피토플러스",
+    "q": "관상동맥질환 환자가 병용치료 후 LDL-C 120→50 mg/dL가 됐다. 두 목표의 평가는?",
+    "options": [
+      "55 미만과 50% 이상 감소를 모두 충족",
+      "절대 목표만 충족",
+      "감소율만 충족",
+      "두 기준 모두 미달"
+    ],
+    "answer": 0,
+    "explain": "감소율은 약 58%이며 절대 수치와 감소율을 모두 충족합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 · 관상동맥질환군 권고 (본문 40–41쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 412,
+    "drug": "리피토플러스",
+    "q": "관상동맥질환 환자가 LDL-C 90→50 mg/dL가 됐다. 목표 달성 평가는?",
+    "options": [
+      "감소율만 충족",
+      "55 미만이나 감소율 약 44%로 이중 목표 미충족",
+      "두 기준 모두 충족",
+      "절대 수치도 미달"
+    ],
+    "answer": 1,
+    "explain": "절대 수치가 낮아도 기저치 대비 감소율을 따로 확인해야 합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 · 관상동맥질환군 권고 (본문 40–41쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 413,
+    "drug": "리피토플러스",
+    "q": "중성지방 300 mg/dL이고 LDL-C 목표가 70 mg/dL 미만인 환자의 non-HDL-C 목표는?",
+    "options": [
+      "70 mg/dL 미만으로 동일",
+      "130 mg/dL 미만",
+      "100 mg/dL 미만",
+      "non-HDL-C 목표는 설정 불가"
+    ],
+    "answer": 2,
+    "explain": "non-HDL-C 목표는 해당 LDL-C 목표보다 30 mg/dL 높게 설정합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 3절 · 고중성지방혈증 (본문 54쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 414,
+    "drug": "리피토플러스",
+    "q": "ASCVD는 없지만 표적장기손상이 있는 당뇨병 환자에서 추가 심혈관 사건 예방을 위해 선택적으로 고려하는 LDL-C 목표는?",
+    "options": [
+      "160 mg/dL 미만",
+      "130 mg/dL 미만",
+      "100 mg/dL 미만만 유지",
+      "55 mg/dL 미만 및 기저치보다 50% 이상 감소"
+    ],
+    "answer": 3,
+    "explain": "2026 지침은 이 고위험 상황에서 더 낮은 목표를 선택적으로 고려하도록 합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 · 당뇨병군 권고 (본문 41쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 415,
+    "drug": "리피토플러스",
+    "q": "ASCVD를 동반한 가족성고콜레스테롤혈증 성인에서 병용치료를 조정할 때 고려하는 LDL-C 목표는?",
+    "options": [
+      "55 mg/dL 미만 및 기저치보다 50% 이상 감소",
+      "100 mg/dL 미만만 유지",
+      "130 mg/dL 미만",
+      "생활요법 전 수치로만 위험 판단"
+    ],
+    "answer": 0,
+    "explain": "ASCVD나 주요 위험인자가 있는 성인 FH에서는 강화된 목표를 고려합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 · 가족성고콜레스테롤혈증 권고 (본문 41쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 416,
+    "drug": "리피토플러스",
+    "q": "55세, eGFR 45 mL/min/1.73m²이며 투석 전인 만성콩팥병 환자의 지질치료 선택으로 지침에 부합하는 것은?",
+    "options": [
+      "콩팥병이면 모든 스타틴 금기",
+      "스타틴 단독 또는 스타틴·에제티미브 병용",
+      "에제티미브를 반드시 제외",
+      "LDL-C와 무관하게 피브레이트만 사용"
+    ],
+    "answer": 1,
+    "explain": "50세 이상 비투석 CKD에서 스타틴 또는 스타틴·에제티미브 전략을 권고합니다. 국내 제품 허가도 확인합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "5장 4절 · 만성콩팥병 (본문 182쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 417,
+    "drug": "리피토플러스",
+    "q": "투석을 시작했지만 이전에 스타틴·에제티미브를 복용하지 않았다. 일반적인 지침 원칙은?",
+    "options": [
+      "투석 시작과 동시에 모든 환자 신규 병용",
+      "투석 전후와 무관하게 반드시 고용량",
+      "투석 환자의 일률적 신규 시작은 권고하지 않음",
+      "기존 복용자도 무조건 중단"
+    ],
+    "answer": 2,
+    "explain": "투석 환자의 신규 시작과 투석 전부터 복용하던 치료의 지속은 구분합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "5장 4절 · 투석 환자 (본문 183쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 418,
+    "drug": "리피토플러스",
+    "q": "죽상경화성 질환과 위험요인을 동반한 허혈뇌졸중 환자에서 최대 가용 스타틴·에제티미브에도 LDL-C 82 mg/dL이다. 검토할 전략은?",
+    "options": [
+      "지질약 모두 중단",
+      "관상동맥질환이 없으므로 강화 금지",
+      "HDL-C만 추적",
+      "PCSK9 억제제 추가 고려"
+    ],
+    "answer": 3,
+    "explain": "해당 환자군에서 병용에도 LDL-C 70 mg/dL 미만에 도달하지 못하면 추가를 고려합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "5장 2절 · 뇌졸중과 이상지질혈증 (본문 166쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 419,
+    "drug": "리피토플러스",
+    "q": "스타틴 불내성이 확인된 환자에게 스타틴 함유 복합제를 검토할 때 올바른 판단은?",
+    "options": [
+      "에제티미브 포함만으로 스타틴 불내성이 해결된다고 보지 않음",
+      "모든 스타틴 함유 복합제가 자동으로 안전",
+      "스타틴 용량과 무관하게 즉시 최대 용량",
+      "모든 비스타틴 약제를 금기 처리"
+    ],
+    "answer": 0,
+    "explain": "지침은 불내성을 평가하고 에제티미브 등 비스타틴 대안을 검토합니다. 스타틴 함유 여부를 확인합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "4장 1절 · 스타틴 불내성 치료 전략 (본문 111–112쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
+    "sourceName": "리피토플러스정 10/10·10/20·10/40mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 420,
+    "drug": "노바스크",
+    "q": "진료실혈압 측정 오류를 줄이는 방법은?",
+    "options": [
+      "계단을 오른 직후 한 번 측정",
+      "5분 안정 후 팔둘레에 맞는 커프를 심장 높이로 유지",
+      "팔을 아래로 늘어뜨리고 작은 커프 사용",
+      "측정 중 대화하며 가장 낮은 값만 기록"
+    ],
+    "answer": 1,
+    "explain": "검증된 기기와 표준 자세로 반복 측정합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "hypertension2026",
+    "guidelineSection": "8.3.1절 · 표준 혈압 측정법 · 권고 2 (38쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 421,
+    "drug": "노바스크",
+    "q": "첫 방문에서 양팔 수축기혈압 차이가 반복해서 15 mmHg다. 이후 기준 팔은?",
+    "options": [
+      "항상 왼팔",
+      "항상 더 낮은 팔",
+      "더 높은 혈압이 측정되는 팔",
+      "양팔 값과 무관하게 번갈아 임의 선택"
+    ],
+    "answer": 2,
+    "explain": "처음에는 양팔을 확인하고 이후 더 높은 팔을 기준으로 합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "hypertension2026",
+    "guidelineSection": "8.3.1절 · 권고 2 (38쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 422,
+    "drug": "노바스크",
+    "q": "혈압약을 복용하지 않는 환자의 진료실혈압 150/94, 가정혈압 평균 126/78 mmHg다. 의심할 표현형은?",
+    "options": [
+      "가면고혈압",
+      "지속성고혈압",
+      "정상혈압으로 확정",
+      "백의고혈압"
+    ],
+    "answer": 3,
+    "explain": "진료실에서만 높은 패턴은 진료실 밖 측정으로 확인합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "hypertension2026",
+    "guidelineSection": "13.1.1절 · 권고 39 (101쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 423,
+    "drug": "노바스크",
+    "q": "미치료 환자의 진료실혈압 128/78, 가정혈압 평균 142/90 mmHg다. 의심할 표현형은?",
+    "options": [
+      "가면고혈압",
+      "백의고혈압",
+      "모두 정상",
+      "백의비조절고혈압"
+    ],
+    "answer": 0,
+    "explain": "진료실 밖 혈압이 높을 수 있으므로 진료실 수치만으로 배제하지 않습니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "hypertension2026",
+    "guidelineSection": "13.1.1절 · 권고 39 (101쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 424,
+    "drug": "노바스크",
+    "q": "CCB 단독에 일부 반응하지만 목표혈압에 도달하지 못했다. 일반적인 다음 전략은?",
+    "options": [
+      "동일 약제 증량만 반복",
+      "다른 기전 약제의 저용량 병용 검토",
+      "치료 효과가 조금이라도 있으면 추적 중단",
+      "다른 CCB만 중복 추가"
+    ],
+    "answer": 1,
+    "explain": "서로 다른 기전의 저용량 병용은 효과와 지속성을 높이고 부작용을 줄일 수 있습니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "hypertension2026",
+    "guidelineSection": "12.3절 · 병용 요법 (89–90쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 425,
+    "drug": "노바스크",
+    "q": "RAS 억제제와 CCB의 2제 요법으로도 조절이 불충분할 때 대표적인 3제 조합은?",
+    "options": [
+      "ACE 억제제+ARB+CCB",
+      "CCB 3종",
+      "RAS 억제제+CCB+이뇨제",
+      "ARB 2종+CCB"
+    ],
+    "answer": 2,
+    "explain": "표준 3제 병용은 서로 다른 기전의 RAS 억제제·CCB·이뇨제를 포함합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "hypertension2026",
+    "guidelineSection": "12.3절 · 병용 요법 (90쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 426,
+    "drug": "노바스크",
+    "q": "단백뇨가 있는 환자에서 ACE 억제제와 ARB를 동시에 추가하려 한다. 적절한 판단은?",
+    "options": [
+      "단백뇨가 있으면 항상 우선 조합",
+      "신기능 검사 없이 병용",
+      "동일 기전이므로 이상반응 감소",
+      "콩팥기능 악화 위험 때문에 병용 회피"
+    ],
+    "answer": 3,
+    "explain": "ACE 억제제와 ARB의 이중 RAS 차단은 권장되지 않습니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "hypertension2026",
+    "guidelineSection": "12.3절 · 병용 요법 (90쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 427,
+    "drug": "노바스크",
+    "q": "CCB를 복용 중인 당뇨병·고혈압 환자에게 알부민뇨가 있다. 신장 보호를 고려한 약제 선택은?",
+    "options": [
+      "ACE 억제제 또는 ARB 검토",
+      "알부민뇨는 약제 선택과 무관",
+      "ACE 억제제와 ARB 동시 시작",
+      "CCB 사용 중이면 RAS 억제제 금지"
+    ],
+    "answer": 0,
+    "explain": "알부민뇨 동반 당뇨병에서는 ACE 억제제 또는 ARB를 권고합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "hypertension2026",
+    "guidelineSection": "13.3절 · 당뇨병 · 권고 (107–108쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 428,
+    "drug": "노바스크",
+    "q": "여러 혈압약의 잦은 복용 횟수로 누락이 반복된다. 지속성을 높이는 전략은?",
+    "options": [
+      "투여 횟수 늘리기",
+      "가능하면 1일 1회와 단일제형복합제 고려",
+      "누락 평가 없이 용량만 증량",
+      "불규칙한 격일 복용 권장"
+    ],
+    "answer": 1,
+    "explain": "복용 단순화는 치료 지속성을 높이는 전략이며 적절한 성분·용량을 선택합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "hypertension2026",
+    "guidelineSection": "12.3.1절 및 약물치료 지속성 권고 (91·100쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 429,
+    "drug": "노바스크",
+    "q": "RAS 억제제·CCB·이뇨제에도 진료실혈압이 높다. 난치성고혈압 확정 전 우선 확인할 것은?",
+    "options": [
+      "바로 시술을 예약",
+      "모든 약제 즉시 교체",
+      "치료 지속성과 진료실 밖 혈압으로 백의 효과 배제",
+      "진료실 1회 측정만으로 확정"
+    ],
+    "answer": 2,
+    "explain": "실제 복용 여부와 가정·활동혈압을 확인해 겉보기 치료 저항성을 감별합니다.",
+    "kind": "guideline",
+    "level": "가이드라인",
+    "guidelineId": "hypertension2026",
+    "guidelineSection": "12.4절 · 권고 33 (92–93쪽)",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
+    "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
   }
 ];
 
@@ -1550,7 +2150,7 @@ window.GUIDELINE_SOURCES = {
     "edition": "2026년판",
     "issuer": "한국지질·동맥경화학회",
     "url": "https://www.lipid.or.kr/reference/guideline.php?boardid=guideline&mode=view&idx=1456",
-    "checked": "2026-10-20",
+    "checked": "2026-10-22",
     "scope": "지질 강하 치료·관상동맥질환",
     "status": "학회 공개 최신판: 2026-09-10 등록"
   },
@@ -1559,7 +2159,7 @@ window.GUIDELINE_SOURCES = {
     "edition": "2026년 제6판 수정본",
     "issuer": "대한고혈압학회",
     "url": "https://www.koreanhypertension.org/reference/guide?idno=10446&mode=read",
-    "checked": "2026-10-20",
+    "checked": "2026-10-22",
     "scope": "고혈압 진단·목표혈압·병용요법",
     "status": "학회 공개 최신판: 2026-05-22 등록"
   },
