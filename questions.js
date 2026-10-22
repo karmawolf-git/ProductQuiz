@@ -2140,6 +2140,166 @@ const QUESTION_BANK = [
     "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/lld_norvasc_20240830.pdf",
     "sourceName": "노바스크정 2.5·5·10mg 국내 제품설명서",
     "reviewed": "2026-10-22"
+  },
+  {
+    "id": 500,
+    "drug": "리리카",
+    "q": "NeuPSIG 2025에서 프레가발린이 속한 α2δ 리간드의 권고 위치는?",
+    "options": [
+      "강한 사용 권고의 1차 치료",
+      "약한 권고의 2차 치료",
+      "3차 치료만 허용",
+      "사용 반대"
+    ],
+    "answer": 0,
+    "explain": "α2δ 리간드는 1차 치료군입니다. 특정 브랜드의 우월성을 뜻하지 않습니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "guidelineId": "neupsig2025",
+    "guidelineSection": "2025 논문 Findings · 1차 치료",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 501,
+    "drug": "리리카",
+    "q": "α2δ 리간드 외에 NeuPSIG가 1차 치료로 강하게 권고하는 약물군은?",
+    "options": [
+      "오피오이드·NSAID",
+      "TCA·SNRI",
+      "리도카인·캡사이신 국소제",
+      "보툴리눔독소·오피오이드"
+    ],
+    "answer": 1,
+    "explain": "TCA와 SNRI도 1차 선택지이며 환자 특성에 따라 선택합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "guidelineId": "neupsig2025",
+    "guidelineSection": "2025 논문 Findings · 1차 치료",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 502,
+    "drug": "리리카",
+    "q": "NeuPSIG 2025에서 캡사이신 8% 패치·크림과 리도카인 5% 패치의 위치는?",
+    "options": [
+      "모두 1차 강한 권고",
+      "모두 사용 반대",
+      "2차 치료의 약한 권고",
+      "모두 3차 강한 권고"
+    ],
+    "answer": 2,
+    "explain": "국소제는 2차 치료군입니다. 국내 적응증과 사용 가능 여부는 별도로 확인합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "guidelineId": "neupsig2025",
+    "guidelineSection": "2025 논문 Findings · 2차 치료",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 503,
+    "drug": "리리카",
+    "q": "반복경두개자기자극(rTMS)의 NeuPSIG 2025 권고 위치는?",
+    "options": [
+      "1차 강한 권고",
+      "2차 강한 권고",
+      "모든 환자 필수 치료",
+      "3차 치료의 약한 권고"
+    ],
+    "answer": 3,
+    "explain": "효과뿐 아니라 근거 확실성과 접근성도 치료 위치 결정에 반영됩니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "guidelineId": "neupsig2025",
+    "guidelineSection": "2025 논문 Findings · 3차 치료",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 504,
+    "drug": "리리카",
+    "q": "최신 NeuPSIG 해설에서 트라마돌을 포함한 오피오이드의 사용 원칙은?",
+    "options": [
+      "3차 선택지로 신중히 검토하고 최소 기간·면밀한 감시",
+      "일률적인 장기 1차 치료",
+      "모든 환자 정기 증량",
+      "의존 위험 평가 생략"
+    ],
+    "answer": 0,
+    "explain": "2015년 트라마돌 2차 권고와 구분합니다. 의존·오용·과량투여 위험을 평가합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "guidelineId": "neupsig2025",
+    "guidelineSection": "IASP 공식 해설 2026 · Third-Line Treatments",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 505,
+    "drug": "리리카",
+    "q": "프레가발린의 1차 치료 권고를 설명할 때 함께 다룰 안전성은?",
+    "options": [
+      "1차 약물이므로 오용 위험 없음",
+      "일부 환자의 오용·의존 위험과 공동 의사결정",
+      "효과가 있으면 안전성 평가 종료",
+      "개인 위험보다 치료 순위만 고려"
+    ],
+    "answer": 1,
+    "explain": "1차 권고라도 환자별 이득과 위험을 논의해야 합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "guidelineId": "neupsig2025",
+    "guidelineSection": "IASP 공식 해설 2026 · First-Line Treatments",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 506,
+    "drug": "리리카",
+    "q": "치료군별 NNT 숫자만으로 프레가발린보다 다른 치료가 항상 우월하다고 판단할 수 있을까?",
+    "options": [
+      "숫자가 작으면 모든 환자에서 우월",
+      "서로 다른 연구도 직접 비교시험과 동일",
+      "질환·연구 차이 때문에 단일 우열 순위를 만들 수 없음",
+      "부작용과 근거 확실성은 제외 가능"
+    ],
+    "answer": 2,
+    "explain": "다양한 질환과 연구가 포함돼 치료군 수치만으로 개인별 우열을 단정하지 않습니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "guidelineId": "neupsig2025",
+    "guidelineSection": "IASP 공식 해설 2026 · 근거 해석",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
+  },
+  {
+    "id": 507,
+    "drug": "리리카",
+    "q": "프레가발린 단독에 부분 반응한 환자의 병용치료에 대한 NeuPSIG 해석은?",
+    "options": [
+      "특정 조합이 모든 환자에서 우월",
+      "모든 병용은 절대 금기",
+      "2제를 더하면 효과가 반드시 두 배",
+      "특정 조합의 일률적 권고 근거는 부족하며 개별 검토"
+    ],
+    "answer": 3,
+    "explain": "효과와 부작용을 살피며 개별적으로 검토합니다. 부분 반응이 자동 병용 지시는 아닙니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "guidelineId": "neupsig2025",
+    "guidelineSection": "IASP 공식 해설 2026 · 병용치료 근거",
+    "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
+    "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
+    "reviewed": "2026-10-22"
   }
 ];
 
@@ -2202,5 +2362,17 @@ window.GUIDELINE_SOURCES = {
     "status": "2026-10-01 발행 · 국내 학회 영문 지침",
     "language": "영문 · 국내 학회",
     "note": "NSAID 계열 및 질환 관리 권고입니다. 쎄레브렉스의 적용 범위는 국내 허가사항을 확인합니다."
+  },
+  "neupsig2025": {
+    "title": "NeuPSIG 신경병증성 통증 치료 권고",
+    "edition": "2025년 개정 권고",
+    "issuer": "IASP 신경병증성 통증 특별관심그룹(NeuPSIG)",
+    "url": "https://doi.org/10.1016/S1474-4422(25)00068-7",
+    "summaryUrl": "https://www.iasp-pain.org/resources/fact-sheets/an-overview-of-iasps-neuropathic-pain-special-interest-group-neupsig-treatment-recommendations/",
+    "checked": "2026-10-22",
+    "scope": "성인 신경병증성 통증의 약물치료·비침습적 신경조절",
+    "status": "2025년 개정 논문 · IASP 공식 해설 2026-09-02 공개",
+    "language": "영문 · 국제 지침",
+    "note": "국내 지침을 보완하는 국제 권고입니다. 성분·치료군 단위 권고이며 국내 제품 허가를 대체하지 않습니다. 2026년 해설은 별도 개정판이 아닙니다."
   }
 };
