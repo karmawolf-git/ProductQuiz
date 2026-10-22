@@ -600,12 +600,16 @@
     }).join("");
     el("overview-product-stats").innerHTML = el("product-stats").innerHTML;
     el("product-cards").innerHTML = products.map(drug => {
+      const totalCount = bank.filter(q => q.drug === drug).length;
       const count = practicePool(drug).length;
       const guideCount = bank.filter(q => q.drug === drug && q.kind === "guideline").length;
       const stat = (state.productStats || {})[drug] || {answered: 0, correct: 0};
       const rate = stat.answered ? Math.round(stat.correct / stat.answered * 100) : 0;
-      return `<article class="card product-card"><div class="product-meta"><span class="drug-tag">${count}문제</span><span class="eyebrow">지침 ${guideCount}문제 포함</span></div><h2>${drug}</h2><p class="mode-note">허가사항부터 진료지침 적용까지</p><div class="product-stat"><span>나의 정답률</span><b>${stat.answered ? rate + "%" : "학습 전"}</b><meter min="0" max="100" value="${rate}" aria-label="${drug} 정답률">${rate}%</meter></div><button class="btn-primary" type="button" data-practice-drug="${drug}">${drug} 연습 시작 →</button></article>`;
+      return `<article class="card product-card"><div class="product-meta"><span class="drug-tag">전체 ${totalCount}문제</span><span class="eyebrow">${el("practice-topic").value === "guideline" ? `지침 ${count}문제 연습` : `지침 ${guideCount}문제 포함`}</span></div><h2>${drug}</h2><p class="mode-note">허가사항부터 진료지침 적용까지</p><div class="product-stat"><span>나의 정답률</span><b>${stat.answered ? rate + "%" : "학습 전"}</b><meter min="0" max="100" value="${rate}" aria-label="${drug} 정답률">${rate}%</meter></div><button class="btn-primary" type="button" data-practice-drug="${drug}">${drug} 연습 시작 →</button></article>`;
     }).join("");
+    for (const option of el("practice-product").options) {
+      option.textContent = (option.value || "전체 제품") + " · " + practicePool(option.value).length + "문제";
+    }
     const entries = Object.entries(state.mistakes || {}).filter(([id]) => bank.some(q => q.id === Number(id)));
     const pending = entries.filter(([,m]) => !m.resolved);
     el("mistake-count").textContent = `미해결 ${pending.length} · 복습 완료 ${entries.length - pending.length}`;
