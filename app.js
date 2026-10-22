@@ -752,7 +752,6 @@
     tierDialog.showModal();
   }
   dom.tierBadge.addEventListener("click", openTierDialog);
-  el("tier-help").addEventListener("click", openTierDialog);
   el("tier-dialog-close").addEventListener("click", () => tierDialog.close());
   tierDialog.addEventListener("click", event => {
     if (event.target !== tierDialog) return;
