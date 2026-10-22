@@ -66,13 +66,14 @@
         </div>
       </main>
       <aside class="learning-sidebar" aria-label="내 학습 요약">
-        <section class="card summary-card"><div class="section-heading"><h2>나의 학습</h2><span class="tier-badge" id="tier-badge">🥉 브론즈</span></div><div class="stats"><div class="stat"><span class="stat-label">누적 포인트</span><strong class="stat-value" id="stat-points">0</strong></div><div class="stat"><span class="stat-label">연속 학습</span><strong class="stat-value" id="stat-streak">0일</strong></div><div class="stat"><span class="stat-label">일일 퀴즈 정답률</span><strong class="stat-value" id="stat-accuracy">0%</strong></div><div class="stat"><span class="stat-label">학습 일수</span><strong class="stat-value" id="stat-days">0일</strong></div></div><div class="tier-box"><p class="tier-progress" id="tier-progress"></p><div class="tier-track"><span id="tier-fill"></span></div></div></section>
+        <section class="card summary-card"><div class="section-heading"><h2>나의 학습</h2><button type="button" class="tier-badge" id="tier-badge" aria-haspopup="dialog" aria-controls="tier-dialog" aria-label="등급 체계 보기">🥉 브론즈</button></div><div class="stats"><div class="stat"><span class="stat-label">누적 포인트</span><strong class="stat-value" id="stat-points">0</strong></div><div class="stat"><span class="stat-label">연속 학습</span><strong class="stat-value" id="stat-streak">0일</strong></div><div class="stat"><span class="stat-label">일일 퀴즈 정답률</span><strong class="stat-value" id="stat-accuracy">0%</strong></div><div class="stat"><span class="stat-label">학습 일수</span><strong class="stat-value" id="stat-days">0일</strong></div></div><div class="tier-box"><p class="tier-progress" id="tier-progress"></p><div class="tier-track"><span id="tier-fill"></span></div></div></section>
         <section class="card"><h2>제품별 정답률</h2><div id="product-stats"></div><button class="text-link" type="button" data-open-view="overview">학습 현황 자세히 보기 →</button></section>
         <section class="card review-prompt"><span class="eyebrow">오답 노트</span><h2 id="pending-title">복습할 문제가 없어요</h2><p class="mode-note" id="pending-description">오늘의 퀴즈로 제품 지식을 쌓아보세요.</p><button class="text-link" type="button" data-open-view="mistakes">오답 노트 보기 →</button></section>
       </aside>
     </div>
     <footer class="app-footer"><p>리피토 · 리피토플러스 · 노바스크 · 리리카 · 쎄레브렉스</p><p class="disclaimer">본 퀴즈는 제품 학습용 자료입니다. 실제 처방·복약 정보는 최신 허가사항 및 전문가의 판단을 따릅니다.</p></footer>
   </div>
+  <dialog id="tier-dialog" class="tier-dialog" aria-labelledby="tier-dialog-title" aria-describedby="tier-dialog-description"><div class="section-heading"><h2 id="tier-dialog-title">등급 체계</h2><button type="button" id="tier-dialog-close" class="btn-ghost" autofocus>닫기</button></div><p id="tier-dialog-description" class="mode-note">일일 퀴즈와 제품별 연습에서 쌓은 누적 포인트로 등급이 결정됩니다.</p><p id="tier-dialog-status" class="tier-dialog-status"></p><ol id="tier-list" class="tier-list"></ol></dialog>
   <script src="questions.js"></script><script src="app.js"></script>
 </body>
 </html>

@@ -738,6 +738,26 @@
     render();
   }
 
+  // 등급 기준은 실제 승급 계산과 같은 TIERS에서 표시합니다.
+  const tierDialog = el("tier-dialog");
+  dom.tierBadge.addEventListener("click", () => {
+    const current = tierForPoints(state.points);
+    const next = nextTier(state.points);
+    el("tier-dialog-status").textContent = "내 점수 " + state.points.toLocaleString() + "P · " + (next ? next.name + "까지 " + (next.min - state.points).toLocaleString() + "P" : "최고 등급 달성!");
+    el("tier-list").innerHTML = TIERS.map((tier, index) => {
+      const upper = TIERS[index + 1];
+      const range = tier.min.toLocaleString() + (upper ? "–" + (upper.min - 1).toLocaleString() + "P" : "P 이상");
+      return '<li' + (tier === current ? ' aria-current="true"' : '') + '><span class="tier-list-name">' + tier.icon + ' ' + tier.name + (tier === current ? '<small>현재 등급</small>' : '') + '</span><span>' + range + '</span></li>';
+    }).join("");
+    tierDialog.showModal();
+  });
+  el("tier-dialog-close").addEventListener("click", () => tierDialog.close());
+  tierDialog.addEventListener("click", event => {
+    if (event.target !== tierDialog) return;
+    const bounds = tierDialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) tierDialog.close();
+  });
+
   // ---------- 이벤트 바인딩 ----------
   dom.nextBtn.addEventListener("click", goNext);
   dom.profileSelect.addEventListener("change", (e) =>
