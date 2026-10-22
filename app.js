@@ -740,7 +740,7 @@
 
   // 등급 기준은 실제 승급 계산과 같은 TIERS에서 표시합니다.
   const tierDialog = el("tier-dialog");
-  dom.tierBadge.addEventListener("click", () => {
+  function openTierDialog() {
     const current = tierForPoints(state.points);
     const next = nextTier(state.points);
     el("tier-dialog-status").textContent = "내 점수 " + state.points.toLocaleString() + "P · " + (next ? next.name + "까지 " + (next.min - state.points).toLocaleString() + "P" : "최고 등급 달성!");
@@ -750,7 +750,9 @@
       return '<li' + (tier === current ? ' aria-current="true"' : '') + '><span class="tier-list-name">' + tier.icon + ' ' + tier.name + (tier === current ? '<small>현재 등급</small>' : '') + '</span><span>' + range + '</span></li>';
     }).join("");
     tierDialog.showModal();
-  });
+  }
+  dom.tierBadge.addEventListener("click", openTierDialog);
+  el("tier-help").addEventListener("click", openTierDialog);
   el("tier-dialog-close").addEventListener("click", () => tierDialog.close());
   tierDialog.addEventListener("click", event => {
     if (event.target !== tierDialog) return;
