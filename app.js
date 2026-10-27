@@ -9,7 +9,8 @@
   "use strict";
 
   const DAILY_COUNT = 5; // 하루 문제 수
-  const POINTS_PER_CORRECT = 20; // 정답당 포인트
+  const DAILY_POINTS_PER_CORRECT = 30; // 오늘의 퀴즈 정답당 포인트
+  const PRACTICE_POINTS_PER_CORRECT = 10; // 제품별 연습 정답당 포인트
   const PERFECT_BONUS = 30; // 5문제 전부 정답 보너스
   const STREAK_BONUS_PER_DAY = 5; // 스트릭 1일당 추가 보너스(상한 있음)
   const STREAK_BONUS_CAP = 50; // 스트릭 보너스 상한
@@ -429,7 +430,7 @@
       `<strong>${isCorrect ? "정답입니다! ✅" : "오답입니다. ❌"}</strong><br>` +
       escapeHtml(q.explain) + sourceLink(q);
     dom.nextBtn.hidden = false;
-    el("answer-note").textContent = isPractice() ? (isScoredPractice() ? "정답당 20P · 연습 완료 시 내 점수에 적립" : "오답 다시 풀기는 포인트에 반영되지 않습니다.") : "정답당 20P · 일일 퀴즈 완료 시 적립";
+    el("answer-note").textContent = isPractice() ? (isScoredPractice() ? `정답당 ${PRACTICE_POINTS_PER_CORRECT}P · 연습 완료 시 내 점수에 적립` : "오답 다시 풀기는 포인트에 반영되지 않습니다.") : `정답당 ${DAILY_POINTS_PER_CORRECT}P · 일일 퀴즈 완료 시 적립`;
     dom.nextBtn.textContent =
       i + 1 >= questions.length ? "결과 보기" : "다음 문제";
   }
@@ -461,7 +462,8 @@
   function finishDay(questions) {
     if (session().finished) return;
     if (isPractice()) {
-      state.practice.earned = isScoredPractice() ? state.practice.correctCount * POINTS_PER_CORRECT : 0;
+      state.practice.pointsPerCorrect = isScoredPractice() ? PRACTICE_POINTS_PER_CORRECT : 0;
+      state.practice.earned = state.practice.correctCount * state.practice.pointsPerCorrect;
       state.points += state.practice.earned;
       state.practice.finished = true;
       saveState();
@@ -478,7 +480,8 @@
     }
     if (state.streak > state.bestStreak) state.bestStreak = state.streak;
 
-    let earned = correct * POINTS_PER_CORRECT;
+    session().pointsPerCorrect = DAILY_POINTS_PER_CORRECT;
+    let earned = correct * session().pointsPerCorrect;
     if (correct === total) earned += PERFECT_BONUS;
     const streakBonus = Math.min(
       (state.streak - 1) * STREAK_BONUS_PER_DAY,
@@ -516,7 +519,8 @@
 
     dom.doneEarned.hidden = isPractice() && session().earned == null;
     document.querySelector(".come-back").textContent = isPractice() ? "다른 제품이나 오답을 연습하거나 일일 퀴즈로 돌아가세요." : "내일 새로운 5문제가 기다리고 있어요. 👋";
-    const parts = [`정답 ${correct}×${POINTS_PER_CORRECT}`];
+    const pointsPerCorrect = session().pointsPerCorrect ?? (isPractice() && !isScoredPractice() ? 0 : 20); // 이전 완료 기록은 당시 배점 유지
+    const parts = [`정답 ${correct}×${pointsPerCorrect}P`];
     if (session().perfect) parts.push(`올클리어 보너스 +${PERFECT_BONUS}`);
     if (session().streakBonus > 0)
       parts.push(`스트릭 보너스 +${session().streakBonus}`);
@@ -659,7 +663,7 @@
   // View selection does not discard a saved practice or unfinished daily quiz.
   function renderView() {
     const copy = {
-      daily: ["오늘도, 다섯 문제로 한 걸음.", "짧게 배우고, 꾸준히 쌓는 나만의 제품 지식."],
+      daily: ["오늘도, 다섯 문제로 한 걸음.", "정답당 30P · 모두 맞히면 추가 30P · 매일 다섯 문제로 제품 지식을 쌓아요."],
       practice: ["제품별 연습", "집중해서 배우고 싶은 제품을 선택하세요."],
       mistakes: ["오답 노트", "틀린 문제를 다시 풀며 개념을 확실하게 익혀요."],
       overview: ["학습 현황", "꾸준함과 이해도를 함께 살펴보세요."]
