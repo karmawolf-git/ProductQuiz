@@ -1,6 +1,7 @@
 const QUESTION_BANK = [
   {
     "id": 1,
+    "topic": "성분·작용 기전",
     "drug": "리피토",
     "q": "리피토(Lipitor)의 주성분은 무엇인가요?",
     "options": [
@@ -17,6 +18,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 2,
+    "topic": "성분·작용 기전",
     "drug": "리피토",
     "q": "리피토가 속하는 약물 계열은 무엇인가요?",
     "options": [
@@ -33,6 +35,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 3,
+    "topic": "적응증·용량",
     "drug": "리피토",
     "q": "리피토의 대표적인 적응증은 무엇인가요?",
     "options": [
@@ -49,6 +52,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 4,
+    "topic": "성분·작용 기전",
     "drug": "리피토",
     "q": "스타틴이 주로 낮추는 혈중 지질 성분은 무엇인가요?",
     "options": [
@@ -65,6 +69,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 5,
+    "topic": "안전성·상호작용",
     "drug": "리피토",
     "q": "스타틴 복용 중 드물지만 주의해야 할 대표적 이상반응은?",
     "options": [
@@ -81,6 +86,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 6,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토",
     "q": "스타틴 시작 전 및 임상적으로 필요할 때 확인하는 대표적 검사 수치는?",
     "options": [
@@ -97,6 +103,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 20,
+    "topic": "성분·작용 기전",
     "drug": "리피토플러스",
     "q": "리피토플러스는 어떤 성분들의 복합제인가요?",
     "options": [
@@ -113,6 +120,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 21,
+    "topic": "성분·작용 기전",
     "drug": "리피토플러스",
     "q": "리피토플러스에 포함된 에제티미브의 작용 기전은 무엇인가요?",
     "options": [
@@ -129,6 +137,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 22,
+    "topic": "성분·작용 기전",
     "drug": "리피토플러스",
     "q": "리피토플러스처럼 두 기전을 결합한 복합제의 주요 장점은?",
     "options": [
@@ -145,6 +154,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 23,
+    "topic": "적응증·용량",
     "drug": "리피토플러스",
     "q": "리피토플러스가 목표로 하는 주 치료 영역은?",
     "options": [
@@ -161,6 +171,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 40,
+    "topic": "성분·작용 기전",
     "drug": "노바스크",
     "q": "노바스크(Norvasc)의 주성분은 무엇인가요?",
     "options": [
@@ -177,6 +188,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 41,
+    "topic": "성분·작용 기전",
     "drug": "노바스크",
     "q": "노바스크(암로디핀)가 속하는 약물 계열은?",
     "options": [
@@ -193,6 +205,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 42,
+    "topic": "적응증·용량",
     "drug": "노바스크",
     "q": "노바스크의 대표적인 적응증은?",
     "options": [
@@ -209,6 +222,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 43,
+    "topic": "성분·작용 기전",
     "drug": "노바스크",
     "q": "암로디핀의 혈압 강하 기전으로 옳은 것은?",
     "options": [
@@ -225,6 +239,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 44,
+    "topic": "안전성·상호작용",
     "drug": "노바스크",
     "q": "암로디핀 복용 시 비교적 흔히 나타날 수 있는 이상반응은?",
     "options": [
@@ -241,6 +256,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 45,
+    "topic": "성분·작용 기전",
     "drug": "노바스크",
     "q": "암로디핀의 특징 중 하나로 옳은 것은?",
     "options": [
@@ -257,6 +273,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 60,
+    "topic": "성분·작용 기전",
     "drug": "리리카",
     "q": "리리카(Lyrica)의 주성분은 무엇인가요?",
     "options": [
@@ -273,6 +290,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 61,
+    "topic": "적응증·용량",
     "drug": "리리카",
     "q": "리리카의 대표적인 적응증이 아닌 것은?",
     "options": [
@@ -289,6 +307,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 62,
+    "topic": "성분·작용 기전",
     "drug": "리리카",
     "q": "프레가발린의 작용 기전으로 옳은 것은?",
     "options": [
@@ -305,6 +324,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 63,
+    "topic": "안전성·상호작용",
     "drug": "리리카",
     "q": "리리카 복용 시 흔히 나타날 수 있는 이상반응은?",
     "options": [
@@ -321,6 +341,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 64,
+    "topic": "안전성·상호작용",
     "drug": "리리카",
     "q": "리리카 복용 환자 상담 시 특히 주의를 당부해야 할 상황은?",
     "options": [
@@ -337,6 +358,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 65,
+    "topic": "안전성·상호작용",
     "drug": "리리카",
     "q": "리리카를 갑자기 중단하면 안 되는 이유로 가장 적절한 것은?",
     "options": [
@@ -353,6 +375,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 80,
+    "topic": "성분·작용 기전",
     "drug": "쎄레브렉스",
     "q": "쎄레브렉스(Celebrex)의 주성분은 무엇인가요?",
     "options": [
@@ -369,6 +392,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 81,
+    "topic": "성분·작용 기전",
     "drug": "쎄레브렉스",
     "q": "쎄레브렉스가 속하는 약물 계열은?",
     "options": [
@@ -385,6 +409,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 82,
+    "topic": "적응증·용량",
     "drug": "쎄레브렉스",
     "q": "쎄레브렉스의 대표적인 적응증은?",
     "options": [
@@ -401,6 +426,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 83,
+    "topic": "안전성·상호작용",
     "drug": "쎄레브렉스",
     "q": "COX-2 선택적 억제제가 기존 비선택적 NSAID 대비 기대하는 장점은?",
     "options": [
@@ -417,6 +443,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 84,
+    "topic": "안전성·상호작용",
     "drug": "쎄레브렉스",
     "q": "세레콕시브 사용 시 주의해야 할 대표적 위험은?",
     "options": [
@@ -433,6 +460,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 85,
+    "topic": "안전성·상호작용",
     "drug": "쎄레브렉스",
     "q": "세레콕시브 처방 전 확인이 특히 중요한 약물 알레르기는?",
     "options": [
@@ -449,6 +477,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 100,
+    "topic": "성분·작용 기전",
     "drug": "리피토",
     "q": "아토르바스타틴이 간세포의 LDL 수용체를 증가시키는 과정과 가장 관련 있는 변화는?",
     "options": [
@@ -466,6 +495,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 101,
+    "topic": "안전성·상호작용",
     "drug": "리피토",
     "q": "아토르바스타틴 복용 중 강력한 CYP3A4 억제제를 병용할 때 특히 검토할 위험은?",
     "options": [
@@ -483,6 +513,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 102,
+    "topic": "안전성·상호작용",
     "drug": "리피토",
     "q": "리피토 복용 중 설명되지 않는 근육통·근력 저하와 진한 소변이 발생했다. 가장 적절한 상담은?",
     "options": [
@@ -500,6 +531,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 103,
+    "topic": "성분·작용 기전",
     "drug": "리피토",
     "q": "아토르바스타틴과 에제티미브의 기전을 올바르게 비교한 것은?",
     "options": [
@@ -517,6 +549,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 104,
+    "topic": "성분·작용 기전",
     "drug": "리피토플러스",
     "q": "에제티미브가 표적으로 하는 장내 수송 단백질은?",
     "options": [
@@ -534,6 +567,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 105,
+    "topic": "성분·작용 기전",
     "drug": "리피토플러스",
     "q": "스타틴 단독요법에 에제티미브를 더하는 기전적 근거는?",
     "options": [
@@ -551,6 +585,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 106,
+    "topic": "안전성·상호작용",
     "drug": "리피토플러스",
     "q": "리피토에서 리피토플러스로 변경된 환자의 병용약 검토 시 옳은 것은?",
     "options": [
@@ -568,6 +603,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 107,
+    "topic": "안전성·상호작용",
     "drug": "리피토플러스",
     "q": "리피토플러스와 별도 아토르바스타틴 처방이 함께 보일 때 먼저 확인할 사항은?",
     "options": [
@@ -585,6 +621,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 108,
+    "topic": "성분·작용 기전",
     "drug": "리피토플러스",
     "q": "에제티미브의 작용에 대한 설명으로 옳은 것은?",
     "options": [
@@ -602,6 +639,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 109,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토플러스",
     "q": "복합제로 변경한 뒤 효과를 평가하는 지표로 가장 직접적인 것은?",
     "options": [
@@ -619,6 +657,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 110,
+    "topic": "성분·작용 기전",
     "drug": "노바스크",
     "q": "암로디핀과 베라파밀의 특성을 비교할 때 암로디핀에 더 부합하는 것은?",
     "options": [
@@ -636,6 +675,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 111,
+    "topic": "안전성·상호작용",
     "drug": "노바스크",
     "q": "암로디핀 복용 후 생긴 발목 부종의 기전으로 가장 적절한 것은?",
     "options": [
@@ -653,6 +693,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 112,
+    "topic": "성분·작용 기전",
     "drug": "노바스크",
     "q": "반감기가 긴 암로디핀의 약동학적 특징으로 옳은 것은?",
     "options": [
@@ -670,6 +711,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 113,
+    "topic": "안전성·상호작용",
     "drug": "노바스크",
     "q": "암로디핀 복용자의 새 병용약에 강력한 CYP3A 억제제가 있다면 적절한 검토는?",
     "options": [
@@ -687,6 +729,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 114,
+    "topic": "적응증·용량",
     "drug": "리리카",
     "q": "프레가발린 투여량 검토 시 신기능이 중요한 이유는?",
     "options": [
@@ -704,6 +747,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 115,
+    "topic": "안전성·상호작용",
     "drug": "리리카",
     "q": "프레가발린과 오피오이드 병용 시 특히 주의할 위험은?",
     "options": [
@@ -721,6 +765,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 116,
+    "topic": "성분·작용 기전",
     "drug": "리리카",
     "q": "프레가발린의 이름과 구조로 인해 생길 수 있는 오해를 바로잡는 설명은?",
     "options": [
@@ -738,6 +783,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 117,
+    "topic": "안전성·상호작용",
     "drug": "리리카",
     "q": "프레가발린 치료 중 얼굴·입술·혀 부종과 호흡곤란이 발생했다. 우선 대응은?",
     "options": [
@@ -755,6 +801,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 118,
+    "topic": "안전성·상호작용",
     "drug": "쎄레브렉스",
     "q": "세레콕시브의 COX-2 선택성과 위장관 안전성에 대한 설명으로 옳은 것은?",
     "options": [
@@ -772,6 +819,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 119,
+    "topic": "안전성·상호작용",
     "drug": "쎄레브렉스",
     "q": "세레콕시브와 항응고제를 병용하는 환자에서 특히 확인할 사항은?",
     "options": [
@@ -789,6 +837,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 120,
+    "topic": "안전성·상호작용",
     "drug": "쎄레브렉스",
     "q": "탈수 상태이거나 신기능이 저하된 환자에서 NSAID 사용 시 주의하는 이유는?",
     "options": [
@@ -806,6 +855,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 121,
+    "topic": "적응증·용량",
     "drug": "쎄레브렉스",
     "q": "세레콕시브의 사용 원칙으로 가장 적절한 것은?",
     "options": [
@@ -823,6 +873,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 200,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토",
     "q": "관상동맥질환 이차 예방의 LDL-C 목표는?",
     "options": [
@@ -843,6 +894,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 201,
+    "topic": "지질 약물치료",
     "drug": "리피토",
     "q": "급성관상동맥증후군 발생 시 스타틴 치료 원칙은?",
     "options": [
@@ -863,6 +915,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 202,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토",
     "q": "중등도위험군의 LDL-C가 110 mg/dL이고 위험강화인자가 있다면?",
     "options": [
@@ -883,6 +936,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 203,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토",
     "q": "비공복 중성지방이 450 mg/dL이다. 적절한 검사 전략은?",
     "options": [
@@ -903,6 +957,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 204,
+    "topic": "지질 약물치료",
     "drug": "리피토플러스",
     "q": "최대 가용 용량의 스타틴으로 LDL-C 목표 미달 시 고려할 병용 성분은?",
     "options": [
@@ -923,6 +978,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 205,
+    "topic": "지질 약물치료",
     "drug": "리피토플러스",
     "q": "급성관상동맥증후군에서 조기 목표 달성을 위한 2026년 지침의 전략은?",
     "options": [
@@ -943,6 +999,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 206,
+    "topic": "지질 약물치료",
     "drug": "리피토플러스",
     "q": "죽상경화성 심혈관질환에서 스타틴·에제티미브 병용에도 LDL-C 목표 미달이면?",
     "options": [
@@ -963,6 +1020,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 207,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토플러스",
     "q": "관상동맥질환 환자가 LDL-C 140에서 60 mg/dL로 감소했다. 목표 달성 평가는?",
     "options": [
@@ -983,6 +1041,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 208,
+    "topic": "혈압 측정·생활요법",
     "drug": "노바스크",
     "q": "당뇨병이 동반된 고혈압 환자의 2026년 권고 목표혈압은?",
     "options": [
@@ -1003,6 +1062,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 209,
+    "topic": "혈압 측정·생활요법",
     "drug": "노바스크",
     "q": "고혈압 생활요법의 하루 소금 섭취 권고는?",
     "options": [
@@ -1023,6 +1083,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 210,
+    "topic": "혈압 측정·생활요법",
     "drug": "노바스크",
     "q": "가정혈압 측정에서 고혈압에 해당하는 기준은?",
     "options": [
@@ -1043,6 +1104,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 211,
+    "topic": "고혈압 약물치료",
     "drug": "노바스크",
     "q": "칼슘통로차단제 기반 2제 병용을 검토할 때 적절한 조합은?",
     "options": [
@@ -1063,6 +1125,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 212,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "2형당뇨병의 신경병증 선별검사 시점은?",
     "options": [
@@ -1083,6 +1146,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 213,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "통증성 당뇨병신경병증의 1차 증상치료 약물군에 해당하는 것은?",
     "options": [
@@ -1103,6 +1167,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 214,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "신경병증 통증이 약물로 완화된 뒤에도 유지해야 할 관리는?",
     "options": [
@@ -1123,6 +1188,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 215,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "신경병증 1차 약물의 효과가 부족하거나 부작용이 있다면?",
     "options": [
@@ -1143,6 +1209,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 216,
+    "topic": "NSAID 위험·궤양 예방",
     "drug": "쎄레브렉스",
     "q": "NSAID가 필요하고 위장관 고위험·심혈관 저위험이면 고려할 전략은?",
     "options": [
@@ -1163,6 +1230,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 217,
+    "topic": "NSAID 위험·궤양 예방",
     "drug": "쎄레브렉스",
     "q": "위장관과 심혈관 위험이 모두 높은 환자의 NSAID 사용 원칙은?",
     "options": [
@@ -1183,6 +1251,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 218,
+    "topic": "NSAID 위험·궤양 예방",
     "drug": "쎄레브렉스",
     "q": "NSAID 관련 궤양 고위험 인자의 조합은?",
     "options": [
@@ -1203,6 +1272,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 219,
+    "topic": "NSAID 위험·궤양 예방",
     "drug": "쎄레브렉스",
     "q": "장기 NSAID 복용 고위험군의 궤양 예방을 위해 권고하는 약물군은?",
     "options": [
@@ -1223,6 +1293,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 300,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "이 지침이 다루는 난치성 대상포진 후 신경통의 범위는?",
     "options": [
@@ -1243,6 +1314,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 301,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "프레가발린 등 1차 치료에도 통증이 지속될 때 적절한 접근은?",
     "options": [
@@ -1263,6 +1335,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 302,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "트라마돌 추가 권고의 해석은?",
     "options": [
@@ -1283,6 +1356,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 303,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "강한 오피오이드 사용 원칙은?",
     "options": [
@@ -1303,6 +1377,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 304,
+    "topic": "통증 시술·신경조절",
     "drug": "리리카",
     "q": "경막외 차단술을 검토할 때 필요한 조건은?",
     "options": [
@@ -1323,6 +1398,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 305,
+    "topic": "통증 시술·신경조절",
     "drug": "리리카",
     "q": "척추주위 차단술에서 강조하는 안전 요소는?",
     "options": [
@@ -1343,6 +1419,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 306,
+    "topic": "통증 시술·신경조절",
     "drug": "리리카",
     "q": "PHN의 보툴리눔독소 A 피하주사에 대한 올바른 설명은?",
     "options": [
@@ -1363,6 +1440,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 307,
+    "topic": "통증 시술·신경조절",
     "drug": "리리카",
     "q": "척수자극술을 검토할 상황은?",
     "options": [
@@ -1383,6 +1461,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 308,
+    "topic": "축성척추관절염 관리",
     "drug": "쎄레브렉스",
     "q": "활동성 축성척추관절염의 일차 약물치료는?",
     "options": [
@@ -1403,6 +1482,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 309,
+    "topic": "축성척추관절염 관리",
     "drug": "쎄레브렉스",
     "q": "치료목표 기반 접근(T2T)의 목적은?",
     "options": [
@@ -1423,6 +1503,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 310,
+    "topic": "축성척추관절염 관리",
     "drug": "쎄레브렉스",
     "q": "질병 활성도 평가와 구조적 진행 예측에서 우선 제안하는 지표는?",
     "options": [
@@ -1443,6 +1524,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 311,
+    "topic": "축성척추관절염 관리",
     "drug": "쎄레브렉스",
     "q": "비약물 관리에서 권고하는 것은?",
     "options": [
@@ -1463,6 +1545,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 312,
+    "topic": "축성척추관절염 관리",
     "drug": "쎄레브렉스",
     "q": "구조적 척추 진행과 강직 위험 감소를 위한 권고는?",
     "options": [
@@ -1483,6 +1566,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 313,
+    "topic": "축성척추관절염 관리",
     "drug": "쎄레브렉스",
     "q": "NSAID 등 최적 치료에도 통증이 남으면 추가 진통제는?",
     "options": [
@@ -1503,6 +1587,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 314,
+    "topic": "축성척추관절염 관리",
     "drug": "쎄레브렉스",
     "q": "전신 글루코코르티코이드에 대한 권고는?",
     "options": [
@@ -1523,6 +1608,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 315,
+    "topic": "안전성·상호작용",
     "drug": "쎄레브렉스",
     "q": "bDMARD 또는 JAK 억제제 사용 시 필요한 것은?",
     "options": [
@@ -1543,6 +1629,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 400,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토",
     "q": "LDL-C 205 mg/dL인 성인에서 갑상선기능저하증이 확인됐다. 우선 확인할 치료 원칙은?",
     "options": [
@@ -1563,6 +1650,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 401,
+    "topic": "지질 약물치료",
     "drug": "리피토",
     "q": "반복 검사에서 LDL-C 198 mg/dL이고 이차적 원인이 없다. 심혈관 위험인자가 적다면?",
     "options": [
@@ -1583,6 +1671,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 402,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토",
     "q": "스타틴 시작 후 목표 도달과 순응도를 평가할 첫 지질검사 시점은?",
     "options": [
@@ -1603,6 +1692,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 403,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토",
     "q": "스타틴 초기 반응 평가를 마친 뒤 지질검사 간격의 원칙은?",
     "options": [
@@ -1623,6 +1713,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 404,
+    "topic": "안전성·상호작용",
     "drug": "리피토",
     "q": "스타틴 투약 중 근육병증 증상과 CK 정상상한치의 12배 상승이 확인됐다. 지침의 조치는?",
     "options": [
@@ -1643,6 +1734,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 405,
+    "topic": "안전성·상호작용",
     "drug": "리피토",
     "q": "스타틴 복용 후 CK가 정상상한치의 6배로 상승했다. 적절한 전략은?",
     "options": [
@@ -1663,6 +1755,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 406,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토",
     "q": "ASCVD가 없는 2형 당뇨병 환자의 유병기간이 12년이다. 기본 권고 LDL-C 목표는?",
     "options": [
@@ -1683,6 +1776,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 407,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토",
     "q": "총콜레스테롤 210, HDL-C 45 mg/dL일 때 non-HDL-C는?",
     "options": [
@@ -1703,6 +1797,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 408,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토",
     "q": "ASCVD와 주요 위험인자가 없는 가족성고콜레스테롤혈증 성인의 LDL-C 목표는?",
     "options": [
@@ -1723,6 +1818,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 409,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토",
     "q": "중등도·저위험군에서 스타틴 사용 결정이 불확실하다. 추가 위험 평가에 활용할 수 있는 검사는?",
     "options": [
@@ -1743,6 +1839,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 410,
+    "topic": "지질 약물치료",
     "drug": "리피토플러스",
     "q": "스타틴 처방 중 LDL-C 목표 미달인데 복약 누락이 잦다. 병용 강화 전 우선 할 일은?",
     "options": [
@@ -1763,6 +1860,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 411,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토플러스",
     "q": "관상동맥질환 환자가 병용치료 후 LDL-C 120→50 mg/dL가 됐다. 두 목표의 평가는?",
     "options": [
@@ -1783,6 +1881,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 412,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토플러스",
     "q": "관상동맥질환 환자가 LDL-C 90→50 mg/dL가 됐다. 목표 달성 평가는?",
     "options": [
@@ -1803,6 +1902,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 413,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토플러스",
     "q": "중성지방 300 mg/dL이고 LDL-C 목표가 70 mg/dL 미만인 환자의 non-HDL-C 목표는?",
     "options": [
@@ -1823,6 +1923,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 414,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토플러스",
     "q": "ASCVD는 없지만 표적장기손상이 있는 당뇨병 환자에서 추가 심혈관 사건 예방을 위해 선택적으로 고려하는 LDL-C 목표는?",
     "options": [
@@ -1843,6 +1944,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 415,
+    "topic": "지질 검사·치료 목표",
     "drug": "리피토플러스",
     "q": "ASCVD를 동반한 가족성고콜레스테롤혈증 성인에서 병용치료를 조정할 때 고려하는 LDL-C 목표는?",
     "options": [
@@ -1863,6 +1965,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 416,
+    "topic": "지질 약물치료",
     "drug": "리피토플러스",
     "q": "55세, eGFR 45 mL/min/1.73m²이며 투석 전인 만성콩팥병 환자의 지질치료 선택으로 지침에 부합하는 것은?",
     "options": [
@@ -1883,6 +1986,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 417,
+    "topic": "지질 약물치료",
     "drug": "리피토플러스",
     "q": "투석을 시작했지만 이전에 스타틴·에제티미브를 복용하지 않았다. 일반적인 지침 원칙은?",
     "options": [
@@ -1903,6 +2007,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 418,
+    "topic": "지질 약물치료",
     "drug": "리피토플러스",
     "q": "죽상경화성 질환과 위험요인을 동반한 허혈뇌졸중 환자에서 최대 가용 스타틴·에제티미브에도 LDL-C 82 mg/dL이다. 검토할 전략은?",
     "options": [
@@ -1923,6 +2028,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 419,
+    "topic": "지질 약물치료",
     "drug": "리피토플러스",
     "q": "스타틴 불내성이 확인된 환자에게 스타틴 함유 복합제를 검토할 때 올바른 판단은?",
     "options": [
@@ -1943,6 +2049,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 420,
+    "topic": "혈압 측정·생활요법",
     "drug": "노바스크",
     "q": "진료실혈압 측정 오류를 줄이는 방법은?",
     "options": [
@@ -1963,6 +2070,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 421,
+    "topic": "혈압 측정·생활요법",
     "drug": "노바스크",
     "q": "첫 방문에서 양팔 수축기혈압 차이가 반복해서 15 mmHg다. 이후 기준 팔은?",
     "options": [
@@ -1983,6 +2091,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 422,
+    "topic": "혈압 측정·생활요법",
     "drug": "노바스크",
     "q": "혈압약을 복용하지 않는 환자의 진료실혈압 150/94, 가정혈압 평균 126/78 mmHg다. 의심할 표현형은?",
     "options": [
@@ -2003,6 +2112,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 423,
+    "topic": "혈압 측정·생활요법",
     "drug": "노바스크",
     "q": "미치료 환자의 진료실혈압 128/78, 가정혈압 평균 142/90 mmHg다. 의심할 표현형은?",
     "options": [
@@ -2023,6 +2133,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 424,
+    "topic": "고혈압 약물치료",
     "drug": "노바스크",
     "q": "CCB 단독에 일부 반응하지만 목표혈압에 도달하지 못했다. 일반적인 다음 전략은?",
     "options": [
@@ -2043,6 +2154,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 425,
+    "topic": "고혈압 약물치료",
     "drug": "노바스크",
     "q": "RAS 억제제와 CCB의 2제 요법으로도 조절이 불충분할 때 대표적인 3제 조합은?",
     "options": [
@@ -2063,6 +2175,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 426,
+    "topic": "고혈압 약물치료",
     "drug": "노바스크",
     "q": "단백뇨가 있는 환자에서 ACE 억제제와 ARB를 동시에 추가하려 한다. 적절한 판단은?",
     "options": [
@@ -2083,6 +2196,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 427,
+    "topic": "고혈압 약물치료",
     "drug": "노바스크",
     "q": "CCB를 복용 중인 당뇨병·고혈압 환자에게 알부민뇨가 있다. 신장 보호를 고려한 약제 선택은?",
     "options": [
@@ -2103,6 +2217,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 428,
+    "topic": "고혈압 약물치료",
     "drug": "노바스크",
     "q": "여러 혈압약의 잦은 복용 횟수로 누락이 반복된다. 지속성을 높이는 전략은?",
     "options": [
@@ -2123,6 +2238,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 429,
+    "topic": "혈압 측정·생활요법",
     "drug": "노바스크",
     "q": "RAS 억제제·CCB·이뇨제에도 진료실혈압이 높다. 난치성고혈압 확정 전 우선 확인할 것은?",
     "options": [
@@ -2143,6 +2259,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 500,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "NeuPSIG 2025에서 프레가발린이 속한 α2δ 리간드의 권고 위치는?",
     "options": [
@@ -2163,6 +2280,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 501,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "α2δ 리간드 외에 NeuPSIG가 1차 치료로 강하게 권고하는 약물군은?",
     "options": [
@@ -2183,6 +2301,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 502,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "NeuPSIG 2025에서 캡사이신 8% 패치·크림과 리도카인 5% 패치의 위치는?",
     "options": [
@@ -2203,6 +2322,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 503,
+    "topic": "통증 시술·신경조절",
     "drug": "리리카",
     "q": "반복경두개자기자극(rTMS)의 NeuPSIG 2025 권고 위치는?",
     "options": [
@@ -2223,6 +2343,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 504,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "최신 NeuPSIG 해설에서 트라마돌을 포함한 오피오이드의 사용 원칙은?",
     "options": [
@@ -2243,6 +2364,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 505,
+    "topic": "안전성·상호작용",
     "drug": "리리카",
     "q": "프레가발린의 1차 치료 권고를 설명할 때 함께 다룰 안전성은?",
     "options": [
@@ -2263,6 +2385,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 506,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "치료군별 NNT 숫자만으로 프레가발린보다 다른 치료가 항상 우월하다고 판단할 수 있을까?",
     "options": [
@@ -2283,6 +2406,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 507,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "프레가발린 단독에 부분 반응한 환자의 병용치료에 대한 NeuPSIG 해석은?",
     "options": [
@@ -2303,6 +2427,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 600,
+    "topic": "적응증·용량",
     "drug": "리리카",
     "q": "대한신경과학회지 2026 종설이 비교한 프레가발린의 NeuPSIG 일일 용량 범위 변화는?",
     "options": [
@@ -2323,6 +2448,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 601,
+    "topic": "안전성·상호작용",
     "drug": "리리카",
     "q": "고령 환자의 프레가발린 치료를 평가할 때 이 종설이 강조한 방향은?",
     "options": [
@@ -2343,6 +2469,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 602,
+    "topic": "통증 시술·신경조절",
     "drug": "리리카",
     "q": "종설에서 NeuPSIG의 약한 3차 권고로 설명한 rTMS 방식은?",
     "options": [
@@ -2363,6 +2490,7 @@ const QUESTION_BANK = [
   },
   {
     "id": 603,
+    "topic": "신경병 통증 관리",
     "drug": "리리카",
     "q": "2025년 분석의 NNT 추정치가 커진 사실을 이 종설은 어떻게 해석하는가?",
     "options": [

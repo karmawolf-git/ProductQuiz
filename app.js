@@ -158,6 +158,7 @@
       streak: 0,
       bestStreak: 0,
       lastCompletedDate: null,
+      questionStats: {},
       totalAnswered: 0,
       totalCorrect: 0,
       daysCompleted: 0,
@@ -566,6 +567,10 @@
     state.mistakes ||= {};
     const stat = state.productStats[q.drug] ||= {answered: 0, correct: 0};
     const correct = choice === q.answer;
+    state.questionStats ||= {};
+    const question = state.questionStats[q.id] ||= {answered: 0, correct: 0};
+    question.answered++;
+    if (correct) question.correct++;
     stat.answered++;
     if (correct) stat.correct++;
     if (!correct || state.mistakes[q.id]) {
@@ -588,7 +593,63 @@
     dom.questionText.focus({preventScroll: true});
   }
 
+
+  const learningTopics = [...new Set(bank.map(q => q.topic))];
+  const learningProducts = [...new Set(bank.map(q => q.drug))];
+
+  function accuracy(stat) {
+    return Math.round(stat.correct / stat.answered * 100);
+  }
+
+  function renderQuestionStats() {
+    const product = el("question-stat-product").value;
+    const topic = el("question-stat-topic").value;
+    const rows = bank.filter(q => (!product || q.drug === product) && (!topic || q.topic === topic))
+      .map(q => ({q, stat: state.questionStats?.[q.id]}));
+    rows.sort((a, b) => (a.stat ? accuracy(a.stat) : 101) - (b.stat ? accuracy(b.stat) : 101));
+    el("question-stat-summary").textContent = "풀이한 문항 " + rows.filter(row => row.stat).length + " / " + rows.length;
+    el("question-stat-list").innerHTML = rows.map(({q, stat}) =>
+      '<li><div><small>' + escapeHtml(q.drug + " · " + q.topic) + '</small><div>' + escapeHtml(q.q) +
+      '</div></div><div class="question-stat-value">' + (stat ?
+        '<strong>' + accuracy(stat) + '%</strong><small>' + stat.correct + ' / ' + stat.answered + '회 정답</small>' : '미응시') + '</div></li>'
+    ).join("") || '<li>선택한 조건에 해당하는 문항이 없습니다.</li>';
+  }
+
+  function renderWeakTopics() {
+    const rows = learningTopics.map(topic => {
+      const questions = bank.filter(q => q.topic === topic);
+      const stats = questions.map(q => state.questionStats?.[q.id]).filter(Boolean);
+      const answered = stats.reduce((sum, stat) => sum + stat.answered, 0);
+      const correct = stats.reduce((sum, stat) => sum + stat.correct, 0);
+      return {topic, size: questions.length, answered, correct, rate: answered ? accuracy({answered, correct}) : 100};
+    }).filter(row => row.rate < 80).sort((a, b) => a.rate - b.rate || b.answered - a.answered);
+
+    el("weak-topic-list").innerHTML = rows.map(row =>
+      '<li><div><strong>' + escapeHtml(row.topic) + '</strong><small>정답률 ' + row.rate + '% · ' +
+      row.correct + ' / ' + row.answered + '회 정답</small></div><button type="button" class="btn-ghost" data-weak-topic="' +
+      escapeHtml(row.topic) + '">' + row.size + '문제 연습</button></li>'
+    ).join("") || '<li>' + (Object.keys(state.questionStats || {}).length ?
+      '현재 기준에 해당하는 취약 주제가 없습니다.' : '문제를 풀면 정답률과 취약 주제가 표시됩니다.') + '</li>';
+  }
+
+  for (const [id, values] of [["question-stat-product", learningProducts], ["question-stat-topic", learningTopics]]) {
+    for (const value of values) el(id).add(new Option(value, value));
+    el(id).addEventListener("change", renderQuestionStats);
+  }
+  el("weak-topic-list").addEventListener("click", event => {
+    const button = event.target.closest("[data-weak-topic]");
+    if (!button) return;
+    const topic = button.dataset.weakTopic;
+    const ids = bank.filter(q => q.topic === topic).map(q => q.id);
+    const priority = id => state.mistakes?.[id]?.resolved === false ? 0 : state.questionStats?.[id] ? 1 : 2;
+    startPractice(seededShuffle(ids, Date.now()).sort((a, b) => priority(a) - priority(b)), topic + " 주제 연습", true);
+  });
+
   function renderLearning() {
+    if (activeView === "overview") {
+      renderWeakTopics();
+      renderQuestionStats();
+    }
     el("daily-return").hidden = !isPractice();
     el("practice-back").hidden = !isPractice();
     el("quiz-mode-label").textContent = isPractice() ? "제품 연습" : "오늘의 학습";
