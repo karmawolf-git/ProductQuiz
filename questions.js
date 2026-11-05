@@ -71,15 +71,15 @@ const QUESTION_BANK = [
     "id": 5,
     "topic": "안전성·상호작용",
     "drug": "리피토",
-    "q": "스타틴 복용 중 드물지만 주의해야 할 대표적 이상반응은?",
+    "q": "스타틴 복용 중 드물지만 주의해야 할 중증 근육 이상반응은?",
     "options": [
-      "근육통·근육병증",
+      "근육병증·횡문근융해증",
       "탈모",
       "청력 소실",
       "시력 향상"
     ],
     "answer": 0,
-    "explain": "스타틴은 드물게 근육통, 근육병증(횡문근융해증 포함)을 일으킬 수 있어 근육 증상에 주의합니다.",
+    "explain": "근육통은 자주 보고되며 근육병증과 횡문근융해증은 드물게 보고됩니다.",
     "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitor-tablets_12mar2024.pdf",
     "sourceName": "리피토정 10·20·40·80mg 국내 제품설명서",
     "reviewed": "2026-10-20"
@@ -345,13 +345,13 @@ const QUESTION_BANK = [
     "drug": "리리카",
     "q": "리리카 복용 환자 상담 시 특히 주의를 당부해야 할 상황은?",
     "options": [
-      "운전·기계 조작 시 졸음·어지러움",
+      "약의 영향을 알기 전까지 운전·위험한 기계 조작을 피한다",
       "햇빛 노출",
       "고단백 식이",
       "카페인 섭취"
     ],
     "answer": 0,
-    "explain": "졸음·어지러움이 있을 수 있어 운전이나 기계 조작 시 주의가 필요합니다.",
+    "explain": "개인에게 미치는 영향을 알기 전까지 운전과 위험한 기계 조작을 피합니다.",
     "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
     "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
     "reviewed": "2026-10-20"
@@ -362,13 +362,13 @@ const QUESTION_BANK = [
     "drug": "리리카",
     "q": "리리카를 갑자기 중단하면 안 되는 이유로 가장 적절한 것은?",
     "options": [
-      "금단·재발 증상 우려로 점진적 감량 권장",
+      "일반적으로 최소 1주에 걸쳐 점진적으로 감량한다",
       "즉시 혈압이 오름",
       "간 손상 유발",
       "효과가 영구히 사라짐"
     ],
     "answer": 0,
-    "explain": "갑작스러운 중단은 금단 증상을 유발할 수 있어 점진적으로 감량하는 것이 권장됩니다.",
+    "explain": "일반적인 중단 시 최소 1주에 걸쳐 감량합니다. 혈관부종 등 즉시 중단이 필요한 상황은 별도로 대응합니다.",
     "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
     "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
     "reviewed": "2026-10-20"
@@ -788,12 +788,12 @@ const QUESTION_BANK = [
     "q": "프레가발린 치료 중 얼굴·입술·혀 부종과 호흡곤란이 발생했다. 우선 대응은?",
     "options": [
       "다음 정기 방문까지 관찰",
-      "혈관부종 가능성을 고려하여 즉시 응급 평가를 받는다",
+      "프레가발린을 즉시 중단하고 응급 평가를 받는다",
       "효과가 좋다는 신호로 안내",
       "운전하여 장거리 이동하도록 권한다"
     ],
     "answer": 1,
-    "explain": "얼굴이나 혀의 부종과 호흡곤란은 응급 평가가 필요한 혈관부종의 신호일 수 있습니다.",
+    "explain": "혈관부종이 의심되면 프레가발린을 즉시 중단하고 호흡곤란에 대한 응급 평가를 받습니다.",
     "level": "응용",
     "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
     "reviewed": "2026-10-20",
@@ -1001,7 +1001,7 @@ const QUESTION_BANK = [
     "id": 206,
     "topic": "지질 약물치료",
     "drug": "리피토플러스",
-    "q": "죽상경화성 심혈관질환에서 스타틴·에제티미브 병용에도 LDL-C 목표 미달이면?",
+    "q": "죽상경화성 심혈관질환에서 최대 가용 용량 스타틴과 에제티미브 병용에도 LDL-C 목표에 도달하지 못하면?",
     "options": [
       "동일 성분 중복",
       "생활요법 중단",
@@ -1009,7 +1009,7 @@ const QUESTION_BANK = [
       "목표 미달 무시"
     ],
     "answer": 2,
-    "explain": "추가 병용을 고려하는 단계적 전략입니다.",
+    "explain": "최대 가용 용량의 스타틴과 에제티미브 병용에도 목표에 도달하지 못하면 PCSK9 억제제 추가를 고려합니다.",
     "level": "가이드라인",
     "kind": "guideline",
     "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/lipitorplus_20260303.pdf",
@@ -2303,7 +2303,7 @@ const QUESTION_BANK = [
     "id": 502,
     "topic": "신경병 통증 관리",
     "drug": "리리카",
-    "q": "NeuPSIG 2025에서 캡사이신 8% 패치·크림과 리도카인 5% 패치의 위치는?",
+    "q": "NeuPSIG 2025에서 말초 신경병증성 통증에 대한 캡사이신 8% 패치, 캡사이신 크림, 리도카인 5% 패치의 권고 위치는?",
     "options": [
       "모두 1차 강한 권고",
       "모두 사용 반대",
@@ -2311,7 +2311,7 @@ const QUESTION_BANK = [
       "모두 3차 강한 권고"
     ],
     "answer": 2,
-    "explain": "국소제는 2차 치료군입니다. 국내 적응증과 사용 가능 여부는 별도로 확인합니다.",
+    "explain": "말초 신경병증성 통증의 2차 치료로 약하게 권고합니다. 국내 적응증과 사용 가능 여부는 별도로 확인합니다.",
     "level": "가이드라인",
     "kind": "guideline",
     "guidelineId": "neupsig2025",
@@ -2324,7 +2324,7 @@ const QUESTION_BANK = [
     "id": 503,
     "topic": "통증 시술·신경조절",
     "drug": "리리카",
-    "q": "반복경두개자기자극(rTMS)의 NeuPSIG 2025 권고 위치는?",
+    "q": "NeuPSIG 2025에서 고주파 일차운동피질 rTMS의 권고 위치는?",
     "options": [
       "1차 강한 권고",
       "2차 강한 권고",
@@ -2332,7 +2332,7 @@ const QUESTION_BANK = [
       "3차 치료의 약한 권고"
     ],
     "answer": 3,
-    "explain": "효과뿐 아니라 근거 확실성과 접근성도 치료 위치 결정에 반영됩니다.",
+    "explain": "일부 환자에서 고려하는 약한 3차 권고입니다. 다른 자극 부위나 저주파 방식으로 일반화하지 않습니다.",
     "level": "가이드라인",
     "kind": "guideline",
     "guidelineId": "neupsig2025",
