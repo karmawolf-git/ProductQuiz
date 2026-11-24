@@ -36,6 +36,10 @@ jobs:
           # 정적 사이트 루트(리포지토리 전체)
           path: "."
 
+      # Allow the Pages API time to index the uploaded artifact.
+      - name: Wait for artifact availability
+        run: sleep 20
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
