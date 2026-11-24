@@ -21,6 +21,10 @@
 
   const bank = window.QUESTION_BANK || [];
 
+  const GROUP_PRODUCTS = {"TH CV": ["리피토", "리피토플러스", "노바스크", "바세파"], "TH Pain": ["리리카", "쎄레브렉스"], "GH": null, "SC": ["리피토", "리피토플러스", "노바스크", "바세파"]};
+  function selectedGroup() { return Object.hasOwn(GROUP_PRODUCTS, state.group) ? state.group : "GH"; }
+  function groupBank() { const allowed = GROUP_PRODUCTS[selectedGroup()]; return allowed ? bank.filter(q => allowed.includes(q.drug)) : bank; }
+
   // 리그 등급(누적 포인트 기준) — 낮은 순서부터
   const TIERS = [
     { name: "브론즈", icon: "🥉", min: 0, color: "#c8874f" },
@@ -91,7 +95,7 @@
     const seed = window.crypto && typeof window.crypto.getRandomValues === "function"
       ? window.crypto.getRandomValues(new Uint32Array(1))[0]
       : Math.floor(Math.random() * 4294967296);
-    return seededShuffle(bank, seed).slice(0, DAILY_COUNT).map(q => q.id);
+    return seededShuffle(groupBank(), seed).slice(0, DAILY_COUNT).map(q => q.id);
   }
 
   // 저장된 세트로만 복원하여 새로고침·프로필 전환 시 답안과 순서를 보존한다.
@@ -154,6 +158,7 @@
   // ---------- 상태 저장/로드 ----------
   function defaultState() {
     return {
+      group: "GH",
       points: 0,
       streak: 0,
       bestStreak: 0,
@@ -559,7 +564,7 @@
 
   function practicePool(drug) {
     const onlyGuideline = el("practice-topic").value === "guideline";
-    return bank.filter(q => (!drug || q.drug === drug) && (!onlyGuideline || q.kind === "guideline"));
+    return groupBank().filter(q => (!drug || q.drug === drug) && (!onlyGuideline || q.kind === "guideline"));
   }
 
   function recordAnswer(q, choice) {
@@ -604,7 +609,7 @@
   function renderQuestionStats() {
     const product = el("question-stat-product").value;
     const topic = el("question-stat-topic").value;
-    const rows = bank.filter(q => (!product || q.drug === product) && (!topic || q.topic === topic))
+    const rows = groupBank().filter(q => (!product || q.drug === product) && (!topic || q.topic === topic))
       .map(q => ({q, stat: state.questionStats?.[q.id]}));
     rows.sort((a, b) => (a.stat ? accuracy(a.stat) : 101) - (b.stat ? accuracy(b.stat) : 101));
     el("question-stat-summary").textContent = "풀이한 문항 " + rows.filter(row => row.stat).length + " / " + rows.length;
@@ -617,7 +622,7 @@
 
   function renderWeakTopics() {
     const rows = learningTopics.map(topic => {
-      const questions = bank.filter(q => q.topic === topic);
+      const questions = groupBank().filter(q => q.topic === topic);
       const stats = questions.map(q => state.questionStats?.[q.id]).filter(Boolean);
       const answered = stats.reduce((sum, stat) => sum + stat.answered, 0);
       const correct = stats.reduce((sum, stat) => sum + stat.correct, 0);
@@ -640,12 +645,38 @@
     const button = event.target.closest("[data-weak-topic]");
     if (!button) return;
     const topic = button.dataset.weakTopic;
-    const ids = bank.filter(q => q.topic === topic).map(q => q.id);
+    const ids = groupBank().filter(q => q.topic === topic).map(q => q.id);
     const priority = id => state.mistakes?.[id]?.resolved === false ? 0 : state.questionStats?.[id] ? 1 : 2;
     startPractice(seededShuffle(ids, Date.now()).sort((a, b) => priority(a) - priority(b)), topic + " 주제 연습", true);
   });
 
+  function renderGroup() {
+    const group = selectedGroup();
+    document.querySelectorAll('[data-group]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.group === group)));
+    const allowed = new Set(groupBank().map(q => q.drug));
+    for (const id of ['practice-product', 'question-stat-product']) {
+      const select = el(id);
+      for (const option of select.options) option.hidden = !!option.value && !allowed.has(option.value);
+      if (select.value && !allowed.has(select.value)) select.value = '';
+    }
+    const daily = state.today;
+    const locked = daily && (daily.finished || daily.index > 0 || daily.answers.length > 0);
+    const mismatch = locked && daily.questionIds?.some(id => !groupBank().some(q => q.id === id));
+    const practiceMismatch = state.practice && state.practice.questionIds.some(id => !groupBank().some(q => q.id === id));
+    el('group-note').textContent = mismatch ? '진행·완료한 오늘의 퀴즈는 그대로 유지됩니다. 선택한 그룹은 내일부터 반영됩니다.' : practiceMismatch ? '저장된 연습은 기존 문제로 이어집니다. 새 연습부터 선택한 그룹이 적용됩니다.' : '선택한 그룹의 품목으로 출제합니다. 시작한 퀴즈와 연습은 기존 문제로 유지됩니다.';
+  }
+
+  el('group-options').addEventListener('click', event => {
+    const button = event.target.closest('[data-group]');
+    if (!button || !Object.hasOwn(GROUP_PRODUCTS, button.dataset.group) || selectedGroup() === button.dataset.group) return;
+    state.group = button.dataset.group;
+    if (state.today && state.today.date === todayKey() && !state.today.finished && state.today.index === 0 && state.today.answers.length === 0) state.today.questionIds = randomDailyIds();
+    saveState();
+    render();
+  });
+
   function renderLearning() {
+    renderGroup();
     if (activeView === "overview") {
       renderWeakTopics();
       renderQuestionStats();
@@ -657,7 +688,7 @@
     if (state.practice) {
       el("resume-description").textContent = state.practice.label + " · " + state.practice.answers.length + " / " + state.practice.questionIds.length + (state.practice.finished ? "문제 완료 · 결과 확인" : "문제 풀이");
     }
-    const products = [...new Set(bank.map(q => q.drug))];
+    const products = [...new Set(groupBank().map(q => q.drug))];
     el("product-stats").innerHTML = products.map(drug => {
       const stat = (state.productStats || {})[drug] || {answered: 0, correct: 0};
       const rate = stat.answered ? Math.round(stat.correct / stat.answered * 100) : 0;
@@ -675,7 +706,7 @@
     for (const option of el("practice-product").options) {
       option.textContent = (option.value || "전체 제품") + " · " + practicePool(option.value).length + "문제";
     }
-    const entries = Object.entries(state.mistakes || {}).filter(([id]) => bank.some(q => q.id === Number(id)));
+    const entries = Object.entries(state.mistakes || {}).filter(([id]) => groupBank().some(q => q.id === Number(id)));
     const pending = entries.filter(([,m]) => !m.resolved);
     el("mistake-count").textContent = `미해결 ${pending.length} · 복습 완료 ${entries.length - pending.length}`;
     el("retry-all").disabled = !pending.length;
@@ -712,7 +743,7 @@
     startPractice(seededShuffle(ids, Date.now()), (drug || "전체 제품") + " 연습", true);
   });
   el("retry-all").addEventListener("click", () => startPractice(
-    bank.filter(q => state.mistakes?.[q.id] && !state.mistakes[q.id].resolved).map(q => q.id), "미해결 오답 다시 풀기"));
+    groupBank().filter(q => state.mistakes?.[q.id] && !state.mistakes[q.id].resolved).map(q => q.id), "미해결 오답 다시 풀기"));
   el("daily-return").addEventListener("click", () => {
     state.practice = null;
     practiceActive = false;
