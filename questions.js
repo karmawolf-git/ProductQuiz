@@ -2508,6 +2508,294 @@ const QUESTION_BANK = [
     "source": "https://www.viatris.co.kr/-/media/project/common/viatriscokr/pdf/product-chart/updated-pdfs/lyrica-cap_lld_20250318.pdf",
     "sourceName": "리리카캡슐 25·50·75·150·300mg 국내 제품설명서",
     "reviewed": "2026-10-22"
+  },
+  {
+    "id": 700,
+    "drug": "바세파",
+    "topic": "성분·작용 기전",
+    "q": "바세파연질캡슐의 주성분은?",
+    "options": [
+      "이코사펜트산에틸",
+      "아토르바스타틴",
+      "암로디핀",
+      "프레가발린"
+    ],
+    "answer": 0,
+    "explain": "이코사펜트산에틸은 EPA의 에틸에스테르입니다.",
+    "level": "허가사항",
+    "kind": "label",
+    "source": "https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetail?itemSeq=202501261",
+    "sourceName": "바세파연질캡슐 998mg 식약처 허가사항",
+    "sourceType": "mfds",
+    "reviewed": "2026-11-24"
+  },
+  {
+    "id": 701,
+    "drug": "바세파",
+    "topic": "적응증·용량",
+    "q": "국내 허가사항상 바세파의 심혈관 사건 위험 감소 대상에 해당하는 경우는?",
+    "options": [
+      "스타틴 미복용 건강한 성인",
+      "스타틴 치료 중 TG 180 mg/dL이고 심혈관질환 병력이 있는 성인",
+      "TG 정상이며 위험인자가 없는 성인",
+      "모든 18세 미만 소아"
+    ],
+    "answer": 1,
+    "explain": "허가 대상은 스타틴 치료 중 TG 150 mg/dL 이상인 성인 중 명시된 심혈관 고위험군입니다.",
+    "level": "허가사항",
+    "kind": "label",
+    "source": "https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetail?itemSeq=202501261",
+    "sourceName": "바세파연질캡슐 998mg 식약처 허가사항",
+    "sourceType": "mfds",
+    "reviewed": "2026-11-24"
+  },
+  {
+    "id": 702,
+    "drug": "바세파",
+    "topic": "적응증·용량",
+    "q": "바세파 국내 허가사항상 당뇨병 환자의 추가 위험 조건은?",
+    "options": [
+      "위험인자와 관계없이 모든 당뇨병",
+      "당뇨병만 있으면 스타틴 불필요",
+      "당뇨병과 1개 이상의 심혈관 위험인자",
+      "당뇨병은 허가 대상에서 제외"
+    ],
+    "answer": 2,
+    "explain": "당뇨병과 1개 이상 심혈관 위험인자, 스타틴 치료 및 TG 기준을 함께 확인합니다.",
+    "level": "허가사항",
+    "kind": "label",
+    "source": "https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetail?itemSeq=202501261",
+    "sourceName": "바세파연질캡슐 998mg 식약처 허가사항",
+    "sourceType": "mfds",
+    "reviewed": "2026-11-24"
+  },
+  {
+    "id": 703,
+    "drug": "바세파",
+    "topic": "적응증·용량",
+    "q": "바세파 998 mg의 국내 허가 용법은?",
+    "options": [
+      "1회 1캡슐 하루 1회 공복",
+      "1회 2캡슐 하루 1회 공복",
+      "1회 4캡슐 하루 1회",
+      "1회 2캡슐 하루 2회 식사와 함께 또는 식후"
+    ],
+    "answer": 3,
+    "explain": "성인 권장량은 하루 4캡슐이며 캡슐을 씹거나 부수지 않습니다.",
+    "level": "허가사항",
+    "kind": "label",
+    "source": "https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetail?itemSeq=202501261",
+    "sourceName": "바세파연질캡슐 998mg 식약처 허가사항",
+    "sourceType": "mfds",
+    "reviewed": "2026-11-24"
+  },
+  {
+    "id": 704,
+    "drug": "바세파",
+    "topic": "적응증·용량",
+    "q": "복용을 잊은 경우의 안내는?",
+    "options": [
+      "기억나는 즉시 복용하되 보충을 위해 한 번에 두 배 복용하지 않는다",
+      "다음 복용 때 무조건 두 배",
+      "임의로 일주일 중단",
+      "캡슐을 씹어 복용"
+    ],
+    "answer": 0,
+    "explain": "누락된 복용을 보충하기 위해 한 번에 두 배를 복용하지 않습니다.",
+    "level": "허가사항",
+    "kind": "label",
+    "source": "https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetail?itemSeq=202501261",
+    "sourceName": "바세파연질캡슐 998mg 식약처 허가사항",
+    "sourceType": "mfds",
+    "reviewed": "2026-11-24"
+  },
+  {
+    "id": 705,
+    "drug": "바세파",
+    "topic": "안전성·상호작용",
+    "q": "바세파의 국내 허가상 투여 금기 대상은?",
+    "options": [
+      "심방세동 병력",
+      "땅콩 또는 콩류에 과민반응이 있는 환자",
+      "생선 알레르기 병력",
+      "항응고제 복용"
+    ],
+    "answer": 1,
+    "explain": "땅콩·콩류 과민반응은 금기이며 생선 알레르기와 항응고제 복용은 신중 투여 항목입니다.",
+    "level": "허가사항",
+    "kind": "label",
+    "source": "https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetail?itemSeq=202501261",
+    "sourceName": "바세파연질캡슐 998mg 식약처 허가사항",
+    "sourceType": "mfds",
+    "reviewed": "2026-11-24"
+  },
+  {
+    "id": 706,
+    "drug": "바세파",
+    "topic": "안전성·상호작용",
+    "q": "바세파와 항혈전제 병용 시 중점적으로 확인할 것은?",
+    "options": [
+      "혈중 칼륨 감소만",
+      "모든 병용이 금기인지 여부만",
+      "출혈 위험과 징후",
+      "혈당 측정 중단"
+    ],
+    "answer": 2,
+    "explain": "항혈소판제 또는 항응고제 병용 시 출혈 위험을 정기적으로 살핍니다.",
+    "level": "허가사항",
+    "kind": "label",
+    "source": "https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetail?itemSeq=202501261",
+    "sourceName": "바세파연질캡슐 998mg 식약처 허가사항",
+    "sourceType": "mfds",
+    "reviewed": "2026-11-24"
+  },
+  {
+    "id": 707,
+    "drug": "바세파",
+    "topic": "안전성·상호작용",
+    "q": "바세파 복용 전 병력 확인과 치료 중 감시가 필요한 심장 리듬 이상은?",
+    "options": [
+      "심장 판막 석회화만",
+      "심실 중격 결손만",
+      "서맥 병력만",
+      "심방세동 또는 조동"
+    ],
+    "answer": 3,
+    "explain": "관련 병력이 있는 환자에서 두근거림 등 증상을 감시하고 필요시 심전도를 측정합니다.",
+    "level": "허가사항",
+    "kind": "label",
+    "source": "https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetail?itemSeq=202501261",
+    "sourceName": "바세파연질캡슐 998mg 식약처 허가사항",
+    "sourceType": "mfds",
+    "reviewed": "2026-11-24"
+  },
+  {
+    "id": 708,
+    "drug": "바세파",
+    "topic": "안전성·상호작용",
+    "q": "바세파에서 신중 투여가 필요한 알레르기 병력은?",
+    "options": [
+      "생선 과민성 또는 알레르기",
+      "계절성 꽃가루만",
+      "젖당 불내증만",
+      "모든 음식 선호도"
+    ],
+    "answer": 0,
+    "explain": "국내 허가사항은 생선 과민성 또는 알레르기가 있는 환자에 신중 투여를 명시합니다.",
+    "level": "허가사항",
+    "kind": "label",
+    "source": "https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetail?itemSeq=202501261",
+    "sourceName": "바세파연질캡슐 998mg 식약처 허가사항",
+    "sourceType": "mfds",
+    "reviewed": "2026-11-24"
+  },
+  {
+    "id": 709,
+    "drug": "바세파",
+    "topic": "안전성·상호작용",
+    "q": "간장애 환자의 바세파 치료 시 확인할 검사는?",
+    "options": [
+      "시력 검사만",
+      "치료 전과 치료 중 적절한 간격의 ALT·AST",
+      "혈액형만",
+      "검사 없이 무조건 증량"
+    ],
+    "answer": 1,
+    "explain": "허가사항은 간장애 환자에서 간효소를 임상적으로 적절한 간격으로 확인하도록 합니다.",
+    "level": "허가사항",
+    "kind": "label",
+    "source": "https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetail?itemSeq=202501261",
+    "sourceName": "바세파연질캡슐 998mg 식약처 허가사항",
+    "sourceType": "mfds",
+    "reviewed": "2026-11-24"
+  },
+  {
+    "id": 710,
+    "drug": "바세파",
+    "topic": "지질 약물치료",
+    "q": "2026 국내 지침에서 스타틴 치료 후 TG 135–499 mg/dL가 지속되는 ASCVD 또는 고위험 당뇨병 환자에 고려하는 것은?",
+    "options": [
+      "스타틴 중단 후 IPE 단독",
+      "생활습관 관리 중단",
+      "IPE 4 g/일 병용 고려",
+      "모든 환자에서 심혈관 사건 예방 효과가 입증된 보충제로 대체"
+    ],
+    "answer": 2,
+    "explain": "지침은 해당 위험군에서 IPE 병용을 IIa, B로 고려합니다. 제품별 국내 허가 범위를 별도로 확인합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetail?itemSeq=202501261",
+    "sourceName": "바세파연질캡슐 998mg 식약처 허가사항",
+    "sourceType": "mfds",
+    "reviewed": "2026-11-24",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 · 고중성지방혈증 치료 권고안"
+  },
+  {
+    "id": 711,
+    "drug": "바세파",
+    "topic": "지질 약물치료",
+    "q": "국내 지침의 IPE 고려 TG 범위와 바세파 허가 기준을 비교한 설명은?",
+    "options": [
+      "둘 다 TG 135 미만",
+      "허가 기준은 지침보다 반드시 낮다",
+      "지침 범위만 맞으면 다른 허가 조건은 불필요",
+      "지침은 135–499 mg/dL를 다루며 허가는 150 mg/dL 이상과 추가 조건을 요구한다"
+    ],
+    "answer": 3,
+    "explain": "지침 권고와 제품 허가는 서로 다른 기준이므로 대상군과 수치를 함께 확인합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetail?itemSeq=202501261",
+    "sourceName": "바세파연질캡슐 998mg 식약처 허가사항",
+    "sourceType": "mfds",
+    "reviewed": "2026-11-24",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 · 고중성지방혈증 치료 권고안"
+  },
+  {
+    "id": 712,
+    "drug": "바세파",
+    "topic": "지질 검사·치료 목표",
+    "q": "지침상 TG 200–499 mg/dL가 생활습관 개선 후에도 지속될 때 우선 고려하는 약물치료는?",
+    "options": [
+      "위험도에 따른 LDL-C 관리와 스타틴 치료",
+      "모든 환자 스타틴 중단",
+      "중성지방 수치만 보고 위험도 무시",
+      "식이·운동 전면 중단"
+    ],
+    "answer": 0,
+    "explain": "국내 지침은 LDL-C와 중성지방 관리 및 스타틴 치료를 권고합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetail?itemSeq=202501261",
+    "sourceName": "바세파연질캡슐 998mg 식약처 허가사항",
+    "sourceType": "mfds",
+    "reviewed": "2026-11-24",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 · 고중성지방혈증 치료 권고안"
+  },
+  {
+    "id": 713,
+    "drug": "바세파",
+    "topic": "지질 약물치료",
+    "q": "2026 국내 지침에서 IPE와 EPA·DHA 혼합 오메가3의 심혈관 예방 근거를 비교할 때 옳은 것은?",
+    "options": [
+      "모든 오메가3의 권고 근거는 완전히 같다",
+      "각 제제의 임상 근거와 권고 등급을 구분한다",
+      "식품 보충제는 처방약과 자동으로 동등하다",
+      "제제 구성과 용량은 관계없다"
+    ],
+    "answer": 1,
+    "explain": "지침은 해당 상황에서 IPE와 EPA·DHA 혼합 제제의 권고 등급과 근거수준을 구분합니다.",
+    "level": "가이드라인",
+    "kind": "guideline",
+    "source": "https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetail?itemSeq=202501261",
+    "sourceName": "바세파연질캡슐 998mg 식약처 허가사항",
+    "sourceType": "mfds",
+    "reviewed": "2026-11-24",
+    "guidelineId": "lipid2026",
+    "guidelineSection": "2장 · 고중성지방혈증 치료 권고안"
   }
 ];
 

@@ -551,7 +551,7 @@
   }
 
   function sourceLink(q) {
-    const label = q.source ? '<div class="reference-block"><a href="' + escapeHtml(q.source) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(q.sourceName || "국내 제품설명서") + ' (PDF)</a><br><small>국내 허가사항 · 비아트리스 코리아 제공 · 자료 확인 ' + escapeHtml(q.reviewed) + '</small></div>' : "";
+    const label = q.sourceType === "mfds" ? '<div class="reference-block"><a href="' + escapeHtml(q.source) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(q.sourceName) + '</a><br><small>식품의약품안전처 · 자료 확인 ' + escapeHtml(q.reviewed) + '</small></div>' : q.source ? '<div class="reference-block"><a href="' + escapeHtml(q.source) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(q.sourceName || "국내 제품설명서") + ' (PDF)</a><br><small>국내 허가사항 · 비아트리스 코리아 제공 · 자료 확인 ' + escapeHtml(q.reviewed) + '</small></div>' : "";
     const guide = (window.GUIDELINE_SOURCES || {})[q.guidelineId];
     if (!guide) return label;
     return '<div class="reference-block guideline-reference"><b>' + (guide.type === 'review' ? '지침 해설 근거 · ' : '진료지침 근거 · ') + escapeHtml(guide.edition) + '</b><br><a href="' + escapeHtml(guide.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(guide.title) + '</a><br><small>' + escapeHtml(guide.issuer) + ' · 확인 ' + escapeHtml(guide.checked) + ' · ' + escapeHtml(guide.language || '국문 · 국내 학회') + '<br>근거 위치: ' + escapeHtml(q.guidelineSection) + '</small>' + (guide.summaryUrl ? '<br><a href="' + escapeHtml(guide.summaryUrl) + '" target="_blank" rel="noopener noreferrer">IASP 공식 해설 (2026)</a>' : '') + '<p class="mode-note">지침은 성분·질환 단위 권고이며, 실제 제품 사용은 국내 허가사항을 함께 확인하세요.</p></div>' + label;
@@ -854,7 +854,7 @@
   }
 
   const guidelineSources = window.GUIDELINE_SOURCES || {};
-  const guidelineGroups = [["리피토", "리피토플러스"], ["노바스크"], ["리리카"], ["쎄레브렉스"]];
+  const guidelineGroups = [["리피토", "리피토플러스"], ["노바스크"], ["리리카"], ["쎄레브렉스"], ["바세파"]];
   el("guideline-summary").textContent = Object.values(guidelineSources).filter(g => g.type !== "review").length + "개 지침 · " + Object.values(guidelineSources).filter(g => g.type === "review").length + "개 해설 · " + bank.filter(q => q.kind === "guideline").length + "문제";
   el("guideline-catalog").innerHTML = guidelineGroups.map(products => {
     const questions = bank.filter(q => q.kind === "guideline" && products.includes(q.drug));
